@@ -1,0 +1,26 @@
+-Crear base de datos sql, 
+    Conectar la carpeta modelo a la clase conexions
+    Usuario:-Nombre usuario -nombre -email -Contraseña extra -id_rol,-Fecha nacimiento etc.
+        -usuario 1
+        -usuario2 
+        -admin
+        -worker
+      
+    -Tasques base de datos
+        -Nombre,descripcio,inici,fi,estado,id_usuario
+    "Aqui pondremos todos los datos de usuarios en un documento sql y todas las funciones en los documentos php usando CRUD"
+
+-Crear el documento de conexiones en la carpeta controler(rutas?)
+    
+
+-Crear el documento html en la carpeta views
+
+-PhP metodos clases,
+-Introweb
+    -Crear un formulario: 
+    -crear validacion de datos para el formulario
+    -iniciar
+-hacer el crud de las tareas 
+
+
+-Html/Css
