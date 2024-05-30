@@ -1,6 +1,6 @@
 -Crear base de datos sql, 
     Conectar la carpeta modelo a la clase conexions
-    Usuario:-Nombre usuario -nombre -email -Contraseña extra -id_rol,-Fecha nacimiento etc.
+    Usuario:-Nombre usuario -nombre -email -Contraseña(investigar como se guardan las contraseñas) extra -id_rol,-Fecha nacimiento etc.
         -usuario 1
         -usuario2 
         -admin
