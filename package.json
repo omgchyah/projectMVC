@@ -1,0 +1,15 @@
+{
+  "name": "projectmvc",
+  "version": "1.0.0",
+  "description": "Main structure of php project. Folders / files:\r - **app**\r   - **controllers**\r   - **models**\r   - **views**\r - **config**\r - **lib**\r   - **base**\r - **web**",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
