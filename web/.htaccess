@@ -2,8 +2,17 @@
   RewriteEngine On
   
   # Parse requests that doesn't map to real files
+  # If the requested file exists and has a non-zero size, or if it's a symbolic link, skip the next rule
   RewriteCond %{REQUEST_FILENAME} -s [OR]
   RewriteCond %{REQUEST_FILENAME} -l
+
+  #RewriteRule ^ - [L]: If the conditions are met (i.e., the request is for a real file or directory), the rule stops further processing ([L] means "last rule").
   RewriteRule ^.*$ - [NC,L]
-  RewriteRule ^.*$ index.php [NC,L]
+
+  # Otherwise, rewrite everything to index.php
+  # Regular expression matches any URL. (^) from the beginning and matches any character (.) zero or more times (*) until the end ($). #NoCase - Case insensitive, Last - Stops further processing of rewrite rules if this rule matches
+  RewriteRule ^.*$ index.php [NC,L] 
 </IfModule>
+
+# Ensure that index.php is the default directory index file (added by Ross)
+DirectoryIndex index.php
