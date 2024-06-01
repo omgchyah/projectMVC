@@ -1,12 +1,12 @@
 <?php
-class HomeController
+class HomeController extends ApplicationController
 {
     public function index()
     {
-        echo "Home page";
+        $this->render("home/index.php");
     }
 
-    public function execute($action)
+    public function execute($action = "index")
     {
         $this->$action();
     }

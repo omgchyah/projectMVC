@@ -181,6 +181,10 @@ class Router
 		// initializes the controller
 		$controller = ucfirst($name) . 'Controller';
 		// constructs the controller
-		return new $controller();
+		if (class_exists($controller)) {
+			return new $controller();
+		} else {
+			throw new Exception('Controller class '. $controller .' not found');
+		}
 	}
 }

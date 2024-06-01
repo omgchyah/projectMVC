@@ -14,6 +14,5 @@
 $routes = [
     '/' => 'home#index',
     'home/index' => 'home#index',
-    'user/profile' => 'user#profile',
     // Add other routes here
 ];
