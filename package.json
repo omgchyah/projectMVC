@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "npx tailwindcss -i ./src/css/styles.css -o ./dist/css/styles.css --minify"
+    "build:css": "npx tailwindcss -i ./web/stylesheets/styles.css -o ./web/stylesheets/styles.css --minify",
+    "dev": "npx tailwindcss -i ./web/stylesheets/styles.css -o ./web/stylesheets/styles.css --watch"
   },
   "keywords": [],
   "author": "",
