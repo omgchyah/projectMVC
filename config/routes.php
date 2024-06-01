@@ -9,6 +9,11 @@
  * '/' => 'index#index',
  * '/calendar' => 'calendar#index'
  */
-$routes = array(
-	'/test' => 'test#index'
-);
+
+ //Modified by Ross
+$routes = [
+    '/' => 'home#index',
+    'home/index' => 'home#index',
+    'user/profile' => 'user#profile',
+    // Add other routes here
+];
