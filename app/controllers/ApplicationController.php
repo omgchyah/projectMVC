@@ -11,7 +11,7 @@ class ApplicationController extends Controller
     public function __construct()
     {
         // Common initialization code
-        echo "ApplicationController initialized<br>";
+        //echo "ApplicationController initialized<br>";
     }
 
     //added by Ross
@@ -19,7 +19,10 @@ class ApplicationController extends Controller
     {
         //Ensures .php is not added twice and adds a slach between directories
         $viewPath = ROOT_PATH . "/app/views/" . (strpos($view, ".php") === false ? $view . "php" : $view);
+
+        //Testing my controller
         echo "Rendering view: " . $viewPath . "<br>";
+
         if(file_exists($viewPath)) {
             include $viewPath;
         } else {

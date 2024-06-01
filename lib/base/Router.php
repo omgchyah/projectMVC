@@ -26,6 +26,7 @@ class Router
 			}
 
 			// Debugging output
+			
 			if (!$routeFound) {
 				echo "Route not found for URI: " . $this->_getUri() . "<br>";
 			} else {
