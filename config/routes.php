@@ -15,6 +15,7 @@ $routes = [
     '/' => 'home#index',
     'home/index' => 'home#index',
     'task/create' => 'task#create',
-    'task/index' => 'task#index' // Route for handling form submission
+    'task/index' => 'task#index',
+    'task/store' => 'task#store', // Route for handling form submission
     // Add other routes here
 ];
