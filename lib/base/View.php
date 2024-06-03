@@ -10,7 +10,6 @@ class View
 	protected $_content = "";
 	// the standard layout
 	protected $_layout = 'layout';
-	
 	protected $_viewEnabled = true;
 	protected $_layoutEnabled = true;
 	
@@ -52,8 +51,11 @@ class View
 	/**
 	 * Renders the current view.
 	 */
-	public function render($viewScript)
+	public function render($viewScript, $data = [])
 	{
+		if ($data) {
+			extract($data);
+		}
 	  if ($viewScript && $this->_viewEnabled) {
   		// renders the view script
   		$this->_renderViewScript($viewScript);
