@@ -134,5 +134,28 @@ class Task extends Model
             return [];
         }
     }
-
+    public function delete($id)
+	{
+         $worked =false;
+        $jsonContent = file_get_contents($this->filePath);
+        $data = json_decode($jsonContent, true);
+        foreach ($data as $key => $value) {
+            if ($value['Id'] == $id) {
+                // Eliminar el elemento del array
+                unset($data[$key]);
+                $data = array_values($data);
+                $dataupdated = json_encode($data, JSON_PRETTY_PRINT);
+                file_put_contents($this->filePath, $dataupdated);
+                $worked = true;
+                return $worked;
+            }
+            else{
+                return $worked;
+            }
+        }
+    
+	}
+    
+delete(2);
 }
+?>
