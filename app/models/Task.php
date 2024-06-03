@@ -34,7 +34,7 @@ class Task extends Model
     {
         return $this->description;
     }
-        public function getStatus(): Status
+    public function getStatus(): Status
     {
         return $this->status;
     }
@@ -46,7 +46,7 @@ class Task extends Model
     {
         return $this->dateUpdated;
     }
-        public function getUserId(): int
+    public function getUserId(): int
     {
         return $this->userId;
     }
