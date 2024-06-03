@@ -81,59 +81,6 @@ class Task extends Model
         $this->userId = $userId;
     }
 
-    //Create
-    public function save($data = array())
-    {
-        // Use the passed $data if provided, otherwise use object properties
-        $data = !empty($data) ? $data : [
-            "id"=> $this->getId(),
-            "name" => $this->getName(),
-            "description" => $this->getDescription(),
-            "status"=> Status::Activa,
-            "dateCreated"()=> $this->getDateCreated()->format('Y-m-d H:i:s'),
-            "dateUpdated"=> $this->getDateUpdated()->format('Y-m-d H:i:s'),
-            "userId"=> $this->getUserId(),
-        ];
-
-        // Read the existing data from the JSON file
-        if (file_exists($this->filePath)) {
-            $jsonContent = file_get_contents($this->filePath);
-            $tasks = json_decode($jsonContent, true);
-        } else {
-            $tasks = [];
-        }
-
-        // Determine the next ID
-        if (empty($tasks)) {
-            $data['id'] = 1;
-        } else {
-        $lastTask = end($tasks);
-            $data['id'] = $lastTask['id'] + 1;
-        }
-
-        $data['dataCreated'] = (new DateTime())->format('Y-m-d H:i:s');
-        $data['dataUpdated'] = $data['dataCreated'];
-
-        // Add the new task to the array
-        $tasks[] = $data;
-
-        // Encode the array back to JSON and save it to the file
-        if (file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT)) === false) {
-            return false; // Indicate failure
-        }
-
-        return true; // Indicate success
-    }
-
-    //Read
-    public function getAll() {
-        if (file_exists($this->filePath)) {
-            $jsonContent = file_get_contents($this->filePath);
-            return json_decode($jsonContent, true);
-        } else {
-            return [];
-        }
-    }
     public function delete($id)
 	{
          $worked =false;
