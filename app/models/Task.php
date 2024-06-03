@@ -9,14 +9,16 @@ class Task extends Model
     private string $name;
     private string $description;
     private Status $status;
-    private $dateCreated;
-    private $dateUpdated;
+    private DateTime $dateCreated;
+    private DateTime $dateUpdated;
     private int $userId;
 
     public function __construct()
     {
         parent::__construct(); // Call the parent constructor
         $this->filePath = ROOT_PATH . "/data/tasks.json";
+        $this->dateCreated = new DateTime(); // Set to current date and time
+        $this->dateUpdated = new DateTime(); // Set to current date and time
     }
 
     //Getters
@@ -72,21 +74,27 @@ class Task extends Model
     }
     public function setDateUpdated(DateTime $dateUpdated): void
     {
-        $this->dateUpdated = $dateUpdated;
+        $this->dateUpdated = NOW();
     }
     public function setUserId(int $userId): void
     {
         $this->userId = $userId;
     }
 
-
     //Create
     public function save($data = array())
     {
         // Use the passed $data if provided, otherwise use object properties
         $data = !empty($data) ? $data : [
+            "id"=> $this->id++,
             "name" => $this->getName(),
             "description" => $this->getDescription(),
+            "status"=> $this->getStatus(),
+            "dateCreated"()=> $this->getDateCreated()->format('Y-m-d H:i:s'),
+            "dateUpdated"=> $this->getDateUpdated()->format('Y-m-d H:i:s'),
+            "userId"=> $this->getUserId(),
+
+
         ];
 
         // Read the existing data from the JSON file
@@ -97,6 +105,17 @@ class Task extends Model
             $tasks = [];
         }
 
+        // Determine the next ID
+        if (empty($tasks)) {
+            $data['id'] = 1;
+        } else {
+        $lastTask = end($tasks);
+            $data['id'] = $lastTask['id'] + 1;
+        }
+
+        $data['dataCreated'] = (new DateTime())->format('Y-m-d H:i:s');
+        $data['dataUpdated'] = $data['dataCreated'];
+        
         // Add the new task to the array
         $tasks[] = $data;
 
