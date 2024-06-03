@@ -13,7 +13,6 @@
  //Modified by Ross
 $routes = [
     '/' => 'home#index',
-    'home/index' => 'home#index',
     'task/create' => 'task#create',
     'task/index' => 'task#index',
     'task/store' => 'task#store', // Route for handling form submission

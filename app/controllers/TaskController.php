@@ -20,6 +20,8 @@ class TaskController extends ApplicationController
         $view->render("layouts/header.php");
         $view->render("layouts/task/create", ['task' => $tasks]);
         $view->render("layouts/footer.php");
+
+        header('Location: task/create');
     }
 
 

@@ -3,9 +3,9 @@ class HomeController extends ApplicationController
 {
     public function index()
     {
-        $this->render("layouts/header.php");
-        $this->render("layouts/home/index.php");
-        $this->render("layouts/footer.php");
+        $view = new View();
+        $view->render("layouts/home/index")
+
     }
 
     public function execute($action = "index")

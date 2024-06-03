@@ -35,7 +35,7 @@ class View
 		ob_start();
 		
 		// includes the view script
-		include(ROOT_PATH . '/app/views/scripts/' . $viewScript);
+		include(ROOT_PATH . '/app/views/' . $viewScript . '.php');
 		
 		// returns the content of the output buffer
 		$this->_content = ob_get_clean();
@@ -52,8 +52,11 @@ class View
 	/**
 	 * Renders the current view.
 	 */
-	public function render($viewScript)
+	public function render($viewScript, $data = [])
 	{
+		if ($data) {
+			extract($data);
+		}
 	  if ($viewScript && $this->_viewEnabled) {
   		// renders the view script
   		$this->_renderViewScript($viewScript);
