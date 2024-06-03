@@ -27,11 +27,11 @@ class Router
 
 			// Debugging output
 			
-			if (!$routeFound) {
+			/*if (!$routeFound) {
 				echo "Route not found for URI: " . $this->_getUri() . "<br>";
 			} else {
 				echo "Route found: Controller = " . get_class($controller) . ", Action = " . $action . "<br>";
-			}
+			}*/
 			
 			// no route found, throw an exception to run the error controller
 			if (!$routeFound || $controller == null || $action == null) {
@@ -71,7 +71,7 @@ class Router
 		$uri = substr($uri, strlen(WEB_ROOT));
 
 		// Debugging output
-		echo "Current URI: " . $uri . "<br>";
+		/*echo "Current URI: " . $uri . "<br>";*/
 		
 		return $uri;
 	}

@@ -21,7 +21,7 @@ class ApplicationController extends Controller
         $viewPath = ROOT_PATH . "/app/views/" . (strpos($view, ".php") === false ? $view . "php" : $view);
 
         //Testing my controller
-        echo "Rendering view: " . $viewPath . "<br>";
+        /*echo "Rendering view: " . $viewPath . "<br>";*/
 
         if(file_exists($viewPath)) {
             include $viewPath;
