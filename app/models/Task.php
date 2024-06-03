@@ -155,7 +155,5 @@ class Task extends Model
         }
     
 	}
-    
-delete(2);
+  
 }
-?>
