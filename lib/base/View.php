@@ -35,7 +35,13 @@ class View
 		ob_start();
 		
 		// includes the view script
-		include(ROOT_PATH . '/app/views/' . $viewScript . '.php');
+        try {
+            include(ROOT_PATH . '/app/views/' . $viewScript . '.php');
+        } catch (Exception $e) {
+            ob_end_clean(); // Clean the output buffer if an error occurs
+            $this->_content = "Error loading view: " . $e->getMessage();
+            return;
+        }
 		
 		// returns the content of the output buffer
 		$this->_content = ob_get_clean();
@@ -68,7 +74,12 @@ class View
 	  else {
   		// includes the current view, which uses the "$this->content()" to output the 
   		// view script that was just rendered
-  		include(ROOT_PATH . '/app/views/layouts/' . $this->_getLayout() . '.phtml');
+			try {
+			include(ROOT_PATH . '/app/views/layouts/' . $this->_getLayout() . '.phtml');
+		} catch (Exception $e) {
+			$this->_content = "Error loading layout: " . $e->getMessage();
+			include(ROOT_PATH . '/app/views/layouts/error/error.phtml');
+		}
 	  }
 	}
 	
