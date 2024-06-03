@@ -12,8 +12,13 @@
         <ul class="space-y-4">
             <?php foreach ($tasks as $task): ?>
                 <li class="p-4 bg-white rounded shadow">
-                    <h2 class="text-xl font-semibold"><?php echo htmlspecialchars($task['name']); ?></h2>
+                    <h2 class="text-xl font-semibold"><?php echo htmlspecialchars($task['id']); ?></h2>
+                    <p class="text-gray-600"><?php echo htmlspecialchars($task['name']); ?></p>
                     <p class="text-gray-600"><?php echo htmlspecialchars($task['description']); ?></p>
+                    <p class="text-gray-600"><?php echo htmlspecialchars($task['status']); ?></p>
+                    <p class="text-gray-600"><?php echo htmlspecialchars($task['dateCreated']); ?></p>
+                    <p class="text-gray-600"><?php echo htmlspecialchars($task['dateUpdated']); ?></p>
+                    <p class="text-gray-600"><?php echo htmlspecialchars($task['userId']); ?></p>
                 </li>
             <?php endforeach; ?>
         </ul>

@@ -22,7 +22,7 @@ class Task extends Model
     }
 
     //Getters
-    public function geId() : int
+    public function getId() : int
     {
         return $this->id;
     }
@@ -74,7 +74,7 @@ class Task extends Model
     }
     public function setDateUpdated(DateTime $dateUpdated): void
     {
-        $this->dateUpdated = NOW();
+        $this->dateUpdated = $dateUpdated;
     }
     public function setUserId(int $userId): void
     {
@@ -86,15 +86,13 @@ class Task extends Model
     {
         // Use the passed $data if provided, otherwise use object properties
         $data = !empty($data) ? $data : [
-            "id"=> $this->id++,
+            "id"=> $this->getId(),
             "name" => $this->getName(),
             "description" => $this->getDescription(),
-            "status"=> $this->getStatus(),
+            "status"=> Status::Activa,
             "dateCreated"()=> $this->getDateCreated()->format('Y-m-d H:i:s'),
             "dateUpdated"=> $this->getDateUpdated()->format('Y-m-d H:i:s'),
             "userId"=> $this->getUserId(),
-
-
         ];
 
         // Read the existing data from the JSON file
@@ -115,7 +113,7 @@ class Task extends Model
 
         $data['dataCreated'] = (new DateTime())->format('Y-m-d H:i:s');
         $data['dataUpdated'] = $data['dataCreated'];
-        
+
         // Add the new task to the array
         $tasks[] = $data;
 

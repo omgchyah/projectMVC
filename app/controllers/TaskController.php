@@ -17,15 +17,17 @@ class TaskController extends ApplicationController
 
         $view = new View();
         $view->tasks = $tasks;
-        $view->render("layouts/task/create");
+        $view->render("layouts/header.php");
+        $view->render("layouts/task/create", ['task' => $tasks]);
+        $view->render("layouts/footer.php");
     }
 
 
-    public function store()
+    public function storeTask()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $taskName = $_POST["task_name"];
-            $taskDescripction = $_POST["task_descrip"];
+            $taskName = $_POST["name"];
+            $taskDescripction = $_POST["description"];
 
             // Validate and sanitize inputs as needed
             $taskName = htmlspecialchars($taskName, ENT_QUOTES, "UTF-8");

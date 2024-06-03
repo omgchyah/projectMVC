@@ -6,7 +6,7 @@
     <link href="/PHP/ProjectMVC/web/stylesheets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <form action="/task/store" method="post" enctype="multipart/form-data">
+    <form action="/task/storeTask" method="post" enctype="multipart/form-data">
         <fieldset><h1>Crear nueva tarea</h1>
         <div>
             <label for="task_name">Nombre:</label>

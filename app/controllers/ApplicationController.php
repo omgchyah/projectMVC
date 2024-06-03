@@ -15,8 +15,10 @@ class ApplicationController extends Controller
     }
 
     //added by Ross
-    public function render($view)
+    public function render($view, $data = array())
     {
+        extract($data);
+        
         //Ensures .php is not added twice and adds a slash between directories
         $viewPath = ROOT_PATH . "/app/views/" . (strpos($view, ".php") === false ? $view . "php" : $view);
 
