@@ -47,6 +47,7 @@ class Router
 			$controller = new ErrorController();
 			$controller->setException($exception);
 			$controller->execute('error');
+            echo $exception->getMessage();
 		}
 	}
 	

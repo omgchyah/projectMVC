@@ -11,10 +11,9 @@
  */
 
  //Modified by Ross
-$routes = [
-    '/' => 'home#index',
-    'task/create' => 'task#create',
-    'task/index' => 'task#index',
-    'task/store' => 'task#store', // Route for handling form submission
+ $routes = [
+    '/' => 'home#index', // Root URL
+    'home/submitUserId' => 'home#submitUserId',
+    'task/index' => 'task#index', // Route for task index
     // Add other routes here
 ];

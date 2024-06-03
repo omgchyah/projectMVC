@@ -2,26 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de tareas</title>
+    <title>Task Page</title>
     <link href="/PHP/ProjectMVC/web/stylesheets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Lista de Tareas</h1>
-    <a href="/task/create" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">Crear Nueva Tarea</a>
-    <div class="mt-6">
-        <ul class="space-y-4">
-            <?php foreach ($tasks as $task): ?>
-                <li class="p-4 bg-white rounded shadow">
-                    <h2 class="text-xl font-semibold"><?php echo htmlspecialchars($task['id']); ?></h2>
-                    <p class="text-gray-600"><?php echo htmlspecialchars($task['name']); ?></p>
-                    <p class="text-gray-600"><?php echo htmlspecialchars($task['description']); ?></p>
-                    <p class="text-gray-600"><?php echo htmlspecialchars($task['status']); ?></p>
-                    <p class="text-gray-600"><?php echo htmlspecialchars($task['dateCreated']); ?></p>
-                    <p class="text-gray-600"><?php echo htmlspecialchars($task['dateUpdated']); ?></p>
-                    <p class="text-gray-600"><?php echo htmlspecialchars($task['userId']); ?></p>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+    <h1>Welcome to the Task Page</h1>
+    <p>This is where you can manage your tasks.</p>
+
+    <?php if (isset($userId)): ?>
+        <p>User ID: <?php echo htmlspecialchars($userId, ENT_QUOTES, 'UTF-8'); ?></p>
+    <?php else: ?>
+        <p>No user ID provided.</p>
+    <?php endif; ?>
 </body>
 </html>

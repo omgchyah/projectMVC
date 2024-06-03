@@ -12,16 +12,19 @@ class TaskController extends ApplicationController
 
     public function index()
     {
-        $task = new Task();
-        $tasks = $task->getAll();
+        // Get the user ID from the query parameter
+        $userId = isset($_GET['user_id']) ? $_GET['user_id'] : null;
+
+        // You can add logic here to validate the user ID, fetch tasks for the user, etc.
 
         $view = new View();
-        $view->tasks = $tasks;
-        $view->render("layouts/header.php");
-        $view->render("layouts/task/create", ['task' => $tasks]);
-        $view->render("layouts/footer.php");
+        $view->userId = $userId; // Pass the user ID to the view
+        $view->render("layouts/task/index");
+    }
 
-        header('Location: task/create');
+    public function execute($action = "index")
+    {
+        $this->$action();
     }
 
 
