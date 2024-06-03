@@ -23,7 +23,7 @@ class TaskController extends ApplicationController
     }
 
 
-    public function storeTask()
+    public function store()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $taskName = $_POST["name"];
@@ -36,13 +36,11 @@ class TaskController extends ApplicationController
             $task = new Task();
             $task->setName($taskName);
             $task->setDescription($taskDescripction);
-            if ($task->save()) {
-                header('Location: /task/index');
+
+            $task->save();
+
+            header('Location: task/index');
                 exit;
-            } else {
-                // Handle the failure case
-                echo "Failed to save the task.";
-            }
         }
 
     }
