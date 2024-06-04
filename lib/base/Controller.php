@@ -8,10 +8,12 @@ class Controller
 	// defines the view
 	public $view = null;
 	// defines the request
+	//This protected property holds a reference to the Request object, which provides information about the current HTTP request (GET/POST data, etc.).
 	protected $_request = null;
 	// the current action
+	//This protected property stores the name of the current action being executed within the controller.
 	protected $_action = null;
-	
+	//$_namedParameters (protected): This protected property is an array that holds any named parameters passed in the URL (e.g., /users/view/123).
 	protected $_namedParameters = array();
 	
 	/**
@@ -81,7 +83,7 @@ class Controller
 		// fetches the current controller executed
 		$controller = get_class($this);
 		// removes the "Controller" part and adds the action name to the path
-		$script = strtolower(substr($controller, 0, -10) . '/' . $action . '.phtml');
+		$script = strtolower(substr($controller, 0, -10) . '/' . $action . '.php');
 		// returns the script to render
 		return $script;
 	}

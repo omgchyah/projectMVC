@@ -11,19 +11,20 @@ class ApplicationController extends Controller
     public function __construct()
     {
         // Common initialization code
-        //echo "ApplicationController initialized<br>";
+        echo "ApplicationController initialized<br>"
+        . WEB_ROOT;
     }
 
     //added by Ross
-    public function render($view, $data = array())
+    public function render($view)
     {
-        extract($data);
+
         
         //Ensures .php is not added twice and adds a slash between directories
         $viewPath = ROOT_PATH . "/app/views/" . (strpos($view, ".php") === false ? $view . "php" : $view);
 
         //Testing my controller
-        /*echo "Rendering view: " . $viewPath . "<br>";*/
+        echo "Rendering view: " . $viewPath . "<br>";
 
         if(file_exists($viewPath)) {
             include $viewPath;
@@ -31,5 +32,7 @@ class ApplicationController extends Controller
             echo "View file not found:" . $viewPath;
         }
     }
+
+    
 	
 }

@@ -13,7 +13,7 @@
  //Modified by Ross
  $routes = [
     '/' => 'home#index', // Root URL
-    'home/submitUserId' => 'home#submitUserId',
-    'task/index' => 'task#index', // Route for task index
+    'task/store' => 'task#store',
+     // Route for task index
     // Add other routes here
 ];

@@ -27,11 +27,11 @@ class Router
 
 			// Debugging output
 			
-			/*if (!$routeFound) {
+			if (!$routeFound) {
 				echo "Route not found for URI: " . $this->_getUri() . "<br>";
 			} else {
 				echo "Route found: Controller = " . get_class($controller) . ", Action = " . $action . "<br>";
-			}*/
+			}
 			
 			// no route found, throw an exception to run the error controller
 			if (!$routeFound || $controller == null || $action == null) {
@@ -56,6 +56,7 @@ class Router
 	 * @param string $route the route (uri) to test
 	 * @return boolean
 	 */
+
 	public function hasParameters($route)
 	{
 		return preg_match('/(\/:[a-z]+)/', $route);
@@ -65,6 +66,7 @@ class Router
 	 * Fetches the current URI called
 	 * @return string the URI called
 	 */
+
 	protected function _getUri()
 	{
 		$uri = explode('?',$_SERVER['REQUEST_URI']);
@@ -72,7 +74,7 @@ class Router
 		$uri = substr($uri, strlen(WEB_ROOT));
 
 		// Debugging output
-		/*echo "Current URI: " . $uri . "<br>";*/
+		echo "Current URI: " . $uri . "<br>";
 		
 		return $uri;
 	}

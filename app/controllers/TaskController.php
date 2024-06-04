@@ -2,18 +2,18 @@
 
 class TaskController extends ApplicationController
 {
-    private $taskModel;
+    private $task;
 
     public function __construct()
     {
         parent::__construct();
-        $this->taskModel = new Task();
+        $this->task = new Task();
     }
 
     public function index()
     {
         // Get the user ID from the query parameter
-        $userId = isset($_GET['user_id']) ? $_GET['user_id'] : null;
+        $userId = isset($_POST['user_id']) ? $_POST['user_id'] : null;
 
         // You can add logic here to validate the user ID, fetch tasks for the user, etc.
 
@@ -22,10 +22,10 @@ class TaskController extends ApplicationController
         $view->render("layouts/task/index");
     }
 
-    public function execute($action = "index")
+    public function execute($routes = WEB_ROOT, $controller = "Task", $action = "index")
     {
         $this->$action();
-    }
+    } 
 
 
     public function store()
@@ -33,6 +33,7 @@ class TaskController extends ApplicationController
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $taskName = $_POST["name"];
             $taskDescripction = $_POST["description"];
+            //$taskUserId = isset($_POST["user_id"]) ? $_POST["user_id"];
 
             // Validate and sanitize inputs as needed
             $taskName = htmlspecialchars($taskName, ENT_QUOTES, "UTF-8");
@@ -41,11 +42,14 @@ class TaskController extends ApplicationController
             $task = new Task();
             $task->setName($taskName);
             $task->setDescription($taskDescripction);
+            //$task->setUserId($taskUserId);
 
             $task->save();
 
-            header('Location: task/index');
+            header('Location: ' . WEB_ROOT . '/task/index');
                 exit;
+
+            
         }
 
     }

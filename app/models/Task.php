@@ -85,14 +85,14 @@ class Task extends Model
     public function save($data = array())
     {
         // Use the passed $data if provided, otherwise use object properties
-        $data = !empty($data) ? $data : [
-            "id"=> $this->getId(),
+        $data = [
+            "id"=> 0,
             "name" => $this->getName(),
             "description" => $this->getDescription(),
             "status"=> Status::Activa,
             "dateCreated"()=> $this->getDateCreated()->format('Y-m-d H:i:s'),
             "dateUpdated"=> $this->getDateUpdated()->format('Y-m-d H:i:s'),
-            "userId"=> $this->getUserId(),
+            "userId"=> 0,
         ];
 
         // Read the existing data from the JSON file

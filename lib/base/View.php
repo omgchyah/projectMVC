@@ -58,11 +58,9 @@ class View
 	/**
 	 * Renders the current view.
 	 */
-	public function render($viewScript, $data = [])
+	public function render($viewScript)
 	{
-		if ($data) {
-			extract($data);
-		}
+
 	  if ($viewScript && $this->_viewEnabled) {
   		// renders the view script
   		$this->_renderViewScript($viewScript);
@@ -75,7 +73,7 @@ class View
   		// includes the current view, which uses the "$this->content()" to output the 
   		// view script that was just rendered
 			try {
-			include(ROOT_PATH . '/app/views/layouts/' . $this->_getLayout() . '.phtml');
+			include(ROOT_PATH . '/app/views/layouts/' . $this->_getLayout() . '.php');
 		} catch (Exception $e) {
 			$this->_content = "Error loading layout: " . $e->getMessage();
 			include(ROOT_PATH . '/app/views/layouts/error/error.phtml');
