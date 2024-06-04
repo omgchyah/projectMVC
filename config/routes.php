@@ -12,8 +12,8 @@
 
  //Modified by Ross
  $routes = [
-    '/' => 'home#index', // Root URL
-    'task/store' => 'task#store',
-     // Route for task index
-    // Add other routes here
+    '/' => 'application#index', // Root URL
+    '/create' => 'application#create', // Route for the create action
+    '/application/execute' => 'application#execute', // Route for dynamic actions
+    // Add other routes here as needed
 ];

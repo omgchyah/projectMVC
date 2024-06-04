@@ -18,7 +18,6 @@ class ApplicationController extends Controller
     //added by Ross
     public function render($view)
     {
-
         
         //Ensures .php is not added twice and adds a slash between directories
         $viewPath = ROOT_PATH . "/app/views/" . (strpos($view, ".php") === false ? $view . "php" : $view);
@@ -33,6 +32,31 @@ class ApplicationController extends Controller
         }
     }
 
+    public function index()
+    {
+        $view = new View();
+        $view->render("scripts/app/index");
+    }
+
+    public function create()
+    {
+        $view = new View();
+        $view->render("scripts/app/create");
+    }
     
-	
+    public function execute($action = "index")
+    {
+        if (isset($_POST['action'])) {
+            $action = $_POST['action'];
+        }
+
+        if (method_exists($this, $action)) {
+            $this->$action();
+        } else {
+            echo "Action '$action' not found.";
+        }
+    }
+    
+
+    
 }
