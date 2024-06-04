@@ -6,48 +6,79 @@
  */
 class ApplicationController extends Controller 
 {
-
-    //added by Ross
+    // Added by Ross
     public function __construct()
     {
         // Common initialization code
-        echo "ApplicationController initialized<br>"
-        . WEB_ROOT;
+        echo "ApplicationController initialized<br>" . WEB_ROOT;
     }
 
-    //added by Ross
-    public function render($view)
+    // Added by Ross
+    public function render($view, $data = [])
     {
-        
-        //Ensures .php is not added twice and adds a slash between directories
-        $viewPath = ROOT_PATH . "/app/views/" . (strpos($view, ".php") === false ? $view . "php" : $view);
+        // Ensures .php is not added twice and adds a slash between directories
+        $viewPath = ROOT_PATH . "/app/views/" . (strpos($view, ".php") === false ? $view . ".php" : $view);
 
-        //Testing my controller
+        // Testing my controller
         echo "Rendering view: " . $viewPath . "<br>";
 
-        if(file_exists($viewPath)) {
+        if (file_exists($viewPath)) {
+            extract($data);
             include $viewPath;
         } else {
-            echo "View file not found:" . $viewPath;
+            // Fallback to a default error view if the file is not found
+            include ROOT_PATH . "/app/views/error/error.php";
         }
     }
 
     public function index()
     {
-        $view = new View();
-        $view->render("scripts/app/index");
+        $this->render("scripts/app/index");
     }
 
     public function create()
     {
-        $view = new View();
-        $view->render("scripts/app/create");
+        $this->render("scripts/app/create");
     }
-    
+
+    public function listTasks()
+    {
+        $task = new Task();
+        $tasks = $task->getAll();
+
+        $this->render("scripts/app/list", ['tasks' => $tasks]);
+    }
+
+    public function storeTask()
+    {
+        /*$task = new Task();
+        $task->setName($_POST['task_name']);
+        $task->setDescription($_POST['description']);
+        $task->setUserId(0); // Replace with actual user ID if available
+        $task->setStatus(Status::Activa); // Assuming Status is an Enum or similar
+        $task->setDateCreated(new DateTime());
+        $task->setDateUpdated(new DateTime());
+
+        if ($task->save()) {
+            // Redirect to the task list page
+            header('Location: ' . WEB_ROOT . '/application/execute?action=listTasks');
+            exit;
+        } else {
+            echo "<p>Failed to save the task. Please try again.</p>";
+            echo '<button onclick="history.back()">Back</button>';
+        }*/
+
+        header('Location: ' . WEB_ROOT . '/application/execute?action=listTasks');
+            exit;
+
+    }
+
     public function execute($action = "index")
     {
         if (isset($_POST['action'])) {
             $action = $_POST['action'];
+        } elseif (isset($_GET['action'])) {
+            $action = $_GET['action'];
         }
 
         if (method_exists($this, $action)) {
@@ -56,7 +87,5 @@ class ApplicationController extends Controller
             echo "Action '$action' not found.";
         }
     }
-    
-
-    
 }
+?>
