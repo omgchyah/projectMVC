@@ -76,7 +76,7 @@ class View
 			include(ROOT_PATH . '/app/views/layouts/' . $this->_getLayout() . '.php');
 		} catch (Exception $e) {
 			$this->_content = "Error loading layout: " . $e->getMessage();
-			include(ROOT_PATH . '/app/views/layouts/error/error.phtml');
+			include(ROOT_PATH . '/app/views/layouts/error');
 		}
 	  }
 	}

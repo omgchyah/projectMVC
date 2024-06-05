@@ -13,13 +13,11 @@ class TaskController extends Controller
     {
         $view = new View();
         $view->render("scripts/app/create");
+
     }
 
     public function listTasks()
     {
-        $task = new Task();
-        //$tasks = $task->getAll();
-
         $view = new View();
         $view->render("scripts/app/list");
     }
@@ -43,6 +41,7 @@ class TaskController extends Controller
     {
 
         $task = new Task();
+        $task->setName($_POST["task_name"]);
         $task->setDescription($_POST['description']);
         $task->setUserId($_POST['user_id']);
         
