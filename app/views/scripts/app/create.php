@@ -7,14 +7,9 @@
 </head>
 <body>
     <h1>Create a New Task</h1>
-    <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post">
+    <form action="<?php echo WEB_ROOT; ?>/task/store" method="post">
         <input type="hidden" name="action" value="store">
-        <button type="submit">Create New Task</button>
-    </form>
-
-    <!--<form action="<?php //echo WEB_ROOT; ?>/task/list" method="post"> -->
-        <!-- Form fields for task creation -->
-        <!-- <label for="task_name">Task Name:</label>
+        <label for="task_name">Task Name:</label>
         <input type="text" id="task_name" name="task_name" required><br><br>
 
         <label for="description">Description:</label>
@@ -23,7 +18,8 @@
         <label for="user_id">User ID:</label>
         <input type="number" id="user_id" name="user_id" required><br><br>
 
-        <button type="submit">Submit</button>
-    </form> -->
+        <button type="submit">Create Task</button>
+    </form>
 </body>
 </html>
+

@@ -28,22 +28,19 @@ class TaskController extends Controller
 
     public function store()
     {
+        $view = new View();
+        $view->render("scripts/app/list");
+
         $task = new Task();
         $task->setName($_POST['task_name']);
         $task->setDescription($_POST['description']);
-        $task->setUserId(0); // Replace with actual user ID if available
+        $task->setUserId($_POST['user_id']); // Replace with actual user ID if available
         $task->setStatus(Status::Activa); // Assuming Status is an Enum or similar
         $task->setDateCreated(new DateTime());
         $task->setDateUpdated(new DateTime());
 
-        if ($task->save()) {
-            // Redirect to the task list page
-            header('Location: ' . WEB_ROOT . '/task/execute?action=list');
-            exit;
-        } else {
-            echo "<p>Failed to save the task. Please try again.</p>";
-            echo '<button onclick="history.back()">Back</button>';
-        }
+        $task->save();
+
     }
 
 
@@ -52,8 +49,8 @@ class TaskController extends Controller
         $task = new Task();
         $tasks = $task->getAll();
 
-        $view = new View();
-        $view->render("scripts/app/list");
+        /*$view = new View();
+        $view->render("scripts/app/list");*/
     }
 
 
