@@ -81,36 +81,22 @@ class Task extends Model
         $this->userId = $userId;
     }
 
-    public function fetchOne( $id) {
+    public function fetchOne( $TaskName) {
         $jsonContent = file_get_contents($this->filePath);
         $data = json_decode($jsonContent, true);
         foreach ($data as $element) {
-            if ($element['Id'] == $id) {
+            if ($element['Name'] == $TaskName) {
                 return $element;
             }
         }
         return null; 
     }
   
-	public function fetchAllFromOneUser($userId)
-	{
-        $jsonContent = file_get_contents($this->filePath);
-        $data = json_decode($jsonContent, true);
-        foreach ($data as $element) {
-            if ($element['userId'] == $userId) {
-                return $element;
-            }
-        }
-        return null; 
-	}
 	public function fetchAll()
 	{
         $jsonContent = file_get_contents($this->filePath);
         $data = json_decode($jsonContent, true);
-        foreach ($data as $element) {
-           
-                return $element;
-            }
-	}
+        return $data;
+    }
   
 }
