@@ -14,7 +14,7 @@
  $routes = [
     '/' => 'application#index', // Root URL
     '/task/execute' => 'task#execute',
-    'task/create' => 'task#create' // Route for the create action
+    'task/list' => 'task#list' // Route for the create action
     // Route for dynamic actions
     // Add other routes here as needed
 ];

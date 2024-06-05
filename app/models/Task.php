@@ -96,7 +96,7 @@ class Task extends Model
     // Create
     public function save($data = [])
     {
-        $data = [
+        $data = array_merge([
             "id" => $this->getId(),
             "name" => $this->getName(),
             "description" => $this->getDescription(),
@@ -104,7 +104,7 @@ class Task extends Model
             "dateCreated" => $this->getDateCreated()->format('Y-m-d H:i:s'),
             "dateUpdated" => $this->getDateUpdated()->format('Y-m-d H:i:s'),
             "userId" => $this->getUserId(),
-        ];
+        ], $data);
 
         // Read the existing data from the JSON file
         if (file_exists($this->filePath)) {
@@ -137,8 +137,8 @@ class Task extends Model
         return true; // Indicate success
     }
 
-    // Read
-    public function getAll() {
+    public function getAll()
+    {
         if (file_exists($this->filePath)) {
             $jsonContent = file_get_contents($this->filePath);
             return json_decode($jsonContent, true);
@@ -147,3 +147,4 @@ class Task extends Model
         }
     }
 }
+?>
