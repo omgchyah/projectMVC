@@ -9,6 +9,12 @@
  * '/' => 'index#index',
  * '/calendar' => 'calendar#index'
  */
-$routes = array(
-	'/test' => 'test#index'
-);
+
+ //Modified by Ross
+ $routes = [
+    '/' => 'application#index', // Root URL
+    '/task/execute' => 'task#execute',
+    'task/create' => 'task#create' // Route for the create action
+    // Route for dynamic actions
+    // Add other routes here as needed
+];

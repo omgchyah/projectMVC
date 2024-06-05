@@ -1,6 +1,6 @@
 -Crear base de datos sql, 
     Conectar la carpeta modelo a la clase conexions
-    Usuario:-Nombre usuario -nombre -email -Contraseña extra -id_rol,-Fecha nacimiento etc.
+    Usuario:-Nombre usuario -nombre -email -Contraseña(investigar como se guardan las contraseñas) extra -id_rol,-Fecha nacimiento etc.
         -usuario 1
         -usuario2 
         -admin
@@ -24,3 +24,18 @@
 
 
 -Html/Css
+    -boton inicio sesion/registrarse
+        -formulario iniciar sesion    
+        -formulario registarse
+    -una vez iniciado 
+        -paginaprincipal usuario
+            -pagina gestionar tascas
+            -pagina tasca en concreto
+            -pagina perfil 
+        -paginaprincipal admin
+            -pagina ver usuarios
+            -pagina usuario concreto
+
+    // Implementar sweetalert2          
+
+        
