@@ -94,8 +94,9 @@ class Task extends Model
     }
 
     // Create
-    public function save($data = [])
+    public function save($data = array())
     {
+
         $data = array_merge([
             "id" => $this->getId(),
             "name" => $this->getName(),
@@ -123,17 +124,19 @@ class Task extends Model
         }
 
         // Set creation and update dates
-        $data['dateCreated'] = (new DateTime())->format('Y-m-d H:i:s');
-        $data['dateUpdated'] = $data['dateCreated'];
+        /*$data['dateCreated'] = (new DateTime())->format('Y-m-d H:i:s');
+        $data['dateUpdated'] = $data['dateCreated'];*/
 
         // Add the new task to the array
         $tasks[] = $data;
 
         // Encode the array back to JSON and save it to the file
         if (file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT)) === false) {
+            echo "Failed to save tasks to file.<br>";
             return false; // Indicate failure
         }
 
+        echo "Tasks successfully saved to file.<br>";
         return true; // Indicate success
     }
 

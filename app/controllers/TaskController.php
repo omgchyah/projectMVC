@@ -28,6 +28,7 @@ class TaskController extends Controller
 
     public function store()
     {
+
         $view = new View();
         $view->render("scripts/app/list");
 
@@ -39,7 +40,23 @@ class TaskController extends Controller
         $task->setDateCreated(new DateTime());
         $task->setDateUpdated(new DateTime());
 
-        $task->save();
+        if ($task->save()) {
+            echo json_encode(["status" => "success"]);
+            // Redirect to the task list page
+            // header('Location: ' . WEB_ROOT . '/task/execute?action=list');
+            exit;
+        } else {
+            echo json_encode(["status" => "error", "message" => "Failed to save the task."]);
+        }
+        
+        /*if ($task->save()) {
+            // Redirect to the task list page
+            header('Location: ' . WEB_ROOT . '/task/execute?action=list');
+            exit;
+        } else {
+            echo "<p>Failed to save the task. Please try again.</p>";
+            echo '<button onclick="history.back()">Back</button>';
+        }*/
 
     }
 
