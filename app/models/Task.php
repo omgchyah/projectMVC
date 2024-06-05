@@ -5,18 +5,18 @@ require_once "Status.php";
 class Task extends Model
 {
     private $filePath;
-    private int $id;
-    private string $name;
-    private string $description;
+    private int $id = 0;
+    private string $name = "";
+    private string $description = "";
     private Status $status;
     private DateTime $dateCreated;
     private DateTime $dateUpdated;
-    private int $userId;
+    private int $userId = 0;
 
     public function __construct()
     {
-        parent::__construct(); // Call the parent constructor
         $this->filePath = ROOT_PATH . "/data/tasks.json";
+        $this->status = Status::Activa;
         $this->dateCreated = new DateTime(); // Set to current date and time
         $this->dateUpdated = new DateTime(); // Set to current date and time
     }
