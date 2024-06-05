@@ -16,6 +16,9 @@ class TaskController extends Controller
         } else {
             echo "Action '$action' not found.";
         }
+
+        $task = new Task();
+        $tasks = $task->getAll();
     }
 
 
@@ -23,6 +26,9 @@ class TaskController extends Controller
     {
         $view = new View();
         $view->render("scripts/app/create");
+
+        $task = new Task();
+        $tasks = $task->getAll();
 
     }
 
@@ -33,6 +39,8 @@ class TaskController extends Controller
         $view->render("scripts/app/list");
 
         $task = new Task();
+        $tasks = $task->getAll();
+
         $task->setName($_POST['task_name']);
         $task->setDescription($_POST['description']);
         $task->setUserId($_POST['user_id']); // Replace with actual user ID if available
@@ -48,7 +56,7 @@ class TaskController extends Controller
         } else {
             echo json_encode(["status" => "error", "message" => "Failed to save the task."]);
         }
-        
+
         /*if ($task->save()) {
             // Redirect to the task list page
             header('Location: ' . WEB_ROOT . '/task/execute?action=list');
@@ -66,8 +74,9 @@ class TaskController extends Controller
         $task = new Task();
         $tasks = $task->getAll();
 
-        /*$view = new View();
-        $view->render("scripts/app/list");*/
+        $task = new Task();
+        $tasks = $task->getAll();
+
     }
 
 
