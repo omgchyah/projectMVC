@@ -13,7 +13,8 @@
  //Modified by Ross
  $routes = [
     '/' => 'application#index', // Root URL
-    '/create' => 'application#create', // Route for the create action
-    '/application/execute' => 'application#execute', // Route for dynamic actions
+    '/task/execute' => 'task#execute',
+    'task/create' => 'task#create' // Route for the create action
+    // Route for dynamic actions
     // Add other routes here as needed
 ];

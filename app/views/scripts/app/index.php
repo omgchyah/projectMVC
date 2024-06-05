@@ -10,7 +10,7 @@
     <p>This is where you can manage your tasks.</p>
 
     <!-- Form to submit and navigate to create page -->
-    <form action="<?php echo WEB_ROOT; ?>/application/execute" method="post">
+    <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post">
         <input type="hidden" name="action" value="create">
         <button type="submit">Create New Task</button>
     </form>

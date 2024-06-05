@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Create a New Task</h1>
-    <form action="<?php echo WEB_ROOT; ?>/application/execute" method="post">
+    <form action="<?php echo WEB_ROOT; ?>/task/create" method="post">
         <input type="hidden" name="action" value="storeTask">
         <!-- Form fields for task creation -->
         <label for="task_name">Task Name:</label>
