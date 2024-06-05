@@ -16,8 +16,8 @@
         <label for="description">Description:</label>
         <textarea id="description" name="description" required></textarea><br><br>
 
-        <label for="user_name">User Name:</label>
-        <input type="text" id="user_name" name="user_name" required><br><br>
+        <label for="user_id">User ID:</label>
+        <input type="number" id="user_id" name="user_id" required><br><br>
 
         <button type="submit">Submit</button>
     </form>

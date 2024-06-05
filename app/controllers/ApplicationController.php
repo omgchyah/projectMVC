@@ -33,12 +33,14 @@ class ApplicationController extends Controller
 
     public function index()
     {
-        $this->render("scripts/app/index");
+        $view = new View();
+        $view->render("scripts/app/index");
     }
 
     public function create()
     {
-        $this->render("scripts/app/create");
+        $view = new View();
+        $view->render("scripts/app/create");
     }
 
     public function listTasks()
@@ -51,11 +53,14 @@ class ApplicationController extends Controller
 
     public function storeTask()
     {
-        /*$task = new Task();
+        $task = new Task();
         $task->setName($_POST['task_name']);
         $task->setDescription($_POST['description']);
-        $task->setUserId(0); // Replace with actual user ID if available
-        $task->setStatus(Status::Activa); // Assuming Status is an Enum or similar
+        $task->setUserId($_POST['user_id']);
+        
+        //Replace with actual user ID if available
+        $task->setStatus(Status::Activa);
+        
         $task->setDateCreated(new DateTime());
         $task->setDateUpdated(new DateTime());
 
@@ -66,10 +71,7 @@ class ApplicationController extends Controller
         } else {
             echo "<p>Failed to save the task. Please try again.</p>";
             echo '<button onclick="history.back()">Back</button>';
-        }*/
-
-        header('Location: ' . WEB_ROOT . '/application/execute?action=listTasks');
-            exit;
+        }
 
     }
 
