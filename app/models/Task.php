@@ -146,14 +146,18 @@ class Task extends Model
 
     }
 
-    public function getAll()
+    public function getAll(): array
     {
+        // Read the existing data from the JSON file
         if (file_exists($this->filePath)) {
             $jsonContent = file_get_contents($this->filePath);
-            return json_decode($jsonContent, true);
+            $tasksArray = json_decode($jsonContent, true);
         } else {
-            return [];
+            $tasksArray = [];
         }
+
+        return $tasksArray;
+
     }
 
 }

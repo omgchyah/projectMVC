@@ -14,16 +14,16 @@
             <th>Status</th>
             <th>Date Created</th>
             <th>Date Updated</th>
-            <th>User Name</th>
+            <th>User ID</th>
         </tr>
         <?php foreach ($tasks as $task): ?>
         <tr>
-            <td><?php echo htmlspecialchars($task['name']); ?></td>
-            <td><?php echo htmlspecialchars($task['description']); ?></td>
-            <td><?php echo htmlspecialchars($task['status']); ?></td>
-            <td><?php echo htmlspecialchars($task['date_creation']); ?></td>
-            <td><?php echo htmlspecialchars($task['date_updated']); ?></td>
-            <td><?php echo htmlspecialchars($task['user_name']); ?></td>
+            <td><?php echo htmlspecialchars($task->getName); ?></td>
+            <td><?php echo htmlspecialchars($task->getDescription); ?></td>
+            <td><?php echo htmlspecialchars($task->getDateCreated); ?></td>
+            <td><?php echo htmlspecialchars($task->getDateCreated); ?></td>
+            <td><?php echo htmlspecialchars($task->getDateUpdated); ?></td>
+            <td><?php echo htmlspecialchars($task->getUserId); ?></td>
         </tr>
         <?php endforeach; ?>
     </table>
