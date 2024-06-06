@@ -93,12 +93,8 @@ class Task extends Model
     // Create
     public function create()
     {
-        $tasksFile = fopen($this->filePath,"w+")
-        or die("Unable to open file!");
-
-       if(filesize($this->filePath) > 0) {
-        $
-       }
+        /*$tasksFile = fopen($this->filePath,"w+")
+        or die("Unable to open file!");*/
 
         $data = [
             'id' => $this->getId(),
@@ -111,8 +107,8 @@ class Task extends Model
         ];
 
         // Read the existing data from the JSON file
-        if (file_exists($tasksFile)) {
-            $jsonContent = file_get_contents($tasksFile);
+        if (file_exists($this->filePath)) {
+            $jsonContent = file_get_contents($this->filePath);
             $tasksArray = json_decode($jsonContent, true);
         } else {
             $tasksArray = [];
@@ -129,19 +125,14 @@ class Task extends Model
         // Add the new task to the array
         $tasksArray[] = $data;
 
-        file_put_contents($tasksFile, json_encode($tasksArray, JSON_PRETTY_PRINT));
+    // Write the updated array back to the JSON file
+    if (file_put_contents($this->filePath, json_encode($tasksArray, JSON_PRETTY_PRINT)) === false) {
+        die("Unable to write to file!");
+    }
 
-        // Encode the array back to JSON and save it to the file
-        /*if (file_put_contents($tasksFile, json_encode($tasks, JSON_PRETTY_PRINT)) === false) {
-            echo "Failed to save tasks to file.<br>";
-            return false; // Indicate failure
-        }*/
-
-        /*echo "Tasks successfully saved to file.<br>";*/
         print_r($data);
-        //return true; // Indicate success
 
-        fclose($tasksFile);
+        //fclose($tasksFile);
     }
 
     public function getAll()
