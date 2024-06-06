@@ -120,8 +120,22 @@ class Task extends Model
             $data['id'] = $lastTask['id'] + 1;
         }
 
-        // Add the new task to the array
-        $tasksArray[] = $data;
+          // Check for duplicate tasks
+        $duplicateFound = false;
+        foreach ($tasksArray as $existingTask) {
+            if ($existingTask['userId'] === $data['userId'] && $existingTask['task_name'] === $data['task_name']) {
+             $duplicateFound = true;
+            break; // Exit the loop if a duplicate is found
+            }
+        }
+
+        // Add the new task if no duplicate is found
+        if (!$duplicateFound) {
+            $tasksArray[] = $data;
+        } else {
+            // Handle the case where a duplicate is found (e.g., display an error message)
+            die("Task with the same name already exists for this user!");
+        }
 
     // Write the updated array back to the JSON file
     if (file_put_contents($this->filePath, json_encode($tasksArray, JSON_PRETTY_PRINT)) === false) {

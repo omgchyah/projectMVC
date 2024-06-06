@@ -52,5 +52,14 @@
         "dateCreated": "2024-06-06 21:19:42",
         "dateUpdated": "2024-06-06 21:19:42",
         "userId": 2
+    },
+    {
+        "id": 7,
+        "task_name": "Comprar regalo de navidad",
+        "description": "Ir al centro comercial",
+        "status": "Activa",
+        "dateCreated": "2024-06-06 21:32:23",
+        "dateUpdated": "2024-06-06 21:32:23",
+        "userId": 2
     }
 ]
