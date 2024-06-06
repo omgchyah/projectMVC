@@ -59,8 +59,16 @@ class TaskController extends Controller
 
     public function list()
     {
+
         $task = new Task();
-        $tasks = $task->getAll();
+
+        $data = [
+            'tasks' => $task->getAll(),
+            'message' => 'This is a message for the view',
+          ];
+          
+          $view = new View();
+          $view->render($data);
 
 
     }
