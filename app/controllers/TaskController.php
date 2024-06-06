@@ -39,20 +39,24 @@ class TaskController extends Controller
         $view->render("scripts/app/list");
 
         $task = new Task();
-        $tasks = $task->getAll();
+        //$tasks = $task->getAll();
 
+        $date = new DateTime();
+        //$now = $date->format("Y-m-d H:i:s");
+
+        $task->setId(0);
         $task->setName($_POST['task_name']);
         $task->setDescription($_POST['description']);
-        $task->setUserId($_POST['user_id']); // Replace with actual user ID if available
-        $task->setStatus(Status::Activa); // Assuming Status is an Enum or similar
-        $task->setDateCreated(new DateTime());
-        $task->setDateUpdated(new DateTime());
+        $task->setUserId($_POST['user_id']);
+        $task->setStatus(Status::Activa);
+        $task->setDateCreated($date);
+        $task->setDateUpdated($date);
 
-        if ($task->save()) {
+        if ($task->create()) {
             echo json_encode(["status" => "success"]);
             // Redirect to the task list page
             // header('Location: ' . WEB_ROOT . '/task/execute?action=list');
-            exit;
+            //exit;
         } else {
             echo json_encode(["status" => "error", "message" => "Failed to save the task."]);
         }
