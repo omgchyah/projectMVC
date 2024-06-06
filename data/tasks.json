@@ -43,5 +43,14 @@
         "dateCreated": "2024-06-06 21:11:14",
         "dateUpdated": "2024-06-06 21:11:14",
         "userId": 4
+    },
+    {
+        "id": 6,
+        "task_name": "Cocinar para la semana",
+        "description": "Hacer meal prep",
+        "status": "Activa",
+        "dateCreated": "2024-06-06 21:19:42",
+        "dateUpdated": "2024-06-06 21:19:42",
+        "userId": 2
     }
 ]
