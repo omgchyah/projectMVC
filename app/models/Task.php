@@ -5,20 +5,17 @@ require_once "Status.php";
 class Task extends Model
 {
     private $filePath;
-    private int $id = 0;
-    private string $name = "";
-    private string $description = "";
+    private int $id;
+    private string $name;
+    private string $description;
     private Status $status;
     private DateTime $dateCreated;
     private DateTime $dateUpdated;
-    private int $userId = 0;
+    private int $userId;
 
     public function __construct()
     {
         $this->filePath = ROOT_PATH . "/data/tasks.json";
-        $this->status = Status::Activa;
-        $this->dateCreated = new DateTime(); // Set to current date and time
-        $this->dateUpdated = new DateTime(); // Set to current date and time
     }
 
     // Getters
@@ -94,47 +91,45 @@ class Task extends Model
     }
 
     // Create
-    public function save($data = [])
+    public function create()
     {
-        $data = array_merge([
-            "id" => $this->getId(),
-            "name" => $this->getName(),
-            "description" => $this->getDescription(),
-            "status" => $this->getStatus(),
-            "dateCreated" => $this->getDateCreated()->format('Y-m-d H:i:s'),
-            "dateUpdated" => $this->getDateUpdated()->format('Y-m-d H:i:s'),
-            "userId" => $this->getUserId(),
-        ], $data);
+
+        $data = [
+            'id' => $this->getId(),
+            'task_name' => $this->getName(),
+            'description' => $this->getDescription(),
+            'status' => $this->getStatus()->name,
+            'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
+            'dateUpdated' => $this->getDateUpdated()->format('Y-m-d H:i:s'),//('Y-m-d H:i:s'),
+            'userId' => $this->getUserId()
+        ];
 
         // Read the existing data from the JSON file
         if (file_exists($this->filePath)) {
             $jsonContent = file_get_contents($this->filePath);
-            $tasks = json_decode($jsonContent, true);
+            $tasksArray = json_decode($jsonContent, true);
         } else {
-            $tasks = [];
+            $tasksArray = [];
         }
 
         // Determine the next ID
-        if (empty($tasks)) {
+        if (empty($tasksArray)) {
             $data['id'] = 1;
         } else {
-            $lastTask = end($tasks);
+            $lastTask = end($tasksArray);
             $data['id'] = $lastTask['id'] + 1;
         }
 
-        // Set creation and update dates
-        $data['dateCreated'] = (new DateTime())->format('Y-m-d H:i:s');
-        $data['dateUpdated'] = $data['dateCreated'];
-
         // Add the new task to the array
-        $tasks[] = $data;
+        $tasksArray[] = $data;
 
-        // Encode the array back to JSON and save it to the file
-        if (file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT)) === false) {
-            return false; // Indicate failure
-        }
+    // Write the updated array back to the JSON file
+    if (file_put_contents($this->filePath, json_encode($tasksArray, JSON_PRETTY_PRINT)) === false) {
+        die("Unable to write to file!");
+    }
 
-        return true; // Indicate success
+        //print_r($data);
+
     }
 
     public function getAll()
@@ -147,4 +142,3 @@ class Task extends Model
         }
     }
 }
-?>
