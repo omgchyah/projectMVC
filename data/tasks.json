@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "task_name": "Limpiar cuarto",
+        "description": "Barrer debajo de las mesas",
+        "status": "Activa",
+        "dateCreated": "2024-06-06 21:08:55",
+        "dateUpdated": "2024-06-06 21:08:55",
+        "userId": 2
+    }
+]
