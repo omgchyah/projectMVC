@@ -34,5 +34,14 @@
         "dateCreated": "2024-06-06 20:56:10",
         "dateUpdated": "2024-06-06 20:56:10",
         "userId": 6
+    },
+    {
+        "id": 5,
+        "task_name": "Sacar al perro",
+        "description": "Ir al parque ",
+        "status": "Activa",
+        "dateCreated": "2024-06-06 21:11:14",
+        "dateUpdated": "2024-06-06 21:11:14",
+        "userId": 4
     }
 ]
