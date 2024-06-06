@@ -52,23 +52,7 @@ class TaskController extends Controller
         $task->setDateCreated($date);
         $task->setDateUpdated($date);
 
-        if ($task->create()) {
-            echo json_encode(["status" => "success"]);
-            // Redirect to the task list page
-            // header('Location: ' . WEB_ROOT . '/task/execute?action=list');
-            //exit;
-        } else {
-            echo json_encode(["status" => "error", "message" => "Failed to save the task."]);
-        }
-
-        /*if ($task->save()) {
-            // Redirect to the task list page
-            header('Location: ' . WEB_ROOT . '/task/execute?action=list');
-            exit;
-        } else {
-            echo "<p>Failed to save the task. Please try again.</p>";
-            echo '<button onclick="history.back()">Back</button>';
-        }*/
+        $task->create();
 
     }
 

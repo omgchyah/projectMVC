@@ -93,8 +93,6 @@ class Task extends Model
     // Create
     public function create()
     {
-        /*$tasksFile = fopen($this->filePath,"w+")
-        or die("Unable to open file!");*/
 
         $data = [
             'id' => $this->getId(),
@@ -130,9 +128,8 @@ class Task extends Model
         die("Unable to write to file!");
     }
 
-        print_r($data);
+        //print_r($data);
 
-        //fclose($tasksFile);
     }
 
     public function getAll()

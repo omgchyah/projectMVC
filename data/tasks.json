@@ -16,5 +16,23 @@
         "dateCreated": "2024-06-06 20:53:26",
         "dateUpdated": "2024-06-06 20:53:26",
         "userId": 3
+    },
+    {
+        "id": 3,
+        "task_name": "Cocinar para la semana",
+        "description": "Hacer la compra",
+        "status": "Activa",
+        "dateCreated": "2024-06-06 20:55:00",
+        "dateUpdated": "2024-06-06 20:55:00",
+        "userId": 3
+    },
+    {
+        "id": 4,
+        "task_name": "Sacar al perro",
+        "description": "Ir a la monta\u00f1a",
+        "status": "Activa",
+        "dateCreated": "2024-06-06 20:56:10",
+        "dateUpdated": "2024-06-06 20:56:10",
+        "userId": 6
     }
 ]
