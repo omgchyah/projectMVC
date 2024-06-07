@@ -39,10 +39,8 @@ class TaskController extends Controller
         $view->render("scripts/app/list");
 
         $task = new Task();
-        //$tasks = $task->getAll();
 
         $date = new DateTime();
-        //$now = $date->format("Y-m-d H:i:s");
 
         $task->setId(0);
         $task->setName($_POST['task_name']);
@@ -54,16 +52,24 @@ class TaskController extends Controller
 
         $task->create();
 
+        $tasks = $task->getAll();
+
     }
 
 
     public function list()
     {
-        $task = new Task();
-        $tasks = $task->getAll();
 
         $task = new Task();
-        $tasks = $task->getAll();
+
+        $data = [
+            'tasks' => $task->getAll(),
+            'message' => 'This is a message for the view',
+          ];
+          
+          $view = new View();
+          $view->render($data);
+
 
     }
 
