@@ -3,6 +3,8 @@
 /**
  * A base model for handling the database connections
  */
+
+ //We didn't use this because we stored our data in a json file inside the data folder
 class Model
 {
 	protected $_dbh = null;

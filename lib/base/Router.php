@@ -24,6 +24,14 @@ class Router
 				// tries to find the a matching "parameter route"
 				$routeFound = $this->_getParameterRoute($routes, $controller, $action);
 			}
+
+			// Debugging output
+			
+			if (!$routeFound) {
+				echo "Route not found for URI: " . $this->_getUri() . "<br>";
+			} else {
+				echo "Route found: Controller = " . get_class($controller) . ", Action = " . $action . "<br>";
+			}
 			
 			// no route found, throw an exception to run the error controller
 			if (!$routeFound || $controller == null || $action == null) {
@@ -39,6 +47,7 @@ class Router
 			$controller = new ErrorController();
 			$controller->setException($exception);
 			$controller->execute('error');
+            echo $exception->getMessage();
 		}
 	}
 	
@@ -47,6 +56,7 @@ class Router
 	 * @param string $route the route (uri) to test
 	 * @return boolean
 	 */
+
 	public function hasParameters($route)
 	{
 		return preg_match('/(\/:[a-z]+)/', $route);
@@ -56,11 +66,15 @@ class Router
 	 * Fetches the current URI called
 	 * @return string the URI called
 	 */
+
 	protected function _getUri()
 	{
 		$uri = explode('?',$_SERVER['REQUEST_URI']);
 		$uri = $uri[0];
 		$uri = substr($uri, strlen(WEB_ROOT));
+
+		// Debugging output
+		echo "Current URI: " . $uri . "<br>";
 		
 		return $uri;
 	}
@@ -171,6 +185,10 @@ class Router
 		// initializes the controller
 		$controller = ucfirst($name) . 'Controller';
 		// constructs the controller
-		return new $controller();
+		if (class_exists($controller)) {
+			return new $controller();
+		} else {
+			throw new Exception('Controller class '. $controller .' not found');
+		}
 	}
 }

@@ -15,13 +15,10 @@ class Task extends Model
 
     public function __construct()
     {
-        parent::__construct(); // Call the parent constructor
         $this->filePath = ROOT_PATH . "/data/tasks.json";
-        $this->dateCreated = new DateTime(); // Set to current date and time
-        $this->dateUpdated = new DateTime(); // Set to current date and time
     }
 
-    //Getters
+    // Getters
     public function getId() : int
     {
         return $this->id;
@@ -34,10 +31,12 @@ class Task extends Model
     {
         return $this->description;
     }
-        public function getStatus(): Status
+
+    public function getStatus(): Status
     {
         return $this->status;
     }
+
     public function getDateCreated(): DateTime
     {
         return $this->dateCreated;  
@@ -46,12 +45,13 @@ class Task extends Model
     {
         return $this->dateUpdated;
     }
-        public function getUserId(): int
+
+    public function getUserId(): int
     {
         return $this->userId;
     }
 
-    //Setters
+    // Setters
     public function setId(int $id): void
     {
         $this->id = $id;
@@ -81,22 +81,77 @@ class Task extends Model
         $this->userId = $userId;
     }
 
-    public function fetchOne( $TaskName) {
-        $jsonContent = file_get_contents($this->filePath);
-        $data = json_decode($jsonContent, true);
-        foreach ($data as $element) {
-            if ($element['Name'] == $TaskName) {
-                return $element;
+    // Create
+    public function create()
+    {
+
+        $data = [
+            'id' => $this->getId(),
+            'task_name' => $this->getName(),
+            'description' => $this->getDescription(),
+            'status' => $this->getStatus()->name,
+            'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
+            'dateUpdated' => $this->getDateUpdated()->format('Y-m-d H:i:s'),//('Y-m-d H:i:s'),
+            'userId' => $this->getUserId()
+        ];
+
+        // Read the existing data from the JSON file
+        if (file_exists($this->filePath)) {
+            $jsonContent = file_get_contents($this->filePath);
+            $tasksArray = json_decode($jsonContent, true);
+        } else {
+            $tasksArray = [];
+        }
+
+        // Determine the next ID
+        if (empty($tasksArray)) {
+            $data['id'] = 1;
+        } else {
+            $lastTask = end($tasksArray);
+            $data['id'] = $lastTask['id'] + 1;
+        }
+
+          // Check for duplicate tasks
+        $duplicateFound = false;
+        foreach ($tasksArray as $existingTask) {
+            if ($existingTask['userId'] === $data['userId'] && $existingTask['task_name'] === $data['task_name']) {
+             $duplicateFound = true;
+            break; // Exit the loop if a duplicate is found
             }
         }
-        return null; 
+
+        // Add the new task if no duplicate is found
+        if (!$duplicateFound) {
+            $tasksArray[] = $data;
+        } else {
+            // Handle the case where a duplicate is found (e.g., display an error message)
+            die("Task with the same name already exists for this user!");
+        }
+
+    // Write the updated array back to the JSON file
+    if (file_put_contents($this->filePath, json_encode($tasksArray, JSON_PRETTY_PRINT)) === false) {
+        die("Unable to write to file!");
     }
-  
-	public function fetchAll()
-	{
-        $jsonContent = file_get_contents($this->filePath);
-        $data = json_decode($jsonContent, true);
-        return $data;
+
+        //print_r($data);
+
     }
-  
+
+    public function getAll(): array
+    {
+        // Read the existing data from the JSON file
+        if (file_exists($this->filePath)) {
+            $jsonContent = file_get_contents($this->filePath);
+            $tasksArray = json_decode($jsonContent, true);
+        } else {
+            $tasksArray = [];
+        }
+
+        return $tasksArray;
+
+    }
+
 }
+
+
+
