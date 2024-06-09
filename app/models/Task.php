@@ -150,6 +150,18 @@ class Task extends Model
         return $tasksArray;
 
     }
+    public function deletetask($id)
+    {
+        $jsonContent = file_get_contents($this->filePath);
+        json_decode($jsonContent , true);
+            foreach($jsonContent as $tasktodelete){
+                if ($jsonContent['id'] == $id ){
+                    unset($jsonContent[$tasktodelete]);
+                    file_put_contents($this->filePath, json_encode(array_values($jsonContent), JSON_PRETTY_PRINT)); 
+                    echo "Tarea eliminada correctamente";
+            }
+        } 
+    }
 
 }
 

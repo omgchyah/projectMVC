@@ -53,6 +53,7 @@ class TaskController extends Controller
         $task->create();
 
         $tasks = $task->getAll();
+        
 
     }
 
@@ -71,6 +72,14 @@ class TaskController extends Controller
           $view->render($data);
 
 
+    }
+    public function delete() {
+        if (isset($_POST['id'])) {
+            $task = new Task();
+            $task->deletetask($_POST['id']);
+            header('Location: ' . WEB_ROOT . '/task/index');
+            exit;
+        }
     }
 
 

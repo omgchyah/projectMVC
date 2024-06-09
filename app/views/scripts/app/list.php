@@ -26,6 +26,11 @@
                     <td><?php echo htmlspecialchars($task->getStatus()); ?></td> <td><?php echo htmlspecialchars($task->getDateCreated()); ?></td>
                     <td><?php echo htmlspecialchars($task->getDateUpdated()); ?></td>
                     <td><?php echo htmlspecialchars($task->getUserId()); ?></td>
+                    <form action="<?php echo WEB_ROOT; ?>/task/delete" method="post" >
+                            <input type="hidden" name="id" value="<?php echo $task->getId(); ?>">
+                            <button type="submit">Delete</button>
+                        </form>
+
                 </tr>
             <?php endforeach; ?>
         </table>
