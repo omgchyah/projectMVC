@@ -15,5 +15,5 @@
     '/' => 'application#index', // Root URL
     '/task/execute' => 'task#execute', // Route for dynamic actions
     '/task/store' => 'task#store', // Route for listing tasks
-    // Add other routes here as needed
+    '/task/delete' => 'task#delete', // Route for deliting tasks
 ];
