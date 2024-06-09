@@ -88,5 +88,95 @@
         "dateCreated": "2024-06-06 22:51:29",
         "dateUpdated": "2024-06-06 22:51:29",
         "userId": 2
+    },
+    {
+        "id": 11,
+        "task_name": "Hacer la compra",
+        "description": "Ir al Aldi",
+        "status": "Activa",
+        "dateCreated": "2024-06-07 11:05:42",
+        "dateUpdated": "2024-06-07 11:05:42",
+        "userId": 1
+    },
+    {
+        "id": 12,
+        "task_name": "Sacar al perro",
+        "description": "Ir a Montjuic",
+        "status": "Activa",
+        "dateCreated": "2024-06-07 11:20:15",
+        "dateUpdated": "2024-06-07 11:20:15",
+        "userId": 1
+    },
+    {
+        "id": 13,
+        "task_name": "Limpiar ba\u00f1o",
+        "description": "S\u00e1bado",
+        "status": "Activa",
+        "dateCreated": "2024-06-07 11:21:45",
+        "dateUpdated": "2024-06-07 11:21:45",
+        "userId": 1
+    },
+    {
+        "id": 14,
+        "task_name": "Ir a casa de mi tio",
+        "description": "ddfshbdfs",
+        "status": "Activa",
+        "dateCreated": "2024-06-09 14:57:40",
+        "dateUpdated": "2024-06-09 14:57:40",
+        "userId": 4
+    },
+    {
+        "id": 15,
+        "task_name": "5454",
+        "description": "rrteet",
+        "status": "Activa",
+        "dateCreated": "2024-06-09 15:01:29",
+        "dateUpdated": "2024-06-09 15:01:29",
+        "userId": 3
+    },
+    {
+        "id": 16,
+        "task_name": "ychv",
+        "description": "nhjnh",
+        "status": "Activa",
+        "dateCreated": "2024-06-09 15:18:30",
+        "dateUpdated": "2024-06-09 15:18:30",
+        "userId": 5
+    },
+    {
+        "id": 17,
+        "task_name": "ychv",
+        "description": "nhjnh",
+        "status": "Activa",
+        "dateCreated": "2024-06-09 15:19:24",
+        "dateUpdated": "2024-06-09 15:19:24",
+        "userId": 5
+    },
+    {
+        "id": 18,
+        "task_name": "ychv",
+        "description": "nhjnh",
+        "status": "Activa",
+        "dateCreated": "2024-06-09 15:21:51",
+        "dateUpdated": "2024-06-09 15:21:51",
+        "userId": 5
+    },
+    {
+        "id": 19,
+        "task_name": "ychv",
+        "description": "nhjnh",
+        "status": "Activa",
+        "dateCreated": "2024-06-09 15:22:05",
+        "dateUpdated": "2024-06-09 15:22:05",
+        "userId": 5
+    },
+    {
+        "id": 20,
+        "task_name": "76",
+        "description": "vgjkv",
+        "status": "Activa",
+        "dateCreated": "2024-06-09 15:34:29",
+        "dateUpdated": "2024-06-09 15:34:29",
+        "userId": 6
     }
 ]

@@ -82,58 +82,104 @@ class Task extends Model
     }
 
     // Create
-    public function create()
+    public function create($data=[])
     {
 
-        $data = [
-            'id' => $this->getId(),
-            'task_name' => $this->getName(),
-            'description' => $this->getDescription(),
-            'status' => $this->getStatus()->name,
-            'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
-            'dateUpdated' => $this->getDateUpdated()->format('Y-m-d H:i:s'),//('Y-m-d H:i:s'),
-            'userId' => $this->getUserId()
-        ];
+    //     $data = [
+    //         'id' => $this->getId(),
+    //         'task_name' => $this->getName(),
+    //         'description' => $this->getDescription(),
+    //         'status' => $this->getStatus()->name,
+    //         'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
+    //         'dateUpdated' => $this->getDateUpdated()->format('Y-m-d H:i:s'),//('Y-m-d H:i:s'),
+    //         'userId' => $this->getUserId()
+    //     ];
+
+    //     // Read the existing data from the JSON file
+    //     if (file_exists($this->filePath)) {
+    //         $jsonContent = file_get_contents($this->filePath);
+    //         $tasksArray = json_decode($jsonContent, true);
+    //     } else {
+    //         $tasksArray = [];
+    //     }
+
+    //     // Determine the next ID
+    //     if (empty($tasksArray)) {
+    //         $data['id'] = 1;
+    //     } else {
+    //         $lastTask = end($tasksArray);
+    //         $data['id'] = $lastTask['id'] + 1;
+    //     }
+
+    //       // Check for duplicate tasks
+    //     $duplicateFound = false;
+    //     foreach ($tasksArray as $existingTask) {
+    //         if ($existingTask['userId'] === $data['userId'] && $existingTask['task_name'] === $data['task_name']) {
+    //          $duplicateFound = true;
+    //         break; // Exit the loop if a duplicate is found
+    //         }
+    //     }
+
+    //     // Add the new task if no duplicate is found
+    //     if (!$duplicateFound) {
+    //         $tasksArray[] = $data;
+    //     } else {
+    //         // Handle the case where a duplicate is found (e.g., display an error message)
+    //         die("Task with the same name already exists for this user!");
+    //     }
+
+    //     $_SESSION['tasks']=$tasksArray;
+
+    // // Write the updated array back to the JSON file
+    // if (file_put_contents($this->filePath, json_encode($tasksArray, JSON_PRETTY_PRINT)) === false) {
+    //     die("Unable to write to file!");
+    // }
+
+        //print_r($data);
+
+        $data = array_merge([
+            "id" => $this->getId(),
+            "task_name" => $this->getName(),
+            "description" => $this->getDescription(),
+            "status" => $this->getStatus()->name,
+            "dateCreated" => $this->getDateCreated()->format('Y-m-d H:i:s'),
+            "dateUpdated" => $this->getDateUpdated()->format('Y-m-d H:i:s'),
+            "userId" => $this->getUserId(),
+        ], $data);
 
         // Read the existing data from the JSON file
         if (file_exists($this->filePath)) {
             $jsonContent = file_get_contents($this->filePath);
-            $tasksArray = json_decode($jsonContent, true);
+            $tasks = json_decode($jsonContent, true);
         } else {
-            $tasksArray = [];
+            $tasks = [];
         }
 
         // Determine the next ID
-        if (empty($tasksArray)) {
+        if (empty($tasks)) {
             $data['id'] = 1;
         } else {
-            $lastTask = end($tasksArray);
+            $lastTask = end($tasks);
             $data['id'] = $lastTask['id'] + 1;
         }
 
-          // Check for duplicate tasks
-        $duplicateFound = false;
-        foreach ($tasksArray as $existingTask) {
-            if ($existingTask['userId'] === $data['userId'] && $existingTask['task_name'] === $data['task_name']) {
-             $duplicateFound = true;
-            break; // Exit the loop if a duplicate is found
-            }
+        // Set creation and update dates
+        //$data['dateCreated'] = (new DateTime());
+        //$data['dateUpdated'] = $data['dateCreated'];
+        //$data['status']=$data['status']->name;
+
+        // Add the new task to the array
+        $tasks[] = $data;
+
+       $_SESSION['tasks']=$tasks;
+
+        
+        if (file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT ))) {
+            return true; 
         }
-
-        // Add the new task if no duplicate is found
-        if (!$duplicateFound) {
-            $tasksArray[] = $data;
-        } else {
-            // Handle the case where a duplicate is found (e.g., display an error message)
-            die("Task with the same name already exists for this user!");
+        else{
+            return false; 
         }
-
-    // Write the updated array back to the JSON file
-    if (file_put_contents($this->filePath, json_encode($tasksArray, JSON_PRETTY_PRINT)) === false) {
-        die("Unable to write to file!");
-    }
-
-        //print_r($data);
 
     }
 
