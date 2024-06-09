@@ -83,4 +83,12 @@ class TaskController extends Controller
     }
 
 
+    public function saveUpdate() {
+        if (isset($_POST['id'])) {
+            $task = new Task();
+            $task->updateTaskById($_POST);
+            header('Location: ' . WEB_ROOT . '/task/store');
+            exit;
+        }
+    }
 }

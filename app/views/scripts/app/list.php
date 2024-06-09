@@ -23,13 +23,18 @@
                 <tr>
                     <td><?php echo htmlspecialchars($task->getName()); ?></td>
                     <td><?php echo htmlspecialchars($task->getDescription()); ?></td>
-                    <td><?php echo htmlspecialchars($task->getStatus()); ?></td> <td><?php echo htmlspecialchars($task->getDateCreated()); ?></td>
+                    <td><?php echo htmlspecialchars($task->getStatus()); ?></td>
+                    <td><?php echo htmlspecialchars($task->getDateCreated()); ?></td>
                     <td><?php echo htmlspecialchars($task->getDateUpdated()); ?></td>
                     <td><?php echo htmlspecialchars($task->getUserId()); ?></td>
+                    <form action="<?php echo WEB_ROOT; ?>/task/update" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="<?php echo $task->getId(); ?>">
+                            <button type="submit">Update</button>
+                    </form>
                     <form action="<?php echo WEB_ROOT; ?>/task/delete" method="post" >
                             <input type="hidden" name="id" value="<?php echo $task->getId(); ?>">
                             <button type="submit">Delete</button>
-                        </form>
+                    </form>
 
                 </tr>
             <?php endforeach; ?>

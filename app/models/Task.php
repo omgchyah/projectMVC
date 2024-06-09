@@ -162,6 +162,19 @@ class Task extends Model
             }
         } 
     }
+    public function updatetask($data) {
+        $tasks = $this->getAllTasks();
+        foreach ($tasks as &$task) {
+            if ($task['id'] == $data['id']) {
+                $task['name'] = $data['name'];
+                $task['description'] = $data['description'];
+                $task['status'] = $data['status'];
+                $task['dateUpdated'] = date('Y-m-d H:i:s');
+                break;
+            }
+        }
+        file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT));
+    }
 
 }
 

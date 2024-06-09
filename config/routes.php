@@ -16,4 +16,6 @@
     '/task/execute' => 'task#execute', // Route for dynamic actions
     '/task/store' => 'task#store', // Route for listing tasks
     '/task/delete' => 'task#delete', // Route for deliting tasks
+    '/task/update' => 'task#update',// Route for update tasks
+    '/task/saveUpdate' => 'task#saveUpdate',// Route for save updated tasks
 ];
