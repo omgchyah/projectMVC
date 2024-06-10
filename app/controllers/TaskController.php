@@ -34,9 +34,6 @@ class TaskController extends Controller
         $view = new View();
         $view->render("scripts/app/create");
 
-        $task = new Task();
-        $tasks = $task->getAll();
-
     }
 
     public function store()
@@ -47,7 +44,13 @@ class TaskController extends Controller
         $task->setId(0);
         $task->setName($_POST['task_name']);
         $task->setDescription($_POST['description']);
-        $task->setUserId($_POST['user_id']);
+        $task->setUserId($_POST['userId']);
+        // Validate input
+        if ($task->getUserId() < 0) {
+            // Handle invalid input
+            echo "User ID cannot be negative.";
+            return;
+        }
         $task->setStatus(Status::Activa);
         $task->setDateCreated($date);
         $task->setDateUpdated($date);
