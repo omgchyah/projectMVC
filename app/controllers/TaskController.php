@@ -38,8 +38,6 @@ class TaskController extends Controller
         $task = new Task();
         $tasks = $task->getAll();
 
-        $this->view->message = "Hello";
-
     }
 
     public function store()

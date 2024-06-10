@@ -33,10 +33,13 @@
             <td><?php echo $task['dateUpdated']; ?></td>
             <td><?php echo $task['userId']; ?></td>
             <td>
+
+
+
                 <a href="edit_task.php?task_id=<?php echo $id; ?>">Update</a>
-                <form action="delete_task.php" method="post" style="display:inline;">
+                <form action="<?php echo WEB_ROOT; ?>/task/update" method="post" style="display:inline;">
                     <input type="hidden" name="task_id" value="<?php echo $id; ?>">
-                    <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this task?');">
+                    <input type="submit" value="Delete" onclick="return confirm('¿Quieres borrar esta tarea');">
                 </form>
             </td>
             </tr>
