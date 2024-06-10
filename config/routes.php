@@ -10,12 +10,11 @@
  * '/calendar' => 'calendar#index'
  */
 
- //Modified by Ross
  $routes = [
     '/' => 'application#index', // Root URL
-    '/task/execute' => 'task#execute', // Route for dynamic actions
+    '/task/execute' => 'task#execute', // Route for dynamic action
     '/task/store' => 'task#store',
     '/task/list' => 'task#list', // Route for listing tasks
-    '/task/user' => 'task#user'
-    // Add other routes here as needed
+    '/task/user' => 'task#user',
+    '/task/delete' => 'task#delete', // Route for deliting tasks
 ];

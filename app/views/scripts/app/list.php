@@ -55,8 +55,13 @@
                     <input type="hidden" name="task_id" value="<?php echo $id; ?>">
                     <input type="submit" value="Delete" onclick="return confirm('¿Quieres borrar esta tarea');">
                 </form>
+                <form action="<?php echo WEB_ROOT; ?>/task/delete" method="post" >
+                            <input type="hidden" name="id" value="<?php echo $task->getId(); ?>">
+                            <button type="submit">Delete</button>
+                        </form>
             </td>
             </tr>
+
             <?php endforeach; ?>
             </tbody>
         </table>

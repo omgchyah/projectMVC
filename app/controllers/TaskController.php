@@ -55,6 +55,7 @@ class TaskController extends Controller
         $task->create();
 
         $tasks = $task->getAll();
+        
 
         $_SESSION['tasks']=$tasks;
 
@@ -89,6 +90,14 @@ class TaskController extends Controller
 
 
 
+    }
+    public function delete() {
+        if (isset($_POST['id'])) {
+            $task = new Task();
+            $task->deletetask($_POST['id']);
+            header('Location: ' . WEB_ROOT . '/task/index');
+            exit;
+        }
     }
 
 
