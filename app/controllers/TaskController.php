@@ -91,6 +91,18 @@ class TaskController extends Controller
         $view->render("scripts/app/find");
     }
 
+    public function showone()
+    {
+        $task = new Task();
+
+        $taskFound = $task->getOneTask($_POST['id']);
+
+        $_SESSION['tasksFound'] = $taskFound;
+
+        $view = new View();
+        $view->render("scripts/app/find");
+    }
+
     public function find()
     {
         $task = new Task();

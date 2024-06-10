@@ -182,6 +182,31 @@ class Task extends Model
         return $tasksFound;
     }
 
+    public function getOneTask(int $id)
+    {
+
+        $tasksFound = [];
+
+        //Read the data from JSON file
+        if (file_exists($this->filePath)) {
+            $jsonContent = file_get_contents($this->filePath);
+            $tasks = json_decode($jsonContent, true);
+        } else {
+            $tasks = [];
+        }
+
+        foreach ($tasks as $task) {
+            if ($task['id'] === $id) {
+                $tasksFound[] = $task;
+
+            }    
+        }
+        
+        $_SESSION['tasksFound']=$tasksFound;
+        return $tasksFound;
+
+    }
+
     public function findTasks(string $string): array
     {
         $tasksFound = [];

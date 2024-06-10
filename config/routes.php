@@ -17,5 +17,6 @@
     '/task/list' => 'task#list', // Route for listing tasks
     '/task/user' => 'task#user',
     '/task/find' => 'task#find',
+    '/task/showone' => 'task#showone',
     '/task/delete' => 'task#delete', // Route for deliting tasks
 ];

@@ -36,7 +36,7 @@
             <?php 
             if(isset($_SESSION['tasksFound']))
             {
-                $tasks=$_SESSION['tasksFound'];
+                $tasks = $_SESSION['tasksFound'];
             }
             foreach ($tasks as $task): ?>
             <tr>
