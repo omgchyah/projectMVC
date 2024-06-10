@@ -69,6 +69,12 @@
                 <button type="submit" style="display:inline;">Buscar</button>
             </form>
 
+            <label for="user_id">Introduce una palabra clave para buscar tarea:</label>
+            <form action="<?php echo WEB_ROOT; ?>/task/find" method="post" style="display:inline;">
+                <input type="text" id="string" name="string" required style="display:inline; margin-right:10px;">
+                <button type="submit" style="display:inline;">Buscar</button>
+            </form>
+
 
 
     <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post">

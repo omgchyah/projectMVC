@@ -175,11 +175,36 @@ class Task extends Model
         foreach ($tasks as $task) {
             if ($task['userId'] === $userId) {
                 $tasksFound[] = $task;
-                $_SESSION['tasksFound']=$tasksFound;
+
             }    
         }
+        $_SESSION['tasksFound']=$tasksFound;
         return $tasksFound;
     }
+
+    public function findTasks(string $string): array
+    {
+        $tasksFound = [];
+
+        //Read the data from JSON file
+        if (file_exists($this->filePath)) {
+            $jsonContent = file_get_contents($this->filePath);
+            $tasks = json_decode($jsonContent, true);
+        } else {
+            $tasks = [];
+        }
+
+        foreach($tasks as $task) {
+            if (strstr($task['task_name'], $string)) {
+                $tasksFound[] = $task;
+            }
+        }
+
+        $_SESSION['tasksFound']=$tasksFound;
+
+        return $tasksFound;
+    }
+
     public function deletetask($id)
     {
         $jsonContent = file_get_contents($this->filePath);

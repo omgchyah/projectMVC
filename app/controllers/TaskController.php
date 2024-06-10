@@ -80,12 +80,25 @@ class TaskController extends Controller
     {
         $task = new Task();
 
-        $allTasksUser = $task->getAllTasksUser($_POST['user_id']);
+        $tasksFound = $task->getAllTasksUser($_POST['user_id']);
 
-        $_SESSION['allTasksUser']=$allTasksUser;
+        $_SESSION['tasksFounds'] = $tasksFound;
 
         $view = new View();
-        $view->render("scripts/app/user");
+        $view->render("scripts/app/find");
+    }
+
+    public function find()
+    {
+        $task = new Task();
+
+        $tasksFound = $task->findTasks($_POST['string']);
+
+        $_SESSION['tasksFound'] = $tasksFound;
+
+        $view = new View();
+        $view->render("scripts/app/find");
+
     }
 
     public function delete() {
