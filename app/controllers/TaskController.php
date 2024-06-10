@@ -73,17 +73,18 @@ class TaskController extends Controller
 
 
     }
-    public function delete() {
-        if (isset($_POST['id'])) {
+    public function update() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
             $task = new Task();
-            $task->deletetask($_POST['id']);
-            header('Location: ' . WEB_ROOT . '/task/index');
-            exit;
+            $taskData = $task->getTaskById($_POST['id']);
+            $viewData['task'] = $taskData;
         }
+        $view = new View();
+        $view->render("scripts/app/update");
     }
 
 
-    public function saveupdate() {
+    public function saveUpdate() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
             $task = new Task();
             $task->updateTask($_POST); 
@@ -91,6 +92,7 @@ class TaskController extends Controller
             exit;
         }
         $view = new View();
-        $view->render("scripts/app/list");
+        $view->render("scripts/app/saveUpdate");
     }
+
 }
