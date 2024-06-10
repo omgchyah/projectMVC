@@ -162,6 +162,19 @@ class Task extends Model
             }
         } 
     }
+   
+    public function getTaskById($id) {
+        $jsonContent = file_get_contents($this->filePath);
+        $tasks = json_decode($jsonContent, true);
+        foreach ($tasks as $task) {
+            if ($task['id'] == $id) {
+                return $task;
+            }
+        }
+        return null;
+    }
+
+
     public function updateTask($data) {
         $jsonContent = file_get_contents($this->filePath);
         $tasks = json_decode($jsonContent, true);
@@ -176,7 +189,6 @@ class Task extends Model
                 break;
             }
         }
-        
         file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT));
     }
 }
