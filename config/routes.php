@@ -13,8 +13,9 @@
  //Modified by Ross
  $routes = [
     '/' => 'application#index', // Root URL
-    '/task/execute' => 'task#execute', // Route for dynamic actions
+    '/task/execute' => 'task#execute', // Route for dynamic action
     '/task/store' => 'task#store',
-    '/task/list' => 'task#list' // Route for listing tasks
-    // Add other routes here as needed
+    '/task/list' => 'task#list',
+    '/task/delete' => 'task#delete', // Route for deliting tasks
+
 ];
