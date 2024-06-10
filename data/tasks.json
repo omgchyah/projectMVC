@@ -196,5 +196,14 @@
         "dateCreated": "2024-06-10 10:29:09",
         "dateUpdated": "2024-06-10 10:29:09",
         "userId": 4
+    },
+    {
+        "id": 23,
+        "task_name": "43232",
+        "description": "223",
+        "status": "Activa",
+        "dateCreated": "2024-06-10 11:47:03",
+        "dateUpdated": "2024-06-10 11:47:03",
+        "userId": 2
     }
 ]

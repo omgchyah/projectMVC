@@ -174,14 +174,6 @@ class Task extends Model
 
         foreach ($tasks as $task) {
             if ($task['userId'] === $userId) {
-                /*$task = new Task();
-                $task->setId($task['id']);
-                $task->setName($task['task_name']);
-                $task->setDescription($task['description']);
-                $task->setStatus($task['status']);
-                $task->setDateCreated($task['dateCreated']);
-                $task->setDateUpdated($task['dateUpdated']);
-                $task->setUserId($task['userId']);*/
                 $tasksFound[] = $task;
                 $_SESSION['tasksFound']=$tasksFound;
             }    

@@ -86,11 +86,8 @@ class TaskController extends Controller
 
         $view = new View();
         $view->render("scripts/app/user");
-
-
-
-
     }
+
     public function delete() {
         if (isset($_POST['id'])) {
             $task = new Task();
