@@ -1,12 +1,21 @@
 <?php
 
-class TaskController extends Controller 
+class TaskController extends Controller
 {
+
+    private Task $task;
+    private array $tasks;
     // Added by Ross
     public function __construct()
     {
+        $this->task = new Task();
         // Common initialization code
         echo "TaskController initialized<br>" . WEB_ROOT;
+    }
+
+    public function getAllTasks(): array
+    {
+        return $this->task->getAll();
     }
 
     public function execute($action = "create")
@@ -17,8 +26,7 @@ class TaskController extends Controller
             echo "Action '$action' not found.";
         }
 
-        $task = new Task();
-        $tasks = $task->getAll();
+
     }
 
 
@@ -35,8 +43,7 @@ class TaskController extends Controller
     public function store()
     {
 
-        $view = new View();
-        $view->render("scripts/app/list");
+       
 
         $task = new Task();
 
@@ -55,6 +62,13 @@ class TaskController extends Controller
         $tasks = $task->getAll();
         
 
+        $_SESSION['tasks']=$tasks;
+
+        $view = new View();
+        $view->render("scripts/app/list");
+
+        
+
     }
 
 
@@ -62,14 +76,14 @@ class TaskController extends Controller
     {
 
         $task = new Task();
+        $tasks = $task->getAll();
 
-        $data = [
-            'tasks' => $task->getAll(),
-            'message' => 'This is a message for the view',
-          ];
+        $_SESSION['tasks']=$tasks;
           
-          $view = new View();
-          $view->render($data);
+        $view = new View();
+        $view->render("scripts/app/list");
+
+          
 
 
     }
