@@ -97,7 +97,7 @@ class TaskController extends Controller
             $task->deletetask($_POST['id']);
         }
         $view = new View();
-        $view->render("scripts/app/list");
+        $view->render("scripts/app/delete");
     }
 
 }
