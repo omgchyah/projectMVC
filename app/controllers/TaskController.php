@@ -29,7 +29,6 @@ class TaskController extends Controller
 
     }
 
-
     public function create()
     {
         $view = new View();
@@ -42,11 +41,7 @@ class TaskController extends Controller
 
     public function store()
     {
-
-       
-
         $task = new Task();
-
         $date = new DateTime();
 
         $task->setId(0);
@@ -65,9 +60,6 @@ class TaskController extends Controller
 
         $view = new View();
         $view->render("scripts/app/list");
-
-        
-
     }
 
 
@@ -81,8 +73,20 @@ class TaskController extends Controller
           
         $view = new View();
         $view->render("scripts/app/list");
+    }
 
-          
+    public function user()
+    {
+        $task = new Task();
+
+        $allTasksUser = $task->getAllTasksUser($_POST['user_id']);
+
+        $_SESSION['allTasksUser']=$allTasksUser;
+
+        $view = new View();
+        $view->render("scripts/app/user");
+
+
 
 
     }

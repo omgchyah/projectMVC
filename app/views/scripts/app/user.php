@@ -34,9 +34,9 @@
             </thead>
             <tbody>
             <?php 
-            if(isset($_SESSION['tasks']))
+            if(isset($_SESSION['allTasksUser']))
             {
-                $tasks=$_SESSION['tasks'];
+                $tasks=$_SESSION['allTasksUser'];
             }
             foreach ($tasks as $task): ?>
             <tr>
@@ -60,21 +60,3 @@
             <?php endforeach; ?>
             </tbody>
         </table>
-
-        <label for="user_id">Introduzca ID de usuario para mostrar sus tareas:</label>
-        <form action="<?php echo WEB_ROOT; ?>/task/user" method="post" class="inline-form">
-            <input type="number" id="user_id" name="user_id" required class="inline-input">
-            <button type="submit" class="inline-button">Buscar</button>
-        </form>
-
-
-
-
-
-            <!--Create new task -->
-    <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post">
-        <input type="hidden" name="action" value="create">
-        <button type="submit">Create New Task</button>
-    </form>
-</body>
-</html>
