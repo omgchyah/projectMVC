@@ -65,7 +65,7 @@
 
             <label for="user_id">Introduzca ID de usuario para mostrar sus tareas:</label>
             <form action="<?php echo WEB_ROOT; ?>/task/user" method="post" style="display:inline;">
-                <input type="number" id="user_id" name="user_id" required style="display:inline; margin-right:10px;">
+                <input type="number" id="user_id" name="user_id" required min="1" style="display:inline; margin-right:10px;">
                 <button type="submit" style="display:inline;">Buscar</button>
             </form>
 
