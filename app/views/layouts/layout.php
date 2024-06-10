@@ -28,45 +28,51 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <header class="fixed top-0 left-0 right-0 z-10 flex items-center justify-between h-16 p-4 text-sky-950 bg-gradient-to-r from-green-500 via-lightgreen-500 to-white">
-        <div class="relative">
-            <button id="dropdownButton" class="p-3 text-xl text-white bg-purple-600 rounded-full">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div id="dropdownMenu" class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg">
-                <form action="<?php echo WEB_ROOT; ?>/" method="post">
-                    <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Home</button>
+    <header class="fixed top-0 left-0 right-0 z-10 bg-gradient-to-r from-green-500 via-lightgreen-500 to-white">
+        <div class="flex justify-end p-4 font-serif text-xl italic text-sky-950">
+            <span>Quehaceres.com</span>
+        </div>
+        <div class="flex items-center justify-between p-4">
+            <div class="relative">
+                <button id="dropdownButton" class="p-3 text-white bg-purple-600 rounded-full text-1xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div id="dropdownMenu" class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg">
+                    <form action="<?php echo WEB_ROOT; ?>/" method="post">
+                        <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Home</button>
+                    </form>
+                    <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post">
+                        <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Create New Task</button>
+                    </form>
+                    <form action="<?php echo WEB_ROOT; ?>/task/list" method="post">
+                        <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">List All Tasks</button>
+                    </form>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <form action="<?php echo WEB_ROOT; ?>/" method="post" class="inline">
+                    <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-home"></i></button>
                 </form>
-                <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post">
-                    <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Create New Task</button>
+                <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post" class="inline">
+                    <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-plus-circle"></i></button>
                 </form>
-                <form action="<?php echo WEB_ROOT; ?>/task/list" method="post">
-                    <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">List All Tasks</button>
+                <form action="<?php echo WEB_ROOT; ?>/task/list" method="post" class="inline">
+                    <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-tasks"></i></button>
                 </form>
             </div>
         </div>
-        <span class="font-serif text-xl italic">Quehaceres.com</span>
-        <div class="flex space-x-4">
-            <form action="<?php echo WEB_ROOT; ?>/" method="post" class="inline">
-                <button type="submit" class="text-3xl text-purple-600"><i class="fas fa-home"></i></button>
-            </form>
-            <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post" class="inline">
-                <button type="submit" class="text-3xl text-purple-600"><i class="fas fa-plus-circle"></i></button>
-            </form>
-            <form action="<?php echo WEB_ROOT; ?>/task/list" method="post" class="inline">
-                <button type="submit" class="text-3xl text-purple-600"><i class="fas fa-tasks"></i></button>
-            </form>
-        </div>
     </header>
 
-    <main class="flex-grow pt-16 pb-24">
+    <main class="flex-grow pt-32 pb-24">
         <?php echo $this->content(); ?>
     </main>
     
     <footer class="fixed bottom-0 left-0 right-0 flex items-center justify-between h-24 px-10 bg-gradient-to-r from-white via-lightgreen-500 to-green-500">
-        <p class="text-3xl italic text-purple-600">
-            By Gabriel & Rossana
-        </p>
+        <div class="flex-1 text-center">
+            <p class="text-sm italic text-purple-600">
+                By Gabriel & Rossana
+            </p>
+        </div>
         <div class="flex items-center space-x-4">
             <input type="date" class="px-2 py-1 border rounded">
         </div>
