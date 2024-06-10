@@ -97,5 +97,23 @@
         "dateCreated": "2024-06-09 23:38:19",
         "dateUpdated": "2024-06-09 23:38:19",
         "userId": 1
+    },
+    {
+        "id": 12,
+        "task_name": "g",
+        "description": "g",
+        "status": "Activa",
+        "dateCreated": "2024-06-10 22:49:10",
+        "dateUpdated": "2024-06-10 22:49:10",
+        "userId": 1
+    },
+    {
+        "id": 13,
+        "task_name": "s",
+        "description": "s",
+        "status": "Activa",
+        "dateCreated": "2024-06-10 22:50:50",
+        "dateUpdated": "2024-06-10 22:50:50",
+        "userId": 1
     }
 ]

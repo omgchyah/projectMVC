@@ -83,12 +83,14 @@ class TaskController extends Controller
     }
 
 
-    public function saveUpdate() {
-        if (isset($_POST['id'])) {
+    public function saveupdate() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
             $task = new Task();
-            $task->updateTaskById($_POST);
-            header('Location: ' . WEB_ROOT . '/task/store');
+            $task->updateTask($_POST); 
+            header('Location: ' . WEB_ROOT . '/task/list');
             exit;
         }
+        $view = new View();
+        $view->render("scripts/app/list");
     }
 }

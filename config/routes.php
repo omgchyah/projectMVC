@@ -12,10 +12,11 @@
 
  //Modified by Ross
  $routes = [
-    '/' => 'application#index', // Root URL
-    '/task/execute' => 'task#execute', // Route for dynamic actions
-    '/task/store' => 'task#store', // Route for listing tasks
-    '/task/delete' => 'task#delete', // Route for deliting tasks
-    '/task/update' => 'task#update',// Route for update tasks
-    '/task/saveUpdate' => 'task#saveUpdate',// Route for save updated tasks
+    '/' => 'application#index', 
+    '/task/execute' => 'task#execute', 
+    '/task/store' => 'task#store',
+    '/task/list' => 'task#list',
+    '/task/delete' => 'task#delete', 
+    '/task/update' => 'task#update', 
+    '/task/saveUpdate' => 'task#saveupdate', 
 ];
