@@ -95,6 +95,9 @@ class TaskController extends Controller
             header('Location: ' . WEB_ROOT . '/task/index');
             exit;
         }
+
+        $view = new View();
+        $view->render('scripts/app/list');
     }
 
 

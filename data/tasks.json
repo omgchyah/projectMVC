@@ -205,5 +205,41 @@
         "dateCreated": "2024-06-10 11:47:03",
         "dateUpdated": "2024-06-10 11:47:03",
         "userId": 2
+    },
+    {
+        "id": 24,
+        "task_name": "Terminar esta mierda",
+        "description": "YA",
+        "status": "Activa",
+        "dateCreated": "2024-06-10 11:49:04",
+        "dateUpdated": "2024-06-10 11:49:04",
+        "userId": 1
+    },
+    {
+        "id": 25,
+        "task_name": "tytt",
+        "description": "erete",
+        "status": "Activa",
+        "dateCreated": "2024-06-10 11:51:03",
+        "dateUpdated": "2024-06-10 11:51:03",
+        "userId": 54434
+    },
+    {
+        "id": 26,
+        "task_name": "554",
+        "description": "5444",
+        "status": "Activa",
+        "dateCreated": "2024-06-10 12:40:16",
+        "dateUpdated": "2024-06-10 12:40:16",
+        "userId": 333
+    },
+    {
+        "id": 27,
+        "task_name": "553",
+        "description": "3434",
+        "status": "Activa",
+        "dateCreated": "2024-06-10 12:41:45",
+        "dateUpdated": "2024-06-10 12:41:45",
+        "userId": 33
     }
 ]
