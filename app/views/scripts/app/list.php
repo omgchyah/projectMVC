@@ -76,12 +76,15 @@
                 <td class="px-4 py-2 border"><?php echo $task['dateUpdated']; ?></td>
                 <td class="px-4 py-2 border"><?php echo $task['userId']; ?></td>
                 <td class="px-4 py-2 border">
-                    <a href="edit_task.php?task_id=<?php echo $task['id']; ?>" class="text-blue-500 underline">Update</a>
-                    <form action="<?php echo WEB_ROOT; ?>/task/update" method="post" class="inline">
-                        <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
-                        <input type="submit" value="Delete" onclick="return confirm('¿Quieres borrar esta tarea?');" class="text-red-500 underline">
-                    </form>
-                </td>
+                <form action="<?php echo WEB_ROOT; ?>/task/edit" method="get" class="inline">
+                    <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
+                    <button type="submit" class="text-blue-500 underline">Update</button>
+                </form>
+                <form action="<?php echo WEB_ROOT; ?>/task/delete" method="post" class="inline">
+                    <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
+                    <input type="submit" value="Delete" onclick="return confirm('¿Quieres borrar esta tarea?');" class="text-red-500 underline">
+                </form>
+            </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

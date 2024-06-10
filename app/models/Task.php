@@ -134,7 +134,7 @@ class Task extends Model
        $_SESSION['tasks']=$tasks;
 
         
-        if (file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT ))) {
+        if (file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
             return true; 
         }
         else{

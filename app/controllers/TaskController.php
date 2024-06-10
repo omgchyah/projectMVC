@@ -116,16 +116,31 @@ class TaskController extends Controller
 
     }
 
-    public function delete() {
-        if (isset($_POST['id'])) {
-            $task = new Task();
-            $task->deletetask($_POST['id']);
-            header('Location: ' . WEB_ROOT . '/task/index');
-            exit;
-        }
+    public function edit()
+    {
+        // Get the task ID from the GET request
+        $taskId = $_GET['task_id'];
 
-        $view = new View();
-        $view->render('scripts/app/list');
+    }
+
+    public function delete() {
+
+        /*
+        Form Validation: When a form is submitted, you need to validate that the necessary data is present. By using isset($_POST['task_id']), you ensure that the form submission included a task_id.
+        */
+
+        if (isset($_POST['task_id'])) {
+            $taskId = $_POST['task_id'];
+            if (isset($_POST['id'])) {
+                $task = new Task();
+                $task->deletetask($_POST['id']);
+                header('Location: ' . WEB_ROOT . '/task/index');
+                exit;
+            }
+
+            $view = new View();
+            $view->render('scripts/app/list');
+        }
     }
 
 
