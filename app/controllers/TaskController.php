@@ -117,25 +117,44 @@ class TaskController extends Controller
     }
     public function update() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-            $task = new Task();
-            $taskData = $task->getTaskById($_POST['id']);
-            $viewData['task'] = $taskData;
+           
+                $view = new View();
+                $view->render("scripts/app/update");  // Pass the task data to the vie
         }
-        $view = new View();
-        $view->render("scripts/app/update");
     }
 
+    public function saveUpdate() {
+        
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+                $task = new Task();
+                $task->updateTask(
+                    $_POST['id'],
+                    $_POST['task_name'],
+                    $_POST['description'],
+                    $_POST['status'],
+                    $_POST['user_id']
+                ); 
+            }
+            $task = new Task();
+            $tasks = $task->getAll();
+            $_SESSION['tasks']=$tasks;
+            $view = new View();
+            $view->render("scripts/app/list");
+        
+        }
+      
     public function delete() {
-        $task = new Task();
-        $tasks = $task->getAll();
-
-        $_SESSION['tasks']=$tasks;
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
             $task = new Task();
             $task->deletetask($_POST['id']);
         }
+        $task = new Task();
+        $tasks = $task->getAll();
+
+        $_SESSION['tasks']=$tasks;
         $view = new View();
-        $view->render("scripts/app/delete");
+        $view->render("scripts/app/list");
     }
 
 

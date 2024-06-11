@@ -19,4 +19,6 @@
     '/task/find' => 'task#find',
     '/task/showone' => 'task#showone',
     '/task/delete' => 'task#delete', // Route for deliting tasks
+    '/task/update' => 'task#update', 
+    '/task/saveUpdate' => 'task#saveupdate', 
 ];

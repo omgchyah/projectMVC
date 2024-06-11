@@ -49,7 +49,7 @@
 
     <table id="sortable-table" class="min-w-full bg-white">
         <thead>
-            <tr>
+        <tr>
                 <th class="px-4 py-2 border">Task ID</th>
                 <th class="px-4 py-2 border">Task Name</th>
                 <th class="px-4 py-2 border">Description</th>
@@ -68,6 +68,7 @@
             }
             foreach ($tasks as $task): ?>
             <tr>
+            <td><?php echo $task['id']; ?></td>
             <td><?php echo $task['task_name']; ?></td>
             <td><?php echo $task['description']; ?></td>
             <td><?php echo $task["status"] ?></td>
@@ -77,15 +78,13 @@
             <td>
 
 
-
-                <a href="edit_task.php?task_id=<?php echo $id; ?>">Update</a>
-                <form action="<?php echo WEB_ROOT; ?>/task/edit" method="get" class="inline">
-                    <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
+                <form action="<?php echo WEB_ROOT; ?>/task/update" method="post" class="inline">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($task['id']); ?>">
                     <button type="submit" class="text-blue-500 underline">Update</button>
                 </form>
                 <form action="<?php echo WEB_ROOT; ?>/task/delete" method="post" class="inline">
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($task['id']); ?>">
-                    <input type="submit" value="Delete" onclick="return confirm('¿Quieres borrar esta tarea?');" class="text-red-500 underline">
+                    <input type="submit" value="Delete" onclick="return confirm('Â¿Quieres borrar esta tarea?');" class="text-red-500 underline">
                 </form>
             </td>
             </tr>

@@ -1,14 +1,5 @@
 [
     {
-        "id": 2,
-        "task_name": "Comprar",
-        "description": "Ir al mercado",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 20:53:26",
-        "dateUpdated": "2024-06-06 20:53:26",
-        "userId": 3
-    },
-    {
         "id": 3,
         "task_name": "Cocinar para la semana",
         "description": "Hacer la compra",
@@ -115,77 +106,5 @@
         "dateCreated": "2024-06-09 14:57:40",
         "dateUpdated": "2024-06-09 14:57:40",
         "userId": 4
-    },
-    {
-        "id": 15,
-        "task_name": "5454",
-        "description": "rrteet",
-        "status": "Activa",
-        "dateCreated": "2024-06-09 15:01:29",
-        "dateUpdated": "2024-06-09 15:01:29",
-        "userId": 3
-    },
-    {
-        "id": 16,
-        "task_name": "ychv",
-        "description": "nhjnh",
-        "status": "Activa",
-        "dateCreated": "2024-06-09 15:18:30",
-        "dateUpdated": "2024-06-09 15:18:30",
-        "userId": 5
-    },
-    {
-        "id": 17,
-        "task_name": "ychv",
-        "description": "nhjnh",
-        "status": "Activa",
-        "dateCreated": "2024-06-09 15:19:24",
-        "dateUpdated": "2024-06-09 15:19:24",
-        "userId": 5
-    },
-    {
-        "id": 18,
-        "task_name": "ychv",
-        "description": "nhjnh",
-        "status": "Activa",
-        "dateCreated": "2024-06-09 15:21:51",
-        "dateUpdated": "2024-06-09 15:21:51",
-        "userId": 5
-    },
-    {
-        "id": 19,
-        "task_name": "ychv",
-        "description": "nhjnh",
-        "status": "Activa",
-        "dateCreated": "2024-06-09 15:22:05",
-        "dateUpdated": "2024-06-09 15:22:05",
-        "userId": 5
-    },
-    {
-        "id": 20,
-        "task_name": "76",
-        "description": "vgjkv",
-        "status": "Activa",
-        "dateCreated": "2024-06-09 15:34:29",
-        "dateUpdated": "2024-06-09 15:34:29",
-        "userId": 6
-    },
-    {
-        "id": 21,
-        "task_name": "gtgfg",
-        "description": "ddgfdgf",
-        "status": "Activa",
-        "dateCreated": "2024-06-10 10:14:47",
-        "dateUpdated": "2024-06-10 10:14:47",
-        "userId": 3
-    },
-    {
-        "id": 22,
-        "task_name": "434",
-        "description": "rere",
-        "status": "Activa",
-        "dateCreated": "2024-06-11 11:03:36",
-        "dateUpdated": "2024-06-11 11:03:36",
-        "userId": 434
     }
 ]
