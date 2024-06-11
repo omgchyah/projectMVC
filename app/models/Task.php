@@ -122,7 +122,7 @@ class Task extends Model
 
          // Add the new task if no duplicate is found
          if (!$duplicateFound) {
-             $tasks[] = $data;
+            $tasksArray[] = $data;
          } else {
              // Handle the case where a duplicate is found (e.g., display an error message)
              die("Task with the same name already exists for this user!");
