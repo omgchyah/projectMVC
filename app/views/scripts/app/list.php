@@ -84,7 +84,7 @@
                     <button type="submit" class="text-blue-500 underline">Update</button>
                 </form>
                 <form action="<?php echo WEB_ROOT; ?>/task/delete" method="post" class="inline">
-                    <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($task['id']); ?>">
                     <input type="submit" value="Delete" onclick="return confirm('¿Quieres borrar esta tarea?');" class="text-red-500 underline">
                 </form>
             </td>

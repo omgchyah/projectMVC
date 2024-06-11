@@ -126,12 +126,17 @@ class TaskController extends Controller
     }
 
     public function delete() {
-        if (isset($_POST['id'])) {
+        $task = new Task();
+        $tasks = $task->getAll();
+
+        $_SESSION['tasks']=$tasks;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
             $task = new Task();
             $task->deletetask($_POST['id']);
-            header('Location: ' . WEB_ROOT . '/task/index');
-            exit;
         }
+        $view = new View();
+        $view->render("scripts/app/delete");
     }
+
 
 }

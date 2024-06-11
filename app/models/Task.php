@@ -232,8 +232,7 @@ class Task extends Model
 
 
 
-    public function deletetask($id)
-    {
+    public function deletetask($id) {
         $jsonContent = file_get_contents($this->filePath);
         $tasks = json_decode($jsonContent, true);
 
@@ -248,8 +247,6 @@ class Task extends Model
 
         return false;
     }
-   
-
 
     public function getTaskById($id) {
         $jsonContent = file_get_contents($this->filePath);

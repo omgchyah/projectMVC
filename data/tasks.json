@@ -1,14 +1,5 @@
 [
     {
-        "id": 1,
-        "task_name": "Limpiar cuarto",
-        "description": "Barrer",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 20:52:51",
-        "dateUpdated": "2024-06-06 20:52:51",
-        "userId": 2
-    },
-    {
         "id": 2,
         "task_name": "Comprar",
         "description": "Ir al mercado",
@@ -29,7 +20,7 @@
     {
         "id": 4,
         "task_name": "Sacar al perro",
-        "description": "Ir a la montaña",
+        "description": "Ir a la monta\u00f1a",
         "status": "Activa",
         "dateCreated": "2024-06-06 20:56:10",
         "dateUpdated": "2024-06-06 20:56:10",
@@ -65,7 +56,7 @@
     {
         "id": 8,
         "task_name": "Pintar la casa",
-        "description": "Comprar galón de pintura",
+        "description": "Comprar gal\u00f3n de pintura",
         "status": "Activa",
         "dateCreated": "2024-06-06 21:41:55",
         "dateUpdated": "2024-06-06 21:41:55",
@@ -74,7 +65,7 @@
     {
         "id": 9,
         "task_name": "Ahorrar para el mes",
-        "description": "No comprar más",
+        "description": "No comprar m\u00e1s",
         "status": "Activa",
         "dateCreated": "2024-06-06 21:45:25",
         "dateUpdated": "2024-06-06 21:45:25",
@@ -109,8 +100,8 @@
     },
     {
         "id": 13,
-        "task_name": "Limpiar baño",
-        "description": "Sábado",
+        "task_name": "Limpiar ba\u00f1o",
+        "description": "S\u00e1bado",
         "status": "Activa",
         "dateCreated": "2024-06-07 11:21:45",
         "dateUpdated": "2024-06-07 11:21:45",
