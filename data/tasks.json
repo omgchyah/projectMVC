@@ -1,31 +1,30 @@
-[
-    {
-        "id": 1,
-        "task_name": "Limpiar cuarto",
-        "description": "Barrer",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 20:52:51",
-        "dateUpdated": "2024-06-06 20:52:51",
-        "userId": 2
-    },
-    {
-        "id": 2,
-        "task_name": "Comprar",
-        "description": "Ir al mercado",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 20:53:26",
-        "dateUpdated": "2024-06-06 20:53:26",
-        "userId": 3
-    },
-    {
-        "id": 3,
-        "task_name": "Cocinar para la semana",
-        "description": "Hacer la compra",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 20:55:00",
-        "dateUpdated": "2024-06-06 20:55:00",
-        "userId": 3
-    },
+[    {
+    "id": 1,
+    "task_name": "Limpiar cuarto",
+    "description": "Barrer",
+    "status": "Activa",
+    "dateCreated": "2024-06-06 20:52:51",
+    "dateUpdated": "2024-06-06 20:52:51",
+    "userId": 2
+},
+{
+    "id": 2,
+    "task_name": "Comprar",
+    "description": "Ir al mercado",
+    "status": "Activa",
+    "dateCreated": "2024-06-06 20:53:26",
+    "dateUpdated": "2024-06-06 20:53:26",
+    "userId": 3
+},
+{
+    "id": 3,
+    "task_name": "Cocinar para la semana",
+    "description": "Hacer la compra",
+    "status": "Activa",
+    "dateCreated": "2024-06-06 20:55:00",
+    "dateUpdated": "2024-06-06 20:55:00",
+    "userId": 3
+},
     {
         "id": 4,
         "task_name": "Sacar al perro",
@@ -187,77 +186,5 @@
         "dateCreated": "2024-06-10 10:14:47",
         "dateUpdated": "2024-06-10 10:14:47",
         "userId": 3
-    },
-    {
-        "id": 22,
-        "task_name": "fddf",
-        "description": "545",
-        "status": "Activa",
-        "dateCreated": "2024-06-10 10:29:09",
-        "dateUpdated": "2024-06-10 10:29:09",
-        "userId": 4
-    },
-    {
-        "id": 23,
-        "task_name": "43232",
-        "description": "223",
-        "status": "Activa",
-        "dateCreated": "2024-06-10 11:47:03",
-        "dateUpdated": "2024-06-10 11:47:03",
-        "userId": 2
-    },
-    {
-        "id": 24,
-        "task_name": "Terminar esta mierda",
-        "description": "YA",
-        "status": "Activa",
-        "dateCreated": "2024-06-10 11:49:04",
-        "dateUpdated": "2024-06-10 11:49:04",
-        "userId": 1
-    },
-    {
-        "id": 25,
-        "task_name": "tytt",
-        "description": "erete",
-        "status": "Activa",
-        "dateCreated": "2024-06-10 11:51:03",
-        "dateUpdated": "2024-06-10 11:51:03",
-        "userId": 54434
-    },
-    {
-        "id": 26,
-        "task_name": "554",
-        "description": "5444",
-        "status": "Activa",
-        "dateCreated": "2024-06-10 12:40:16",
-        "dateUpdated": "2024-06-10 12:40:16",
-        "userId": 333
-    },
-    {
-        "id": 27,
-        "task_name": "553",
-        "description": "3434",
-        "status": "Activa",
-        "dateCreated": "2024-06-10 12:41:45",
-        "dateUpdated": "2024-06-10 12:41:45",
-        "userId": 33
-    },
-    {
-        "id": 28,
-        "task_name": "554456",
-        "description": "455",
-        "status": "Activa",
-        "dateCreated": "2024-06-10 13:29:27",
-        "dateUpdated": "2024-06-10 13:29:27",
-        "userId": 2
-    },
-    {
-        "id": 29,
-        "task_name": "Salir de fiesta",
-        "description": "Porque me lo merezco, sin ningún tipo de consideración alguna!",
-        "status": "Activa",
-        "dateCreated": "2024-06-11 00:17:05",
-        "dateUpdated": "2024-06-11 00:17:05",
-        "userId": 1
     }
 ]

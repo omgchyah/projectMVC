@@ -192,55 +192,27 @@ class Task extends Model
             $jsonContent = file_get_contents($this->filePath);
             $tasks = json_decode($jsonContent, true);
         } else {
-            $tasks = [];
+            $tasksArray = [];
         }
 
-        foreach ($tasks as $task) {
-            if ($task['id'] === $id) {
-                $tasksFound[] = $task;
-
-            }    
-        }
-        
-        $_SESSION['tasksFound']=$tasksFound;
-        return $tasksFound;
+        return $tasksArray;
 
     }
-
-    public function findTasks(string $string): array
-    {
-        $tasksFound = [];
-
-        //Read the data from JSON file
-        if (file_exists($this->filePath)) {
-            $jsonContent = file_get_contents($this->filePath);
-            $tasks = json_decode($jsonContent, true);
-        } else {
-            $tasks = [];
-        }
-
-        foreach($tasks as $task) {
-            if (strstr($task['task_name'], $string)) {
-                $tasksFound[] = $task;
-            }
-        }
-
-        $_SESSION['tasksFound']=$tasksFound;
-
-        return $tasksFound;
-    }
-
     public function deletetask($id)
     {
         $jsonContent = file_get_contents($this->filePath);
-        json_decode($jsonContent , true);
-            foreach($jsonContent as $tasktodelete){
-                if ($jsonContent['id'] == $id ){
-                    unset($jsonContent[$tasktodelete]);
-                    file_put_contents($this->filePath, json_encode(array_values($jsonContent), JSON_PRETTY_PRINT)); 
-                    echo "Tarea eliminada correctamente";
+        $tasks = json_decode($jsonContent, true);
+
+        foreach ($tasks as $key => $task) {
+            if ($task['id'] == $id) {
+                unset($tasks[$key]);
+                file_put_contents($this->filePath, json_encode(array_values($tasks), JSON_PRETTY_PRINT));
+                echo "Tarea eliminada correctamente";
+                return true;
             }
-        } 
+        }
+
+        return false;
     }
    
 

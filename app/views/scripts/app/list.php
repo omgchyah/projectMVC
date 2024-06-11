@@ -68,14 +68,17 @@
             }
             foreach ($tasks as $task): ?>
             <tr>
-                <td class="px-4 py-2 border"><?php echo $task['id']; ?></td>
-                <td class="px-4 py-2 border"><?php echo $task['task_name']; ?></td>
-                <td class="px-4 py-2 border"><?php echo $task['description']; ?></td>
-                <td class="px-4 py-2 border"><?php echo $task["status"] ?></td>
-                <td class="px-4 py-2 border"><?php echo $task['dateCreated']; ?></td>
-                <td class="px-4 py-2 border"><?php echo $task['dateUpdated']; ?></td>
-                <td class="px-4 py-2 border"><?php echo $task['userId']; ?></td>
-                <td class="px-4 py-2 border">
+            <td><?php echo $task['task_name']; ?></td>
+            <td><?php echo $task['description']; ?></td>
+            <td><?php echo $task["status"] ?></td>
+            <td><?php echo $task['dateCreated']; ?></td>
+            <td><?php echo $task['dateUpdated']; ?></td>
+            <td><?php echo $task['userId']; ?></td>
+            <td>
+
+
+
+                <a href="edit_task.php?task_id=<?php echo $id; ?>">Update</a>
                 <form action="<?php echo WEB_ROOT; ?>/task/edit" method="get" class="inline">
                     <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
                     <button type="submit" class="text-blue-500 underline">Update</button>

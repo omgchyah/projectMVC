@@ -77,64 +77,18 @@ class TaskController extends Controller
           
         $view = new View();
         $view->render("scripts/app/list");
-    }
 
-    public function user()
-    {
-        $task = new Task();
+          
 
-        $tasksFound = $task->getAllTasksUser($_POST['user_id']);
-
-        $_SESSION['tasksFounds'] = $tasksFound;
-
-        $view = new View();
-        $view->render("scripts/app/find");
-    }
-
-    public function showone()
-    {
-        $task = new Task();
-
-        $taskFound = $task->getOneTask($_POST['id']);
-
-        $_SESSION['tasksFound'] = $taskFound;
-
-        $view = new View();
-        $view->render("scripts/app/find");
-    }
-
-    public function find()
-    {
-        $task = new Task();
-
-        $tasksFound = $task->findTasks($_POST['string']);
-
-        $_SESSION['tasksFound'] = $tasksFound;
-
-        $view = new View();
-        $view->render("scripts/app/find");
 
     }
-    public function update() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+    public function delete() {
+        if (isset($_POST['id'])) {
             $task = new Task();
-            $taskData = $task->getTaskById($_POST['id']);
-            $viewData['task'] = $taskData;
-        }
-        $view = new View();
-        $view->render("scripts/app/update");
-    }
-
-
-    public function saveUpdate() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-            $task = new Task();
-            $task->updateTask($_POST['id']); 
-            header('Location: ' . WEB_ROOT . '/task/list');
+            $task->deletetask($_POST['id']);
+            header('Location: ' . WEB_ROOT . '/task/index');
             exit;
         }
-        $view = new View();
-        $view->render("scripts/app/saveUpdate");
     }
 
 }
