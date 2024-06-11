@@ -122,7 +122,7 @@ class Task extends Model
 
          // Add the new task if no duplicate is found
          if (!$duplicateFound) {
-            $tasksArray[] = $data;
+             $tasks[] = $data;
          } else {
              // Handle the case where a duplicate is found (e.g., display an error message)
              die("Task with the same name already exists for this user!");
@@ -242,8 +242,42 @@ class Task extends Model
             }
         } 
     }
+   
 
+
+    public function getTaskById($id) {
+        $jsonContent = file_get_contents($this->filePath);
+        $tasks = json_decode($jsonContent, true);
+        foreach ($tasks as $task) {
+            if ($task['id'] == $id) {
+                return $task;
+            }
+        }
+        return null;
+    }
+
+
+
+
+    public function updateTask($data) {
+        $jsonContent = file_get_contents($this->filePath);
+        $tasks = json_decode($jsonContent, true);
+
+        foreach ($tasks as & $task) {
+            if ($task['id'] == $data) {
+                $task['task_name'] = $data['task_name'];
+                $task['description'] = $data['description'];
+                $task['status'] = $data['status'];
+                $task['user_id'] = $data['user_id'];
+                $task['dateUpdated'] = date('Y-m-d'); 
+                break;
+            }
+        }
+        file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT));
+    }
 }
+
+
 
 
 

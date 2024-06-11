@@ -115,33 +115,26 @@ class TaskController extends Controller
         $view->render("scripts/app/find");
 
     }
-
-    public function edit()
-    {
-        // Get the task ID from the GET request
-        $taskId = $_GET['task_id'];
-
-    }
-
-    public function delete() {
-
-        /*
-        Form Validation: When a form is submitted, you need to validate that the necessary data is present. By using isset($_POST['task_id']), you ensure that the form submission included a task_id.
-        */
-
-        if (isset($_POST['task_id'])) {
-            $taskId = $_POST['task_id'];
-            if (isset($_POST['id'])) {
-                $task = new Task();
-                $task->deletetask($_POST['id']);
-                header('Location: ' . WEB_ROOT . '/task/index');
-                exit;
-            }
-
-            $view = new View();
-            $view->render('scripts/app/list');
+    public function update() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+            $task = new Task();
+            $taskData = $task->getTaskById($_POST['id']);
+            $viewData['task'] = $taskData;
         }
+        $view = new View();
+        $view->render("scripts/app/update");
     }
 
+
+    public function saveUpdate() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+            $task = new Task();
+            $task->updateTask($_POST['id']); 
+            header('Location: ' . WEB_ROOT . '/task/list');
+            exit;
+        }
+        $view = new View();
+        $view->render("scripts/app/saveUpdate");
+    }
 
 }
