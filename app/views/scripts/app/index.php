@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Task Page</title>
-    <link href="/PHP/ProjectMVC/web/stylesheets/styles.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Welcome to the Task Page</h1>
-    <p>This is where you can manage your tasks.</p>
+<body class="bg-gray-200">
+
+<div class="max-w-4xl p-6 mx-auto mt-10 bg-white rounded-lg shadow-lg bg-opacity-90">
+    <h1 class="mb-6 text-2xl font-bold text-center">¡Bienvenid@!</h1>
+    <p class="mb-6 text-lg text-center">Empieza a usar tu Task Manager personalizado</p>
 
     <!-- Form to submit and navigate to create page -->
-    <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post">
-    <!-- /task/execute is the controller + action -->
+    <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post" class="text-center">
         <input type="hidden" name="action" value="create">
-        <button type="submit">Create New Task</button>
+        <button type="submit" class="px-4 py-2 text-white bg-purple-500 rounded">Create New Task</button>
     </form>
+</div>
+
 </body>
 </html>
+

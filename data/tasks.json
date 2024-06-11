@@ -29,7 +29,7 @@
     {
         "id": 4,
         "task_name": "Sacar al perro",
-        "description": "Ir a la monta\u00f1a",
+        "description": "Ir a la montaña",
         "status": "Activa",
         "dateCreated": "2024-06-06 20:56:10",
         "dateUpdated": "2024-06-06 20:56:10",
@@ -65,7 +65,7 @@
     {
         "id": 8,
         "task_name": "Pintar la casa",
-        "description": "Comprar gal\u00f3n de pintura",
+        "description": "Comprar galón de pintura",
         "status": "Activa",
         "dateCreated": "2024-06-06 21:41:55",
         "dateUpdated": "2024-06-06 21:41:55",
@@ -74,7 +74,7 @@
     {
         "id": 9,
         "task_name": "Ahorrar para el mes",
-        "description": "No comprar m\u00e1s",
+        "description": "No comprar más",
         "status": "Activa",
         "dateCreated": "2024-06-06 21:45:25",
         "dateUpdated": "2024-06-06 21:45:25",
@@ -109,8 +109,8 @@
     },
     {
         "id": 13,
-        "task_name": "Limpiar ba\u00f1o",
-        "description": "S\u00e1bado",
+        "task_name": "Limpiar baño",
+        "description": "Sábado",
         "status": "Activa",
         "dateCreated": "2024-06-07 11:21:45",
         "dateUpdated": "2024-06-07 11:21:45",
@@ -244,11 +244,20 @@
     },
     {
         "id": 28,
-        "task_name": "554",
-        "description": "454",
+        "task_name": "554456",
+        "description": "455",
         "status": "Activa",
-        "dateCreated": "2024-06-10 12:45:51",
-        "dateUpdated": "2024-06-10 12:45:51",
-        "userId": 33
+        "dateCreated": "2024-06-10 13:29:27",
+        "dateUpdated": "2024-06-10 13:29:27",
+        "userId": 2
+    },
+    {
+        "id": 29,
+        "task_name": "Salir de fiesta",
+        "description": "Porque me lo merezco, sin ningún tipo de consideración alguna!",
+        "status": "Activa",
+        "dateCreated": "2024-06-11 00:17:05",
+        "dateUpdated": "2024-06-11 00:17:05",
+        "userId": 1
     }
 ]

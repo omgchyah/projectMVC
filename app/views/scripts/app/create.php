@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Task</title>
-    <link href="/PHP/ProjectMVC/web/stylesheets/styles.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Create a New Task</h1>
-    <form action="<?php echo WEB_ROOT; ?>/task/store" method="post">
+<body class="bg-gray-200">
+
+<div class="max-w-4xl p-6 mx-auto mt-10 bg-white rounded-lg shadow-lg bg-opacity-90">
+    <h1 class="mb-6 text-2xl font-bold text-center">Create a New Task</h1>
+
+    <form action="<?php echo WEB_ROOT; ?>/task/store" method="post" class="space-y-4">
         <input type="hidden" name="action" value="store">
-        <label for="task_name">Task Name:</label>
-        <input type="text" id="task_name" name="task_name" required><br><br>
+        
+        <div>
+            <label for="task_name" class="block mb-2 text-lg font-semibold">Task Name:</label>
+            <input type="text" id="task_name" name="task_name" required class="w-full p-2 border rounded">
+        </div>
+        
+        <div>
+            <label for="description" class="block mb-2 text-lg font-semibold">Description:</label>
+            <textarea id="description" name="description" required class="w-full p-2 border rounded"></textarea>
+        </div>
+        
+        <div>
+            <label for="user_id" class="block mb-2 text-lg font-semibold">User ID:</label>
+            <input type="number" id="user_id" name="userId" required min="1" class="w-full p-2 border rounded">
+        </div>
 
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea><br><br>
-
-        <label for="user_id">User ID:</label>
-        <input type="number" id="user_id" name="user_id" required><br><br>
-
-        <button type="submit">Create Task</button>
+        <div class="text-center">
+            <button type="submit" class="px-4 py-2 text-white bg-purple-500 rounded">Create Task</button>
+        </div>
     </form>
+</div>
+
 </body>
 </html>
-
