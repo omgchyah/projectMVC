@@ -82,8 +82,6 @@ class Task extends Model
     }
 
     // Create
-
-
     public function create($data=[]) {
         $data = array_merge([
             "id" => $this->getId(),
@@ -161,7 +159,13 @@ class Task extends Model
 
             }    
         }
-        $_SESSION['tasksFound']=$tasksFound;
+
+        if(empty($tasksFound)) {
+            $_SESSION['message'] = "Este ID de usuario no existe.";
+        }
+
+        $_SESSION['tasksFound'] = $tasksFound;
+
         return $tasksFound;
     }
 
@@ -185,7 +189,12 @@ class Task extends Model
             }    
         }
         
+        if(empty($tasksFound)) {
+            $_SESSION['message'] = "Este ID de tarea no existe.";
+        }
+
         $_SESSION['tasksFound'] = $tasksFound;
+
         return $tasksFound;
 
     }
@@ -208,7 +217,11 @@ class Task extends Model
             }
         }
 
-        $_SESSION['tasksFound']=$tasksFound;
+        if(empty($tasksFound)) {
+            $_SESSION['message'] = "No se encontraron tareas que contengan esta palabra.";
+        }
+
+        $_SESSION['tasksFound'] = $tasksFound;
 
         return $tasksFound;
     }
