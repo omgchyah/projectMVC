@@ -7,7 +7,8 @@
 <body class="bg-gray-200">
 
 <div class="max-w-4xl p-6 mx-auto mt-10 bg-white rounded-lg shadow-lg bg-opacity-90">
-    <h1 class="mb-6 text-2xl font-bold text-center">Create a New Task</h1>
+    <h1 class="mb-6 text-2xl font-bold text-center">Crear nueva tarea</h1>
+    <p>Rellena los campos de abajo con la información</p>
 
     <form action="<?php echo WEB_ROOT; ?>/task/store" method="post" class="space-y-4">
         <input type="hidden" name="action" value="store">
