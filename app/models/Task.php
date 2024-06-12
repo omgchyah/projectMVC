@@ -257,7 +257,7 @@ class Task extends Model
         return null;  // Task not found
     }
 
-    public function updateTask($id, $name, $description, $status, $userid) {
+    public function updateTask($id, $name, $description, $status, $userid,$dateFinished) {
         $jsonContent = file_get_contents($this->filePath);
         $tasks = json_decode($jsonContent, true);
     
@@ -270,7 +270,7 @@ class Task extends Model
                     $tasks[$key]['description'] = $description;
                     $tasks[$key]['status'] = $status;
                     $tasks[$key]['userId'] = $userid;
-                    $tasks[$key]['dateFinished'] = date('Y-m-d');
+                    $tasks[$key]['dateFinished'] = $dateFinished;
                     break; // Exit the loop once the task is found and updated
                 }
             }

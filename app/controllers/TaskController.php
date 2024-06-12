@@ -124,6 +124,7 @@ class TaskController extends Controller
                 $_POST['description']=$tasktoupdate['description'];
                 $_POST['status']=$tasktoupdate['status'];
                 $_POST['userId']=$tasktoupdate['userId'];
+                $_POST['dateFinished']=$tasktoupdate['dateFinished'];
                 $view = new View();
                 $view->render("scripts/app/update");  
         }
@@ -136,9 +137,9 @@ class TaskController extends Controller
                 $description = $_POST['description'];
                 $status = $_POST['status'];
                 $userId = $_POST['userId'];
-        
+                $dateFinished = $_POST['dateFinished'];
                 $task = new Task();
-                $task->updateTask($taskId, $taskName, $description, $status, $userId);
+                $task->updateTask($taskId, $taskName, $description, $status, $userId,$dateFinished);
         
                 // Retrieve all tasks and render the list view
                 $tasks = $task->getAll();

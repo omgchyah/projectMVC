@@ -1,20 +1,11 @@
 [
     {
-        "id": 1,
-        "task_name": "Comprar",
-        "description": "tthgfd",
-        "status": "Activa",
-        "dateCreated": "2024-06-12 13:52:18",
-        "dateFinished": "2024-06-12 13:52:18",
-        "userId": 2
-    },
-    {
         "id": 2,
         "task_name": "etret",
         "description": "etret",
-        "status": "Activa",
+        "status": "Terminada",
         "dateCreated": "2024-06-12",
-        "dateFinished": "2024-06-12",
+        "dateFinished": "2024-06-21",
         "userId": "3"
     },
     {
@@ -25,5 +16,14 @@
         "dateCreated": "2024-06-12",
         "dateFinished": "2024-06-12",
         "userId": 3
+    },
+    {
+        "id": 4,
+        "task_name": "Developers",
+        "description": "hacer pagina de tareas",
+        "status": "Terminada",
+        "dateCreated": "2024-06-12",
+        "dateFinished": "2024-06-12",
+        "userId": "1"
     }
 ]
