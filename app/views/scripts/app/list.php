@@ -56,8 +56,8 @@
                 <th class="px-4 py-2 border">Nombre</th>
                 <th class="px-4 py-2 border">Descripción</th>
                 <th class="px-4 py-2 border">Estado</th>
-                <th class="px-4 py-2 border">Creada</th>
-                <th class="px-4 py-2 border">Actualizada</th>
+                <th class="px-4 py-2 border">Fecha de creación</th>
+                <th class="px-4 py-2 border">Fecha de actualización</th>
                 <th class="px-4 py-2 border">ID de usuario</th>
                 <th class="px-4 py-2 border">Opciones</th>
             </tr>
@@ -86,7 +86,7 @@
                 </form>
                 <form action="<?php echo WEB_ROOT; ?>/task/delete" method="post" class="inline">
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($task['id']); ?>">
-                    <input type="submit" value="Delete" onclick="return confirm('Â¿Quieres borrar esta tarea?');" class="text-red-500 underline">
+                    <input type="submit" value="Delete" onclick="return confirm('¿Quieres borrar esta tarea?');" class="text-red-500 underline">
                 </form>
             </td>
             </tr>

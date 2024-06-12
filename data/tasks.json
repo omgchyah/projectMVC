@@ -27,27 +27,9 @@
         "userId": 2
     },
     {
-        "id": 11,
-        "task_name": "Hacer la compra",
-        "description": "Ir al Aldi",
-        "status": "Activa",
-        "dateCreated": "2024-06-07 11:05:42",
-        "dateUpdated": "2024-06-07 11:05:42",
-        "userId": 1
-    },
-    {
-        "id": 12,
-        "task_name": "Sacar al perro",
-        "description": "Ir a Montjuic",
-        "status": "Activa",
-        "dateCreated": "2024-06-07 11:20:15",
-        "dateUpdated": "2024-06-07 11:20:15",
-        "userId": 1
-    },
-    {
         "id": 13,
-        "task_name": "Limpiar baño",
-        "description": "Sábado",
+        "task_name": "Limpiar ba\u00f1o",
+        "description": "S\u00e1bado",
         "status": "Activa",
         "dateCreated": "2024-06-07 11:21:45",
         "dateUpdated": "2024-06-07 11:21:45",
