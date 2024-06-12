@@ -117,11 +117,18 @@ class TaskController extends Controller
     }
     public function update() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-           
+
+                $task = new Task;
+                $tasktoupdate=$task->getTaskById($_POST['id']);
+                $_POST['task_name']=$tasktoupdate['task_name'];
+                $_POST['description']=$tasktoupdate['description'];
+                $_POST['status']=$tasktoupdate['status'];
+                $_POST['userId']=$tasktoupdate['userId'];
                 $view = new View();
                 $view->render("scripts/app/update");  
         }
     }
+
 
     /*Método original
     public function saveUpdate() {
