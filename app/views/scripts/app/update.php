@@ -16,7 +16,6 @@
             <label for="task_name" class="block mb-2 text-lg font-semibold" method="post">Nombre de la tarea: </label>
             <input type="text" id="task_name" name="task_name" required class="w-full p-2 border rounded">
             
-            <p> Recuerda que un usuario no puede tener dos tareas con el mismo nombre</p>
         </div>
         
         <div>

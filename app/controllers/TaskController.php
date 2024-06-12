@@ -123,6 +123,7 @@ class TaskController extends Controller
         }
     }
 
+    /*Método original
     public function saveUpdate() {
         //Hacer lo mismo para create?
         $task = new Task();
@@ -153,7 +154,42 @@ class TaskController extends Controller
             $view->render("scripts/app/update");
         }
         
+        }*/
+
+        public function saveUpdate() {
+            $task = new Task();
+        
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+                $taskId = $_POST['id'];
+                $taskName = $_POST['task_name'];
+                $description = $_POST['description'];
+                $status = $_POST['status'];
+                $userId = $_POST['userId'];
+        
+                // Check for duplicate tasks
+                if ($task->checkrepit($taskName, $userId) === false) {
+                    $updateResult = $task->updateTask($taskId, $taskName, $description, $status, $userId);
+                    if ($updateResult) {
+                        $_SESSION['message'] = "Tarea actualizada con éxito.";
+                    } else {
+                        $_SESSION['message'] = "Error al actualizar la tarea.";
+                    }
+                } else {
+                    $_SESSION['message'] = "Esta tarea ya existe para este usuario.";
+                }
+        
+                // Retrieve all tasks and render the list view
+                $tasks = $task->getAll();
+                $_SESSION['tasks'] = $tasks;
+                $view = new View();
+                $view->render("scripts/app/list");
+            } else {
+                // If not a POST request, redirect to the update form
+                $view = new View();
+                $view->render("scripts/app/update");
+            }
         }
+        
       
     public function delete() {
         

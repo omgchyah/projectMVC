@@ -1,14 +1,5 @@
 [
     {
-        "id": 3,
-        "task_name": null,
-        "description": "d",
-        "status": "Suspendida",
-        "dateCreated": "2024-06-06 20:55:00",
-        "dateUpdated": "2024-06-12 10:50:34",
-        "userId": 3
-    },
-    {
         "id": 4,
         "task_name": "Sacar al perro",
         "description": "Ir a la montaña",
@@ -16,7 +7,6 @@
         "dateCreated": "2024-06-06 20:56:10",
         "dateUpdated": "2024-06-12 11:11:32",
         "userId": 6
-        
     },
     {
         "id": 5,
@@ -80,5 +70,14 @@
         "dateCreated": "2024-06-12 10:33:32",
         "dateUpdated": "2024-06-12 10:33:32",
         "userId": 3
+    },
+    {
+        "id": 16,
+        "task_name": "Hola",
+        "description": "Que tal",
+        "status": "Activa",
+        "dateCreated": "2024-06-12 11:34:03",
+        "dateUpdated": "2024-06-12 11:34:03",
+        "userId": 2
     }
 ]

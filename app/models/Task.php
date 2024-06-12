@@ -266,6 +266,7 @@ class Task extends Model
         return null;  // Task not found
     }
 
+    /* Método original
     public function updateTask($id, $name, $description, $status, $userid) {
         $jsonContent = file_get_contents($this->filePath);
         $tasks = json_decode($jsonContent, true);
@@ -280,7 +281,51 @@ class Task extends Model
             
         }
         file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT));
+    }*/
+
+    public function updateTask($id, $name, $description, $status, $userid) {
+        $jsonContent = file_get_contents($this->filePath);
+        $tasks = json_decode($jsonContent, true);
+    
+        // Check for duplicate tasks
+        $duplicateFound = false;
+        foreach ($tasks as $existingTask) {
+            // Exclude the current task being updated from the duplicate check
+            if ($existingTask['id'] !== $id && $existingTask['userId'] === $userid && $existingTask['task_name'] === $name) {
+                $duplicateFound = true;
+                break; // Exit the loop if a duplicate is found
+            }
+        }
+    
+        if (!$duplicateFound) {
+            // Proceed with the update
+            foreach ($tasks as $key => $task) {
+                if ($task['id'] == $id) {
+                    $tasks[$key]['task_name'] = $name;
+                    $tasks[$key]['description'] = $description;
+                    $tasks[$key]['status'] = $status;
+                    $tasks[$key]['userId'] = $userid;
+                    $tasks[$key]['dateUpdated'] = date("Y-m-d H:i:s");
+                    break; // Exit the loop once the task is found and updated
+                }
+            }
+            
+            // Save the updated tasks back to the JSON file
+            if (file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
+                $_SESSION['message'] = "Tarea actualizada con éxito.";
+            } else {
+                $_SESSION['message'] = "Error al actualizar la tarea.";
+                return false;
+            }
+        } else {
+            $_SESSION["message"] = "Esta tarea ya existe para este usuario.";
+            return false;
+        }
+    
+        $_SESSION['tasks'] = $tasks;
+        return true;
     }
+    
 
     public function checkrepit($name,$userid):bool{
         $repited = false;
