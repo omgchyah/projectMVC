@@ -1,6 +1,4 @@
-<?php
-$task = $_SESSION['task'];
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +19,7 @@ $task = $_SESSION['task'];
         
         <div>
             <label for="description" class="block mb-2 text-lg font-semibold" method="post">Descripción:</label>
-            <textarea id="description" name="description" value="<?php echo htmlspecialchars($task['id']); ?>" required class="w-full p-2 border rounded"></textarea>
+            <textarea id="description" name="description" required class="w-full p-2 border rounded"></textarea>
         </div>
 
         <div>

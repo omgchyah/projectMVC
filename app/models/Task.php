@@ -205,7 +205,7 @@ class Task extends Model
             }    
         }
         
-        $_SESSION['tasksFound']=$tasksFound;
+        $_SESSION['tasksFound'] = $tasksFound;
         return $tasksFound;
 
     }
