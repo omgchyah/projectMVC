@@ -14,20 +14,18 @@
         
         <div>
             <label for="task_name" class="block mb-2 text-lg font-semibold" method="post">Nombre de la tarea: </label>
-            <input type="text" id="task_name" name="task_name" required class="w-full p-2 border rounded"
-            value="<?php echo htmlspecialchars($_POST['task_name']); ?>">
+            <input type="text" id="task_name" name="task_name" required class="w-full p-2 border rounded">
             
         </div>
         
         <div>
             <label for="description" class="block mb-2 text-lg font-semibold" method="post">Descripción:</label>
-            <textarea id="description" name="description" required class="w-full p-2 border rounded"
-            ><?php echo htmlspecialchars($_POST['task_name']); ?></textarea>
+            <textarea id="description" name="description" required class="w-full p-2 border rounded"></textarea>
         </div>
 
         <div>
             <label for="status" class="block mb-2 text-lg font-semibold" method="post">Estado:</label>
-            <select id="status" name="status" required class="w-full p-2 border rounded"><?php echo htmlspecialchars($_POST['task_name']); ?>
+            <select id="status" name="status" required class="w-full p-2 border rounded">
                 <option value="Activa">Activa</option>
                 <option value="Suspendida">Suspendida</option>
                 <option value="Terminada" >Terminada</option>
@@ -36,8 +34,7 @@
         
         <div>
             <label for="userId" class="block mb-2 text-lg font-semibold" method="post">ID de usuario:</label>
-            <input type="number" id="userId" name="userId" required min="1" class="w-full p-2 border rounded"
-            value="<?php echo htmlspecialchars($_POST['userId']); ?>">
+            <input type="number" id="userId" name="userId" required min="1" class="w-full p-2 border rounded">
         </div>
 
         <div class="text-center">
