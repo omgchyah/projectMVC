@@ -39,13 +39,13 @@
                 </button>
                 <div id="dropdownMenu" class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg">
                     <form action="<?php echo WEB_ROOT; ?>/" method="post">
-                        <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Home</button>
+                        <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Inicio</button>
                     </form>
                     <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post">
-                        <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Create New Task</button>
+                        <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Crear nueva tarea</button>
                     </form>
                     <form action="<?php echo WEB_ROOT; ?>/task/list" method="post">
-                        <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">List All Tasks</button>
+                        <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Ver tareas</button>
                     </form>
                 </div>
             </div>

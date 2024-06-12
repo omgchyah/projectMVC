@@ -13,6 +13,7 @@
 
     <!-- Include tablesorter CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css">
+    
 </head>
 <body class="bg-gray-200">
 
@@ -34,7 +35,7 @@
             <div>
                 <label for="user_id" class="block mb-1 text-sm font-semibold">ID de usuario:</label>
                 <form action="<?php echo WEB_ROOT; ?>/task/user" method="post" class="flex items-center">
-                    <input type="number" id="user_id" name="user_id" required min="1" class="w-full p-1 mr-2 border rounded">
+                    <input type="number" id="user_id" name="user_id" placeholder="Escribe ID del usuario..." required min="1" class="w-full p-1 mr-2 border rounded">
                     <button type="submit" class="px-2 py-1 text-xs text-white bg-purple-500 rounded">Buscar</button>
                 </form>
             </div>
@@ -42,7 +43,7 @@
             <div>
                 <label for="id" class="block mb-1 text-sm font-semibold">ID de la tarea:</label>
                 <form action="<?php echo WEB_ROOT; ?>/task/showone" method="post" class="flex items-center">
-                    <input type="number" id="id" name="id" required min="1" class="w-full p-1 mr-2 border rounded">
+                    <input type="number" id="id" name="id" placeholder="Escribe ID de la tarea..." required min="1" class="w-full p-1 mr-2 border rounded">
                     <button type="submit" class="px-2 py-1 text-xs text-white bg-purple-500 rounded">Buscar</button>
                 </form>
             </div>
@@ -50,7 +51,7 @@
             <div>
                 <label for="string" class="block mb-1 text-sm font-semibold">Palabra clave:</label>
                 <form action="<?php echo WEB_ROOT; ?>/task/find" method="post" class="flex items-center">
-                    <input type="text" id="string" name="string" required class="w-full p-1 mr-2 border rounded">
+                    <input type="text" id="string" name="string" placeholder="Escribe una palabra clave..." required class="w-full p-1 mr-2 border rounded">
                     <button type="submit" class="px-2 py-1 text-xs text-white bg-purple-500 rounded">Buscar</button>
                 </form>
             </div>
@@ -60,14 +61,14 @@
     <table id="sortable-table" class="min-w-full bg-white">
         <thead>
         <tr>
-                <th class="px-4 py-2 border">Task ID</th>
-                <th class="px-4 py-2 border">Task Name</th>
-                <th class="px-4 py-2 border">Description</th>
-                <th class="px-4 py-2 border">Status</th>
-                <th class="px-4 py-2 border">Date Created</th>
-                <th class="px-4 py-2 border">Date Updated</th>
-                <th class="px-4 py-2 border">User ID</th>
-                <th class="px-4 py-2 border">Actions</th>
+                <th class="px-4 py-2 border">ID de tarea</th>
+                <th class="px-4 py-2 border">Nombre</th>
+                <th class="px-4 py-2 border">Descripción</th>
+                <th class="px-4 py-2 border">Estado</th>
+                <th class="px-4 py-2 border">Creada</th>
+                <th class="px-4 py-2 border">Actualizada</th>
+                <th class="px-4 py-2 border">ID de usuario</th>
+                <th class="px-4 py-2 border">Opciones</th>
             </tr>
         </thead>
         <tbody>
