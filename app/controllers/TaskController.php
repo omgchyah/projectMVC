@@ -83,7 +83,7 @@ class TaskController extends Controller
     {
         $task = new Task();
 
-        $tasksFound = $task->getAllTasksUser($_POST['user_id']);
+        $tasksFound = $task->getAllTasksUser($_POST['userId']);
 
         $_SESSION['tasksFounds'] = $tasksFound;
 
@@ -127,7 +127,7 @@ class TaskController extends Controller
         //Hacer lo mismo para create?
         $task = new Task();
         
-        if ($task->checkrepit( $_POST['task_name'],$_POST['user_id'])===false){
+        if ($task->checkrepit( $_POST['task_name'],$_POST['userId'])===false){
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
                
                 $task->updateTask(
@@ -135,7 +135,7 @@ class TaskController extends Controller
                     $_POST['task_name'],
                     $_POST['description'],
                     $_POST['status'],
-                    $_POST['user_id']
+                    $_POST['userId']
                 ); 
             }
             $task = new Task();

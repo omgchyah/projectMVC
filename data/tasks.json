@@ -1,32 +1,34 @@
 [
     {
         "id": 3,
-        "task_name": "ccc",
-        "description": "c",
-        "status": "Activa",
+        "task_name": null,
+        "description": "d",
+        "status": "Suspendida",
         "dateCreated": "2024-06-06 20:55:00",
-        "dateUpdated": "2024-06-12 10:28:58",
+        "dateUpdated": "2024-06-12 10:50:34",
         "userId": 3,
-        "user_id": "3"
+        "user_id": "1"
     },
     {
         "id": 4,
-        "task_name": "aaaaaaaaaaaaa",
+        "task_name": "Sacar al perro",
         "description": "a",
-        "status": "Terminada",
+        "status": "Activa",
         "dateCreated": "2024-06-06 20:56:10",
-        "dateUpdated": "2024-06-12 10:18:02",
+        "dateUpdated": "2024-06-12 11:11:32",
         "userId": 6,
-        "user_id": "3"
+        "user_id": "4"
     },
     {
         "id": 5,
         "task_name": "Sacar al perro",
-        "description": "Ir al parque ",
+        "description": "x",
         "status": "Activa",
         "dateCreated": "2024-06-06 21:11:14",
-        "dateUpdated": "2024-06-06 21:11:14",
-        "userId": 4
+        "dateUpdated": "2024-06-12 11:15:31",
+        "userId": 4,
+        "user_id": "6",
+        "userid": "6"
     },
     {
         "id": 6,
