@@ -6,8 +6,7 @@
         "status": "Suspendida",
         "dateCreated": "2024-06-06 20:55:00",
         "dateUpdated": "2024-06-12 10:50:34",
-        "userId": 3,
-        "user_id": "1"
+        "userId": 3
     },
     {
         "id": 4,
@@ -16,8 +15,8 @@
         "status": "Activa",
         "dateCreated": "2024-06-06 20:56:10",
         "dateUpdated": "2024-06-12 11:11:32",
-        "userId": 6,
-        "user_id": "4"
+        "userId": 6
+        
     },
     {
         "id": 5,
@@ -26,9 +25,7 @@
         "status": "Activa",
         "dateCreated": "2024-06-06 21:11:14",
         "dateUpdated": "2024-06-12 11:15:31",
-        "userId": 4,
-        "user_id": "6",
-        "userid": "6"
+        "userId": 4
     },
     {
         "id": 6,
@@ -37,8 +34,7 @@
         "status": "Activa",
         "dateCreated": "2024-06-06 21:19:42",
         "dateUpdated": "2024-06-12 01:25:17",
-        "userId": 2,
-        "user_id": "2"
+        "userId": 2
     },
     {
         "id": 11,
