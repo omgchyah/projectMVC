@@ -22,6 +22,11 @@
             <label for="description" class="block mb-2 text-lg font-semibold">Descripción:</label>
             <textarea id="description" name="description" required class="w-full p-2 border rounded"></textarea>
         </div>
+
+        <div>
+            <label for="dateFinished" class="block mb-2 text-lg font-semibold">Fecha de finalización:</label>
+            <input id="dateFinished" name="dateFinished" type="date" required class="w-full p-2 border rounded">
+        </div>
         
         <div>
             <label for="user_id" class="block mb-2 text-lg font-semibold">ID de usuario:</label>

@@ -39,7 +39,7 @@
             <td class="px-4 py-2 border"><?php echo $task['description']; ?></td>
             <td class="px-4 py-2 border"><?php echo $task["status"] ?></td>
             <td class="px-4 py-2 border"><?php echo $task['dateCreated']; ?></td>
-            <td class="px-4 py-2 border"><?php echo $task['dateUpdated']; ?></td>
+            <td class="px-4 py-2 border"><?php echo $task['dateFinished']; ?></td>
             <td class="px-4 py-2 border"><?php echo $task['userId']; ?></td>
             <td class="px-4 py-2 border">
             <form action="<?php echo WEB_ROOT; ?>/task/update" method="post" class="inline">

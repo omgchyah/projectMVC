@@ -10,7 +10,7 @@ class Task extends Model
     private string $description;
     private Status $status;
     private DateTime $dateCreated;
-    private DateTime $dateUpdated;
+    private DateTime $dateFinished;
     private int $userId;
 
     public function __construct()
@@ -41,9 +41,9 @@ class Task extends Model
     {
         return $this->dateCreated;  
     }
-    public function getDateUpdated(): DateTime
+    public function getDateFinished(): DateTime
     {
-        return $this->dateUpdated;
+        return $this->dateFinished;
     }
 
     public function getUserId(): int
@@ -72,9 +72,9 @@ class Task extends Model
     {
         $this->dateCreated = $dateCreated;
     }
-    public function setDateUpdated(DateTime $dateUpdated): void
+    public function setDateFinished(DateTime $dateFinished): void
     {
-        $this->dateUpdated = $dateUpdated;
+        $this->dateFinished = $dateFinished;
     }
     public function setUserId(int $userId): void
     {
@@ -90,8 +90,8 @@ class Task extends Model
             "task_name" => $this->getName(),
             "description" => $this->getDescription(),
             "status" => $this->getStatus()->name,
-            "dateCreated" => $this->getDateCreated()->format('Y-m-d H:i:s'),
-            "dateUpdated" => $this->getDateUpdated()->format('Y-m-d H:i:s'),
+            "dateCreated" => $this->getDateCreated()->format('Y-m-d'),
+            "dateFinished" => $this->getDateFinished()->format('Y-m-d'),
             "userId" => $this->getUserId(),
         ], $data);
     
@@ -257,7 +257,7 @@ class Task extends Model
                     $tasks[$key]['description'] = $description;
                     $tasks[$key]['status'] = $status;
                     $tasks[$key]['userId'] = $userid;
-                    $tasks[$key]['dateUpdated'] = date("Y-m-d H:i:s");
+                    $tasks[$key]['dateFinished'] = date('Y-m-d');
                     break; // Exit the loop once the task is found and updated
                 }
             }

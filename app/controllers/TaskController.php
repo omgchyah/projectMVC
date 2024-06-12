@@ -53,7 +53,7 @@ class TaskController extends Controller
         }
         $task->setStatus(Status::Activa);
         $task->setDateCreated($date);
-        $task->setDateUpdated($date);
+        $task->setDateFinished($date);
 
         $task->create();
 

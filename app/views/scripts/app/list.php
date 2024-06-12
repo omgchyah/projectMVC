@@ -57,7 +57,7 @@
                 <th class="px-4 py-2 border">Descripción</th>
                 <th class="px-4 py-2 border">Estado</th>
                 <th class="px-4 py-2 border">Fecha de creación</th>
-                <th class="px-4 py-2 border">Fecha de actualización</th>
+                <th class="px-4 py-2 border">Fecha de finalización</th>
                 <th class="px-4 py-2 border">ID de usuario</th>
                 <th class="px-4 py-2 border">Opciones</th>
             </tr>
@@ -75,7 +75,7 @@
             <td><?php echo $task['description']; ?></td>
             <td><?php echo $task["status"] ?></td>
             <td><?php echo $task['dateCreated']; ?></td>
-            <td><?php echo $task['dateUpdated']; ?></td>
+            <td><?php echo $task['dateFinished']; ?></td>
             <td><?php echo $task['userId']; ?></td>
             <td>
 

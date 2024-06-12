@@ -1,74 +1,20 @@
 [
     {
-        "id": 4,
-        "task_name": "Sacar al perro",
-        "description": "Sacar al perro",
-        "status": "Suspendida",
-        "dateCreated": "2024-06-06 20:56:10",
-        "dateUpdated": "2024-06-12 13:31:18",
-        "userId": "6"
-    },
-    {
-        "id": 5,
-        "task_name": "Sacar al perro",
-        "description": "x",
+        "id": 1,
+        "task_name": "Comprar",
+        "description": "tthgfd",
         "status": "Activa",
-        "dateCreated": "2024-06-06 21:11:14",
-        "dateUpdated": "2024-06-12 11:15:31",
-        "userId": 4
-    },
-    {
-        "id": 6,
-        "task_name": "Llamar a mi madre",
-        "description": "d",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 21:19:42",
-        "dateUpdated": "2024-06-12 01:25:17",
+        "dateCreated": "2024-06-12 13:52:18",
+        "dateFinished": "2024-06-12 13:52:18",
         "userId": 2
     },
     {
-        "id": 13,
-        "task_name": "Limpiar ba\u00f1o",
-        "description": "S\u00e1bado",
+        "id": 2,
+        "task_name": "etret",
+        "description": "rtyy",
         "status": "Activa",
-        "dateCreated": "2024-06-07 11:21:45",
-        "dateUpdated": "2024-06-07 11:21:45",
-        "userId": 1
-    },
-    {
-        "id": 14,
-        "task_name": "Ir a casa de mi tio",
-        "description": "ddfshbdfs",
-        "status": "Activa",
-        "dateCreated": "2024-06-09 14:57:40",
-        "dateUpdated": "2024-06-09 14:57:40",
-        "userId": 4
-    },
-    {
-        "id": 15,
-        "task_name": "Hola",
-        "description": "Guau",
-        "status": "Activa",
-        "dateCreated": "2024-06-12 10:33:32",
-        "dateUpdated": "2024-06-12 10:33:32",
+        "dateCreated": "2024-06-12",
+        "dateFinished": "2024-06-12",
         "userId": 3
-    },
-    {
-        "id": 16,
-        "task_name": "Hola",
-        "description": "Que tal",
-        "status": "Activa",
-        "dateCreated": "2024-06-12 11:34:03",
-        "dateUpdated": "2024-06-12 13:03:15",
-        "userId": "4"
-    },
-    {
-        "id": 17,
-        "task_name": "iilgf",
-        "description": "jlhfgjh",
-        "status": "Activa",
-        "dateCreated": "2024-06-12 13:07:51",
-        "dateUpdated": "2024-06-12 13:07:51",
-        "userId": 2
     }
 ]
