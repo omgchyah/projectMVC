@@ -73,9 +73,6 @@
                 By Gabriel & Rossana
             </p>
         </div>
-        <div class="flex items-center space-x-4">
-            <input type="date" class="px-2 py-1 border rounded">
-        </div>
     </footer>
 
     <script>
