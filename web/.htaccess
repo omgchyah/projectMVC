@@ -1,16 +1,9 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
-
-  # Serve existing files directly
+  
+  # Parse requests that doesn't map to real files
   RewriteCond %{REQUEST_FILENAME} -s [OR]
-  RewriteCond %{REQUEST_FILENAME} -l [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-
-  # Otherwise, rewrite everything to index.php
-  RewriteRule ^.*$ index.php [L]
+  RewriteCond %{REQUEST_FILENAME} -l
+  RewriteRule ^.*$ - [NC,L]
+  RewriteRule ^.*$ index.php [NC,L]
 </IfModule>
-
-# Ensure that index.php is the default directory index file
-DirectoryIndex index.php

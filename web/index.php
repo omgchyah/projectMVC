@@ -6,13 +6,13 @@ date_default_timezone_set('CET');
 
 // defines the web root
 define('WEB_ROOT', substr($_SERVER['SCRIPT_NAME'], 0, strpos($_SERVER['SCRIPT_NAME'], '/index.php')));
-echo "This is the web root: " . WEB_ROOT . "<br>";
+//echo "This is the web root: " . WEB_ROOT . "<br>";
 // defindes the path to the files
 define('ROOT_PATH', realpath(dirname(__FILE__) . '/../'));
-echo "ROOT_PATH:" . ROOT_PATH . "<br>";
+//echo "ROOT_PATH:" . ROOT_PATH . "<br>";
 // defines the cms path
 define('CMS_PATH', ROOT_PATH . '/lib/base/');
-echo "This is the CMS_PATH:" . CMS_PATH . "<br>";
+//echo "This is the CMS_PATH:" . CMS_PATH . "<br>";
 
 // starts the session
 session_start();

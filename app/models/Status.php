@@ -2,6 +2,6 @@
 
 enum Status {
     case Activa;
-    case Pendiente;
+    case Suspendida;
     case Terminada;
 }
