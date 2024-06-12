@@ -275,21 +275,6 @@ class Task extends Model
             return false;
         }
     }
-    
-
-    /*public function checkrepit($name,$userid):bool{
-        $repited = false;
-        $jsonContent = file_get_contents($this->filePath);
-        $tasks = json_decode($jsonContent, true);
-        foreach ($tasks as $key => $task) {
-            if ($task['task_name'] == $name && $task['userId'] == $userid) {
-                $repited = true; 
-                break;
-            }
-            
-        }
-        return $repited;
-    }*/
 
     public function checkRepeat($name, $userid, $excludeId = null): bool {
         $repeated = false;

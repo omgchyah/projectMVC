@@ -129,40 +129,6 @@ class TaskController extends Controller
         }
     }
 
-
-    /*Método original
-    public function saveUpdate() {
-        //Hacer lo mismo para create?
-        $task = new Task();
-        
-        if ($task->checkrepit( $_POST['task_name'],$_POST['userId'])===false){
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-               
-                $task->updateTask(
-                    $_POST['id'],
-                    $_POST['task_name'],
-                    $_POST['description'],
-                    $_POST['status'],
-                    $_POST['userId']
-                ); 
-            }
-            $task = new Task();
-            $tasks = $task->getAll();
-            $_SESSION['tasks']=$tasks;
-            $view = new View();
-            $view->render("scripts/app/list");
-        }
-        else{
-            
-            $task = new Task();
-            $tasks = $task->getAll();
-            $_SESSION['tasks']=$tasks;
-            $view = new View();
-            $view->render("scripts/app/update");
-        }
-        
-        }*/
-
         public function saveUpdate() {
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
                 $taskId = $_POST['id'];
