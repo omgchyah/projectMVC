@@ -230,20 +230,58 @@ class Task extends Model
         return $tasksFound;
     }
 
-    public function deletetask($id)
-    {
+
+
+    public function deletetask($id) {
         $jsonContent = file_get_contents($this->filePath);
-        json_decode($jsonContent , true);
-            foreach($jsonContent as $tasktodelete){
-                if ($jsonContent['id'] == $id ){
-                    unset($jsonContent[$tasktodelete]);
-                    file_put_contents($this->filePath, json_encode(array_values($jsonContent), JSON_PRETTY_PRINT)); 
-                    echo "Tarea eliminada correctamente";
+        $tasks = json_decode($jsonContent, true);
+
+        foreach ($tasks as $key => $task) {
+            if ($task['id'] == $id) {
+                unset($tasks[$key]);
+                file_put_contents($this->filePath, json_encode(array_values($tasks), JSON_PRETTY_PRINT));
+                echo "Tarea eliminada correctamente";
+                return true;
             }
-        } 
+        }
+
+        return false;
     }
 
+
+    
+    public function getTaskById($id) {
+        $jsonContent = file_get_contents($this->filePath);
+        $tasks = json_decode($jsonContent, true);
+
+        foreach ($tasks as $task) {
+            if ($task['id'] == $id) {
+                return $task;
+            }
+        }
+
+        return null;  // Task not found
+    }
+
+    public function updateTask($id, $name, $description, $status, $userid) {
+        $jsonContent = file_get_contents($this->filePath);
+        $tasks = json_decode($jsonContent, true);
+        foreach ($tasks as $key => $task) {
+            if ($task['id'] == $id) {
+                $tasks[$key]['task_name'] = $name;
+                $tasks[$key]['description'] = $description;
+                $tasks[$key]['status'] = $status;
+                $tasks[$key]['user_id'] = $userid;
+                $tasks[$key]['dateUpdated'] = date("Y-m-d H:i:s");
+            }
+            
+        }
+        file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT));
+    }
+    
 }
+
+
 
 
 

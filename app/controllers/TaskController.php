@@ -115,32 +115,46 @@ class TaskController extends Controller
         $view->render("scripts/app/find");
 
     }
-
-    public function edit()
-    {
-        // Get the task ID from the GET request
-        $taskId = $_GET['task_id'];
-
+    public function update() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+           
+                $view = new View();
+                $view->render("scripts/app/update");  // Pass the task data to the vie
+        }
     }
 
-    public function delete() {
-
-        /*
-        Form Validation: When a form is submitted, you need to validate that the necessary data is present. By using isset($_POST['task_id']), you ensure that the form submission included a task_id.
-        */
-
-        if (isset($_POST['task_id'])) {
-            $taskId = $_POST['task_id'];
-            if (isset($_POST['id'])) {
+    public function saveUpdate() {
+        
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
                 $task = new Task();
-                $task->deletetask($_POST['id']);
-                header('Location: ' . WEB_ROOT . '/task/index');
-                exit;
+                $task->updateTask(
+                    $_POST['id'],
+                    $_POST['task_name'],
+                    $_POST['description'],
+                    $_POST['status'],
+                    $_POST['user_id']
+                ); 
             }
-
+            $task = new Task();
+            $tasks = $task->getAll();
+            $_SESSION['tasks']=$tasks;
             $view = new View();
-            $view->render('scripts/app/list');
+            $view->render("scripts/app/list");
+        
         }
+      
+    public function delete() {
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+            $task = new Task();
+            $task->deletetask($_POST['id']);
+        }
+        $task = new Task();
+        $tasks = $task->getAll();
+
+        $_SESSION['tasks']=$tasks;
+        $view = new View();
+        $view->render("scripts/app/list");
     }
 
 
