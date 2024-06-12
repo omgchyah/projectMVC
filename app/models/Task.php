@@ -274,12 +274,26 @@ class Task extends Model
                 $tasks[$key]['task_name'] = $name;
                 $tasks[$key]['description'] = $description;
                 $tasks[$key]['status'] = $status;
-                $tasks[$key]['user_id'] = $userid;
+                $tasks[$key]['userId'] = $userid;
                 $tasks[$key]['dateUpdated'] = date("Y-m-d H:i:s");
             }
             
         }
         file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT));
+    }
+
+    public function checkrepit($name,$userid):bool{
+        $repited = false;
+        $jsonContent = file_get_contents($this->filePath);
+        $tasks = json_decode($jsonContent, true);
+        foreach ($tasks as $key => $task) {
+            if ($task['task_name'] == $name && $task['userId'] == $userid) {
+                $repited = true; 
+                break;
+            }
+            
+        }
+        return $repited;
     }
     
 }
