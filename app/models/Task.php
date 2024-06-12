@@ -123,13 +123,16 @@ class Task extends Model
          // Add the new task if no duplicate is found
          if (!$duplicateFound) {
              $tasks[] = $data;
-         } else {
-             // Handle the case where a duplicate is found (e.g., display an error message)
-             die("Task with the same name already exists for this user!");
+             if(file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
+                $_SESSION['message'] = "Tarea creada con éxito.";
+             } else {
+             $_SESSION['message'] = "Error al guardar tarea.";
+             return false;
          }
+        } else {
+            $_SESSION["message"] = "Esta tarea ya existe para este usuario.";
+        }
 
-        // Add the new task to the array
-        //$tasks[] = $data;
 
        $_SESSION['tasks']=$tasks;
 
