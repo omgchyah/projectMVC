@@ -11,7 +11,7 @@
     {
         "id": 4,
         "task_name": "Sacar al perro",
-        "description": "a",
+        "description": "Ir a la montaña",
         "status": "Activa",
         "dateCreated": "2024-06-06 20:56:10",
         "dateUpdated": "2024-06-12 11:11:32",
@@ -56,8 +56,8 @@
     },
     {
         "id": 13,
-        "task_name": "Limpiar ba\u00f1o",
-        "description": "S\u00e1bado",
+        "task_name": "Limpiar baño",
+        "description": "Sábado",
         "status": "Activa",
         "dateCreated": "2024-06-07 11:21:45",
         "dateUpdated": "2024-06-07 11:21:45",
@@ -71,5 +71,14 @@
         "dateCreated": "2024-06-09 14:57:40",
         "dateUpdated": "2024-06-09 14:57:40",
         "userId": 4
+    },
+    {
+        "id": 15,
+        "task_name": "Hola",
+        "description": "Guau",
+        "status": "Activa",
+        "dateCreated": "2024-06-12 10:33:32",
+        "dateUpdated": "2024-06-12 10:33:32",
+        "userId": 3
     }
 ]
