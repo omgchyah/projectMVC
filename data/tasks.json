@@ -16,5 +16,14 @@
         "dateCreated": "2024-06-12",
         "dateFinished": "2024-06-12",
         "userId": "3"
+    },
+    {
+        "id": 3,
+        "task_name": "Hello",
+        "description": "whatsup",
+        "status": "Activa",
+        "dateCreated": "2024-06-12",
+        "dateFinished": "2024-06-12",
+        "userId": 3
     }
 ]
