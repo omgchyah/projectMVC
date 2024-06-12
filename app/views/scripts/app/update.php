@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+$task = $_SESSION['task'];
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,12 +16,12 @@
         
         <div>
             <label for="task_name" class="block mb-2 text-lg font-semibold" method="post">Nombre de la tarea: </label>
-            <input type="text" id="task_name" name="task_name" required class="w-full p-2 border rounded">
+            <input type="text" id="task_name" name="task_name" value="<?php echo htmlspecialchars($task['id']); ?>" required class="w-full p-2 border rounded">
         </div>
         
         <div>
             <label for="description" class="block mb-2 text-lg font-semibold" method="post">Descripción:</label>
-            <textarea id="description" name="description" required class="w-full p-2 border rounded"></textarea>
+            <textarea id="description" name="description" value="<?php echo htmlspecialchars($task['id']); ?>" required class="w-full p-2 border rounded"></textarea>
         </div>
 
         <div>
