@@ -10,16 +10,6 @@
     <h1 class="mb-6 text-2xl font-bold text-center">Crear nueva tarea</h1>
     <p>Rellena los campos de abajo con la información</p>
 
-        <!-- Display the session message if it exists -->
-        <?php if (isset($_SESSION['message'])): ?>
-        <div class="p-4 mb-4 text-blue-700 bg-blue-100 rounded">
-            <?php
-                echo $_SESSION['message'];
-                unset($_SESSION['message']); // Clear the message after displaying it
-            ?>
-        </div>
-    <?php endif; ?>
-
     <form action="<?php echo WEB_ROOT; ?>/task/store" method="post" class="space-y-4">
         <input type="hidden" name="action" value="store">
         

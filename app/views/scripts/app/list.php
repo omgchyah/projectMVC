@@ -19,6 +19,16 @@
 <div class="max-w-4xl p-6 mx-auto mt-10 bg-white rounded-lg shadow-lg bg-opacity-90">
     <h1 class="mb-6 text-2xl font-bold text-center">Lista de Tareas</h1>
 
+            <!-- Display the session message if it exists -->
+            <?php if (isset($_SESSION['message'])): ?>
+        <div class="p-4 mb-4 text-blue-700 bg-blue-100 rounded">
+            <?php
+                echo $_SESSION['message'];
+                unset($_SESSION['message']); // Clear the message after displaying it
+            ?>
+        </div>
+    <?php endif; ?>
+
     <div class="p-4 mb-6 bg-gray-100 rounded-lg">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
             <div>
