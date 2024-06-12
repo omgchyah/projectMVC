@@ -117,53 +117,13 @@ class TaskController extends Controller
     }
     public function update() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-                $task = new Task;
-                $tasktoupdate=$task->getTaskById($_POST['id']);
-                $_POST['task_name']=$tasktoupdate['task_name'];
-                $_POST['description']=$tasktoupdate['description'];
-                $_POST['status']=$tasktoupdate['status'];
-                $_POST['userId']=$tasktoupdate['userId'];
+           
                 $view = new View();
                 $view->render("scripts/app/update");  
         }
     }
 
-    /*Método original
-    public function saveUpdate() {
-        //Hacer lo mismo para create?
-        $task = new Task();
-        
-        if ($task->checkrepit( $_POST['task_name'],$_POST['userId'])===false){
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-               
-                $task->updateTask(
-                    $_POST['id'],
-                    $_POST['task_name'],
-                    $_POST['description'],
-                    $_POST['status'],
-                    $_POST['userId']
-                ); 
-            }
-            $task = new Task();
-            $tasks = $task->getAll();
-            $_SESSION['tasks']=$tasks;
-            $view = new View();
-            $view->render("scripts/app/list");
-        }
-        else{
-            
-            $task = new Task();
-            $tasks = $task->getAll();
-            $_SESSION['tasks']=$tasks;
-            $view = new View();
-            $view->render("scripts/app/update");
-        }
-        
-        }*/
-
         public function saveUpdate() {
-            $task = new Task();
-        
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
                 $taskId = $_POST['id'];
                 $taskName = $_POST['task_name'];
@@ -171,17 +131,8 @@ class TaskController extends Controller
                 $status = $_POST['status'];
                 $userId = $_POST['userId'];
         
-                // Check for duplicate tasks
-                if ($task->checkrepit($taskName, $userId) === false) {
-                    $updateResult = $task->updateTask($taskId, $taskName, $description, $status, $userId);
-                    if ($updateResult) {
-                        $_SESSION['message'] = "Tarea actualizada con éxito.";
-                    } else {
-                        $_SESSION['message'] = "Error al actualizar la tarea.";
-                    }
-                } else {
-                    $_SESSION['message'] = "Esta tarea ya existe para este usuario.";
-                }
+                $task = new Task();
+                $task->updateTask($taskId, $taskName, $description, $status, $userId);
         
                 // Retrieve all tasks and render the list view
                 $tasks = $task->getAll();
@@ -194,6 +145,7 @@ class TaskController extends Controller
                 $view->render("scripts/app/update");
             }
         }
+        
         
       
     public function delete() {
