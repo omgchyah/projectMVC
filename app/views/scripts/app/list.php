@@ -26,7 +26,7 @@
             <div>
                 <label for="user_id" class="block mb-1 text-sm font-semibold">ID de usuario:</label>
                 <form action="<?php echo WEB_ROOT; ?>/task/user" method="post" class="flex items-center">
-                    <input type="number" id="user_id" name="user_id" placeholder="Escribe ID del usuario..." required min="1" class="w-full p-1 mr-2 border rounded">
+                    <input type="number" id="userId" name="userId" placeholder="Escribe ID del usuario..." required min="1" class="w-full p-1 mr-2 border rounded">
                     <button type="submit" class="px-2 py-1 text-xs text-white bg-purple-500 rounded">Buscar</button>
                 </form>
             </div>

@@ -2,11 +2,11 @@
     {
         "id": 4,
         "task_name": "Sacar al perro",
-        "description": "Ir a la montaña",
-        "status": "Activa",
+        "description": "Sacar al perro",
+        "status": "Suspendida",
         "dateCreated": "2024-06-06 20:56:10",
-        "dateUpdated": "2024-06-12 11:11:32",
-        "userId": 6
+        "dateUpdated": "2024-06-12 13:31:18",
+        "userId": "6"
     },
     {
         "id": 5,
