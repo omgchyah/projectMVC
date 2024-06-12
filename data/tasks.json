@@ -1,21 +1,23 @@
 [
     {
         "id": 3,
-        "task_name": "Cocinar para la semana",
-        "description": "Hacer la compra",
+        "task_name": "ccc",
+        "description": "c",
         "status": "Activa",
         "dateCreated": "2024-06-06 20:55:00",
-        "dateUpdated": "2024-06-06 20:55:00",
-        "userId": 3
+        "dateUpdated": "2024-06-12 10:28:58",
+        "userId": 3,
+        "user_id": "3"
     },
     {
         "id": 4,
-        "task_name": "Sacar al perro",
-        "description": "Ir a la monta\u00f1a",
-        "status": "Activa",
+        "task_name": "aaaaaaaaaaaaa",
+        "description": "a",
+        "status": "Terminada",
         "dateCreated": "2024-06-06 20:56:10",
-        "dateUpdated": "2024-06-06 20:56:10",
-        "userId": 6
+        "dateUpdated": "2024-06-12 10:18:02",
+        "userId": 6,
+        "user_id": "3"
     },
     {
         "id": 5,
@@ -28,48 +30,13 @@
     },
     {
         "id": 6,
-        "task_name": "Cocinar para la semana",
-        "description": "Hacer meal prep",
+        "task_name": "Llamar a mi madre",
+        "description": "d",
         "status": "Activa",
         "dateCreated": "2024-06-06 21:19:42",
-        "dateUpdated": "2024-06-06 21:19:42",
-        "userId": 2
-    },
-    {
-        "id": 7,
-        "task_name": "Comprar regalo de navidad",
-        "description": "Ir al centro comercial",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 21:32:23",
-        "dateUpdated": "2024-06-06 21:32:23",
-        "userId": 2
-    },
-    {
-        "id": 8,
-        "task_name": "Pintar la casa",
-        "description": "Comprar gal\u00f3n de pintura",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 21:41:55",
-        "dateUpdated": "2024-06-06 21:41:55",
-        "userId": 2
-    },
-    {
-        "id": 9,
-        "task_name": "Ahorrar para el mes",
-        "description": "No comprar m\u00e1s",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 21:45:25",
-        "dateUpdated": "2024-06-06 21:45:25",
-        "userId": 3
-    },
-    {
-        "id": 10,
-        "task_name": "Llamar a mi madre",
-        "description": "Whatsapp",
-        "status": "Activa",
-        "dateCreated": "2024-06-06 22:51:29",
-        "dateUpdated": "2024-06-06 22:51:29",
-        "userId": 2
+        "dateUpdated": "2024-06-12 01:25:17",
+        "userId": 2,
+        "user_id": "2"
     },
     {
         "id": 11,

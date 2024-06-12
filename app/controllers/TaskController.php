@@ -119,14 +119,17 @@ class TaskController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
            
                 $view = new View();
-                $view->render("scripts/app/update");  // Pass the task data to the vie
+                $view->render("scripts/app/update");  
         }
     }
 
     public function saveUpdate() {
+        //Hacer lo mismo para create?
+        $task = new Task();
         
+        if ($task->checkrepit( $_POST['task_name'],$_POST['user_id'])===false){
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-                $task = new Task();
+               
                 $task->updateTask(
                     $_POST['id'],
                     $_POST['task_name'],
@@ -140,6 +143,15 @@ class TaskController extends Controller
             $_SESSION['tasks']=$tasks;
             $view = new View();
             $view->render("scripts/app/list");
+        }
+        else{
+            
+            $task = new Task();
+            $tasks = $task->getAll();
+            $_SESSION['tasks']=$tasks;
+            $view = new View();
+            $view->render("scripts/app/update");
+        }
         
         }
       
