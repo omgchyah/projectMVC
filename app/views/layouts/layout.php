@@ -35,7 +35,7 @@
         <div class="flex items-center justify-between p-4">
             <div class="relative">
                 <button id="dropdownButton" class="p-3 text-white bg-purple-600 rounded-full text-1xl">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars" title="Menu"></i>
                 </button>
                 <div id="dropdownMenu" class="absolute left-0 hidden w-48 mt-2 bg-white rounded-md shadow-lg">
                     <form action="<?php echo WEB_ROOT; ?>/" method="post">
@@ -51,13 +51,13 @@
             </div>
             <div class="flex space-x-4">
                 <form action="<?php echo WEB_ROOT; ?>/" method="post" class="inline">
-                    <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-home"></i></button>
+                    <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-home" title="Home"></i></button>
                 </form>
                 <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post" class="inline">
-                    <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-plus-circle"></i></button>
+                    <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-plus-circle" title="Crear nueva tarea"></i></button>
                 </form>
                 <form action="<?php echo WEB_ROOT; ?>/task/list" method="post" class="inline">
-                    <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-tasks"></i></button>
+                    <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-tasks" title="Ver tareas"></i></button>
                 </form>
             </div>
         </div>

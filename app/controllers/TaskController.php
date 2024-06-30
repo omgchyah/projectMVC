@@ -2,20 +2,12 @@
 
 class TaskController extends Controller
 {
-
     private Task $task;
-    private array $tasks;
-    // Added by Ross
+
     public function __construct()
     {
         $this->task = new Task();
-        // Common initialization code
         echo "TaskController initialized<br>" . WEB_ROOT;
-    }
-
-    public function getAllTasks(): array
-    {
-        return $this->task->getAll();
     }
 
     public function execute($action = "create")
@@ -25,15 +17,12 @@ class TaskController extends Controller
         } else {
             echo "Action '$action' not found.";
         }
-
-
     }
 
     public function create()
     {
         $view = new View();
         $view->render("scripts/app/create");
-
     }
 
     public function store()
@@ -45,129 +34,102 @@ class TaskController extends Controller
         $task->setName($_POST['task_name']);
         $task->setDescription($_POST['description']);
         $task->setUserId($_POST['userId']);
-        // Validate input
         if ($task->getUserId() < 0) {
-            // Handle invalid input
-            echo "User ID cannot be negative.";
+            echo "ID de usuario no puede ser negativo.";
             return;
         }
         $task->setStatus(Status::Activa);
         $task->setDateCreated($date);
-        $task->setDateFinished($date);
+        $task->setDateFinished(new DateTime($_POST['dateFinished']));
 
         $task->create();
 
         $tasks = $task->getAll();
-        
-
-        $_SESSION['tasks']=$tasks;
-
         $view = new View();
+        $view->tasks = $tasks;
         $view->render("scripts/app/list");
     }
 
-
     public function list()
     {
-
-        $task = new Task();
-        $tasks = $task->getAll();
-
-        $_SESSION['tasks']=$tasks;
-          
+        $tasks = $this->task->getAll();
         $view = new View();
+        $view->tasks = $tasks;
         $view->render("scripts/app/list");
     }
 
     public function user()
     {
-        $task = new Task();
-
-        $tasksFound = $task->getAllTasksUser($_POST['userId']);
-
-        $_SESSION['tasksFounds'] = $tasksFound;
-
+        $tasksFound = $this->task->getAllTasksUser($_POST['userId']);
         $view = new View();
+        $view->tasksFound = $tasksFound;
         $view->render("scripts/app/find");
     }
 
     public function showone()
     {
-        $task = new Task();
-
-        $taskFound = $task->getOneTask($_POST['id']);
-
-        $_SESSION['tasksFound'] = $taskFound;
-
+        $taskFound = $this->task->getOneTask($_POST['id']);
         $view = new View();
+        $view->tasksFound = $taskFound;
         $view->render("scripts/app/find");
     }
 
     public function find()
     {
-        $task = new Task();
-
-        $tasksFound = $task->findTasks($_POST['string']);
-
-        $_SESSION['tasksFound'] = $tasksFound;
-
+        $tasksFound = $this->task->findTasks($_POST['string']);
         $view = new View();
+        $view->tasksFound = $tasksFound;
         $view->render("scripts/app/find");
-
-    }
-    public function update() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-
-                $task = new Task;
-                $tasktoupdate=$task->getTaskById($_POST['id']);
-                $_POST['task_name']=$tasktoupdate['task_name'];
-                $_POST['description']=$tasktoupdate['description'];
-                $_POST['status']=$tasktoupdate['status'];
-                $_POST['userId']=$tasktoupdate['userId'];
-                $_POST['dateFinished']=$tasktoupdate['dateFinished'];
-                $view = new View();
-                $view->render("scripts/app/update");  
-        }
     }
 
-        public function saveUpdate() {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-                $taskId = $_POST['id'];
-                $taskName = $_POST['task_name'];
-                $description = $_POST['description'];
-                $status = $_POST['status'];
-                $userId = $_POST['userId'];
-                $dateFinished = $_POST['dateFinished'];
-                $task = new Task();
-                $task->updateTask($taskId, $taskName, $description, $status, $userId,$dateFinished);
-        
-                // Retrieve all tasks and render the list view
-                $tasks = $task->getAll();
-                $_SESSION['tasks'] = $tasks;
-                $view = new View();
-                $view->render("scripts/app/list");
-            } else {
-                // If not a POST request, redirect to the update form
-                $view = new View();
-                $view->render("scripts/app/update");
-            }
-        }
-        
-        
-      
-    public function delete() {
-        
+    public function update()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-            $task = new Task();
-            $task->deletetask($_POST['id']);
-        }
-        $task = new Task();
-        $tasks = $task->getAll();
+            $taskToUpdate = $this->task->getTaskById($_POST['id']);
 
-        $_SESSION['tasks']=$tasks;
+            $_POST['task_name'] = $taskToUpdate['task_name'];
+            $_POST['description'] = $taskToUpdate['description'];
+            $_POST['status'] = $taskToUpdate['status'];
+            $_POST['userId'] = $taskToUpdate['userId'];
+            $_POST['dateCreated'] = $taskToUpdate['dateCreated'];
+            $_POST['dateFinished'] = $taskToUpdate['dateFinished'];
+
+            $view = new View();
+            $view->render("scripts/app/update");
+        }
+    }
+
+    public function saveUpdate()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+            $taskId = $_POST['id'];
+            $taskName = $_POST['task_name'];
+            $description = $_POST['description'];
+            $status = $_POST['status'];
+            $userId = $_POST['userId'];
+            $dateCreated = $_POST['dateCreated'];
+            $dateFinished = $_POST['dateFinished'];
+
+            $this->task->updateTask($taskId, $taskName, $description, $status, $userId, $dateCreated, $dateFinished);
+
+            $tasks = $this->task->getAll();
+            $view = new View();
+            $view->tasks = $tasks;
+            $view->render("scripts/app/list");
+        } else {
+            $view = new View();
+            $view->render("scripts/app/update");
+        }
+    }
+
+    public function delete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+            $this->task->deletetask($_POST['id']);
+        }
+        $tasks = $this->task->getAll();
         $view = new View();
+        $view->tasks = $tasks;
         $view->render("scripts/app/list");
     }
-
-
 }

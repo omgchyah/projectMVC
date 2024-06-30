@@ -1,21 +1,12 @@
 [
     {
         "id": 2,
-        "task_name": "etret",
+        "task_name": "Hola",
         "description": "etret",
         "status": "Terminada",
-        "dateCreated": "2024-06-12",
+        "dateCreated": "2024-06-16",
         "dateFinished": "2024-06-21",
         "userId": "3"
-    },
-    {
-        "id": 3,
-        "task_name": "Hello",
-        "description": "whatsup",
-        "status": "Activa",
-        "dateCreated": "2024-06-12",
-        "dateFinished": "2024-06-12",
-        "userId": 3
     },
     {
         "id": 4,
@@ -25,5 +16,50 @@
         "dateCreated": "2024-06-12",
         "dateFinished": "2024-06-12",
         "userId": "1"
+    },
+    {
+        "id": 9,
+        "task_name": "ggdfdfjgl",
+        "description": "lfdhkjdgfh",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 3
+    },
+    {
+        "id": 10,
+        "task_name": "Hello",
+        "description": "fhkdgj",
+        "status": "Activa",
+        "dateCreated": "2024-07-06",
+        "dateFinished": "2024-08-08",
+        "userId": "3"
+    },
+    {
+        "id": 11,
+        "task_name": "ggh",
+        "description": "ghf",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 4
+    },
+    {
+        "id": 12,
+        "task_name": "trre",
+        "description": "475",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": "4"
+    },
+    {
+        "id": 14,
+        "task_name": "556",
+        "description": "46",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 2
     }
 ]

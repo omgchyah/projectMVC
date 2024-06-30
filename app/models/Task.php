@@ -19,14 +19,16 @@ class Task extends Model
     }
 
     // Getters
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
+
     public function getName(): string
     {
         return $this->name;
     }
+
     public function getDescription(): string
     {
         return $this->description;
@@ -39,8 +41,9 @@ class Task extends Model
 
     public function getDateCreated(): DateTime
     {
-        return $this->dateCreated;  
+        return $this->dateCreated;
     }
+
     public function getDateFinished(): DateTime
     {
         return $this->dateFinished;
@@ -56,33 +59,40 @@ class Task extends Model
     {
         $this->id = $id;
     }
+
     public function setName(string $name): void
     {
         $this->name = $name;
     }
+
     public function setDescription(string $description): void
     {
         $this->description = $description;
     }
+
     public function setStatus(Status $status): void
     {
         $this->status = $status;
     }
+
     public function setDateCreated(DateTime $dateCreated): void
     {
         $this->dateCreated = $dateCreated;
     }
+
     public function setDateFinished(DateTime $dateFinished): void
     {
         $this->dateFinished = $dateFinished;
     }
+
     public function setUserId(int $userId): void
     {
         $this->userId = $userId;
     }
 
     // Create
-    public function create($data=[]) {
+    public function create($data = [])
+    {
         $data = array_merge([
             "id" => $this->getId(),
             "task_name" => $this->getName(),
@@ -92,7 +102,7 @@ class Task extends Model
             "dateFinished" => $this->getDateFinished()->format('Y-m-d'),
             "userId" => $this->getUserId(),
         ], $data);
-    
+
         // Read the existing data from the JSON file
         if (file_exists($this->filePath)) {
             $jsonContent = file_get_contents($this->filePath);
@@ -100,7 +110,7 @@ class Task extends Model
         } else {
             $tasks = [];
         }
-    
+
         // Determine the next ID
         if (empty($tasks)) {
             $data['id'] = 1;
@@ -108,44 +118,30 @@ class Task extends Model
             $lastTask = end($tasks);
             $data['id'] = $lastTask['id'] + 1;
         }
-    
-        // Check for duplicate tasks using checkRepeat method
-        if ($this->checkRepeat($data['task_name'], $data['userId']) === false) {
-            // Add the new task
-            $tasks[] = $data;
-            if (file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
-                $_SESSION['message'] = "Tarea creada con éxito.";
-                $_SESSION['tasks'] = $tasks;
-                return true;
-            } else {
-                $_SESSION['message'] = "Error al guardar tarea.";
-                return false;
-            }
-        } else {
-            $_SESSION["message"] = "Esta tarea ya existe para este usuario.";
-            return false;
-        }
+
+        // Add the new task
+        $tasks[] = $data;
+        file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+        return true;
     }
-        public function getAll(): array
+
+    public function getAll(): array
     {
         // Read the existing data from the JSON file
         if (file_exists($this->filePath)) {
             $jsonContent = file_get_contents($this->filePath);
-            $tasks = json_decode($jsonContent, true);
+            return json_decode($jsonContent, true) ?: [];
         } else {
-            $tasks = [];
+            return [];
         }
-
-        $_SESSION['tasks']=$tasks;
-
-        return $tasks;
     }
 
     public function getAllTasksUser(int $userId): array
     {
         $tasksFound = [];
 
-        //Read the data from JSON file
+        // Read the data from the JSON file
         if (file_exists($this->filePath)) {
             $jsonContent = file_get_contents($this->filePath);
             $tasks = json_decode($jsonContent, true);
@@ -156,25 +152,15 @@ class Task extends Model
         foreach ($tasks as $task) {
             if ($task['userId'] === $userId) {
                 $tasksFound[] = $task;
-
-            }    
+            }
         }
-
-        if(empty($tasksFound)) {
-            $_SESSION['message'] = "Este ID de usuario no existe.";
-        }
-
-        $_SESSION['tasksFound'] = $tasksFound;
 
         return $tasksFound;
     }
 
     public function getOneTask(int $id)
     {
-
-        $tasksFound = [];
-
-        //Read the data from JSON file
+        // Read the data from the JSON file
         if (file_exists($this->filePath)) {
             $jsonContent = file_get_contents($this->filePath);
             $tasks = json_decode($jsonContent, true);
@@ -184,26 +170,18 @@ class Task extends Model
 
         foreach ($tasks as $task) {
             if ($task['id'] === $id) {
-                $tasksFound[] = $task;
-
-            }    
-        }
-        
-        if(empty($tasksFound)) {
-            $_SESSION['message'] = "Este ID de tarea no existe.";
+                return [$task];
+            }
         }
 
-        $_SESSION['tasksFound'] = $tasksFound;
-
-        return $tasksFound;
-
+        return [];
     }
 
     public function findTasks(string $string): array
     {
         $tasksFound = [];
 
-        //Read the data from JSON file
+        // Read the data from the JSON file
         if (file_exists($this->filePath)) {
             $jsonContent = file_get_contents($this->filePath);
             $tasks = json_decode($jsonContent, true);
@@ -211,24 +189,17 @@ class Task extends Model
             $tasks = [];
         }
 
-        foreach($tasks as $task) {
+        foreach ($tasks as $task) {
             if (strstr($task['task_name'], $string)) {
                 $tasksFound[] = $task;
             }
         }
 
-        if(empty($tasksFound)) {
-            $_SESSION['message'] = "No se encontraron tareas que contengan esta palabra.";
-        }
-
-        $_SESSION['tasksFound'] = $tasksFound;
-
         return $tasksFound;
     }
 
-
-
-    public function deletetask($id) {
+    public function deletetask($id)
+    {
         $jsonContent = file_get_contents($this->filePath);
         $tasks = json_decode($jsonContent, true);
 
@@ -236,7 +207,6 @@ class Task extends Model
             if ($task['id'] == $id) {
                 unset($tasks[$key]);
                 file_put_contents($this->filePath, json_encode(array_values($tasks), JSON_PRETTY_PRINT));
-                echo "Tarea eliminada correctamente";
                 return true;
             }
         }
@@ -244,7 +214,8 @@ class Task extends Model
         return false;
     }
 
-    public function getTaskById($id) {
+    public function getTaskById($id)
+    {
         $jsonContent = file_get_contents($this->filePath);
         $tasks = json_decode($jsonContent, true);
 
@@ -257,57 +228,39 @@ class Task extends Model
         return null;  // Task not found
     }
 
-    public function updateTask($id, $name, $description, $status, $userid,$dateFinished) {
+    public function updateTask($id, $name, $description, $status, $userid, $dateCreated,  $dateFinished)
+    {
         $jsonContent = file_get_contents($this->filePath);
         $tasks = json_decode($jsonContent, true);
-    
-        // Check for duplicate tasks
-        if ($this->checkRepeat($name, $userid, $id) === false) {
-            // Proceed with the update
-            foreach ($tasks as $key => $task) {
-                if ($task['id'] == $id) {
-                    $tasks[$key]['task_name'] = $name;
-                    $tasks[$key]['description'] = $description;
-                    $tasks[$key]['status'] = $status;
-                    $tasks[$key]['userId'] = $userid;
-                    $tasks[$key]['dateFinished'] = $dateFinished;
-                    break; // Exit the loop once the task is found and updated
-                }
+
+        foreach ($tasks as $key => $task) {
+            if ($task['id'] == $id) {
+                $tasks[$key]['task_name'] = $name;
+                $tasks[$key]['description'] = $description;
+                $tasks[$key]['status'] = $status;
+                $tasks[$key]['userId'] = $userid;
+                $tasks[$key]['dateCreated'] = $dateCreated;
+                $tasks[$key]['dateFinished'] = $dateFinished;
+                break; // Exit the loop once the task is found and updated
             }
-    
-            // Save the updated tasks back to the JSON file
-            if (file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
-                $_SESSION['message'] = "Tarea actualizada con éxito.";
-                return true;
-            } else {
-                $_SESSION['message'] = "Error al actualizar la tarea.";
-                return false;
-            }
-        } else {
-            $_SESSION["message"] = "Esta tarea ya existe para este usuario.";
-            return false;
         }
+
+        // Save the updated tasks back to the JSON file
+        file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        return true;
     }
 
-    public function checkRepeat($name, $userid, $excludeId = null): bool {
-        $repeated = false;
+    public function checkRepeat($name, $userid, $excludeId = null): bool
+    {
         $jsonContent = file_get_contents($this->filePath);
         $tasks = json_decode($jsonContent, true);
         foreach ($tasks as $task) {
             if ($task['task_name'] == $name && $task['userId'] == $userid) {
                 if ($excludeId === null || $task['id'] != $excludeId) {
-                    $repeated = true;
-                    break;
+                    return true;
                 }
             }
         }
-        return $repeated;
+        return false;
     }
-    
-    
 }
-
-
-
-
-
