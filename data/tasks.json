@@ -1,14 +1,5 @@
 [
     {
-        "id": 2,
-        "task_name": "Hola",
-        "description": "etret",
-        "status": "Terminada",
-        "dateCreated": "2024-06-16",
-        "dateFinished": "2024-06-21",
-        "userId": "3"
-    },
-    {
         "id": 4,
         "task_name": "Developers",
         "description": "hacer pagina de tareas",
@@ -16,15 +7,6 @@
         "dateCreated": "2024-06-12",
         "dateFinished": "2024-06-12",
         "userId": "1"
-    },
-    {
-        "id": 9,
-        "task_name": "ggdfdfjgl",
-        "description": "lfdhkjdgfh",
-        "status": "Activa",
-        "dateCreated": "2024-07-01",
-        "dateFinished": "2024-08-04",
-        "userId": 3
     },
     {
         "id": 10,
@@ -48,7 +30,7 @@
         "id": 12,
         "task_name": "trre",
         "description": "475",
-        "status": "Activa",
+        "status": "Terminada",
         "dateCreated": "2024-07-01",
         "dateFinished": "2024-08-04",
         "userId": "4"
@@ -61,5 +43,23 @@
         "dateCreated": "2024-07-01",
         "dateFinished": "2024-08-04",
         "userId": 2
+    },
+    {
+        "id": 15,
+        "task_name": "y556",
+        "description": "rtrre",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 2
+    },
+    {
+        "id": 16,
+        "task_name": "5435",
+        "description": "3453",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 4
     }
 ]
