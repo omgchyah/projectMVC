@@ -73,7 +73,6 @@ class TaskController extends Controller
             $view->tasksFound = $tasksFound;
             $view->render("scripts/app/find");
         }
-
     }
 
     public function showone()
@@ -164,30 +163,6 @@ class TaskController extends Controller
         $view->render("scripts/app/update");
     }
 }
-
-
-/*     public function saveUpdate()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-            $taskId = $_POST['id'];
-            $taskName = $_POST['task_name'];
-            $description = $_POST['description'];
-            $status = $_POST['status'];
-            $userId = $_POST['userId'];
-            $dateCreated = $_POST['dateCreated'];
-            $dateFinished = $_POST['dateFinished'];
-
-            $this->task->updateTask($taskId, $taskName, $description, $status, $userId, $dateCreated, $dateFinished);
-
-            $tasks = $this->task->getAll();
-            $view = new View();
-            $view->tasks = $tasks;
-            $view->render("scripts/app/list");
-        } else {
-            $view = new View();
-            $view->render("scripts/app/update");
-        }
-    } */
 
     public function delete()
     {

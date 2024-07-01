@@ -3,7 +3,7 @@
         "id": 4,
         "task_name": "Developers",
         "description": "hacer pagina de tareas",
-        "status": "Activa",
+        "status": "Terminada",
         "dateCreated": "2024-06-12",
         "dateFinished": "2024-06-12",
         "userId": "1"
