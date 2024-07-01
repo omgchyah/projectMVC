@@ -2,6 +2,8 @@
     <div class="max-w-4xl p-6 mx-auto mt-10 bg-white rounded-lg shadow-lg bg-opacity-90">
         <h1 class="mb-6 text-2xl font-bold text-center">Actualizar tarea</h1>
 
+        <p class="text-center text-red-500"><?php echo $this->message; ?></p>
+
         <form action="<?php echo WEB_ROOT; ?>/task/saveUpdate" method="post" class="space-y-4">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($_POST['id'] ?? ''); ?>">
 

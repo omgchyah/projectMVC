@@ -129,6 +129,44 @@ class TaskController extends Controller
     }
 
     public function saveUpdate()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+        $taskId = $_POST['id'];
+        $taskName = $_POST['task_name'];
+        $description = $_POST['description'];
+        $status = $_POST['status'];
+        $userId = $_POST['userId'];
+        $dateCreated = $_POST['dateCreated'];
+        $dateFinished = $_POST['dateFinished'];
+
+        // Check for duplicate task name for the same user
+        if ($this->task->checkRepeat($taskName, $userId, $taskId)) {
+            $message = "Ya existe una tarea con el mismo nombre para este usuario.";
+            $view = new View();
+            $view->message = $message;
+
+            // Load the existing task details to display in the form
+            $task = $this->task->getTaskById($taskId);
+            $view->task = $task;
+            $view->render("scripts/app/update");
+            return;
+        }
+
+        // No duplicates found, proceed with the update
+        $this->task->updateTask($taskId, $taskName, $description, $status, $userId, $dateCreated, $dateFinished);
+
+        $tasks = $this->task->getAll();
+        $view = new View();
+        $view->tasks = $tasks;
+        $view->render("scripts/app/list");
+    } else {
+        $view = new View();
+        $view->render("scripts/app/update");
+    }
+}
+
+
+/*     public function saveUpdate()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
             $taskId = $_POST['id'];
@@ -149,7 +187,7 @@ class TaskController extends Controller
             $view = new View();
             $view->render("scripts/app/update");
         }
-    }
+    } */
 
     public function delete()
     {

@@ -28,12 +28,12 @@
     },
     "4": {
         "id": 15,
-        "task_name": "y556",
+        "task_name": "tt55",
         "description": "rtrre",
         "status": "Activa",
         "dateCreated": "2024-07-01",
         "dateFinished": "2024-08-04",
-        "userId": 2
+        "userId": "2"
     },
     "5": {
         "id": 16,
@@ -92,6 +92,15 @@
     "11": {
         "id": 22,
         "task_name": "53434",
+        "description": "435",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 2
+    },
+    "12": {
+        "id": 23,
+        "task_name": "435",
         "description": "435",
         "status": "Activa",
         "dateCreated": "2024-07-01",
