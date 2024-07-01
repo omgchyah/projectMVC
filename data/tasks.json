@@ -27,15 +27,6 @@
         "userId": 4
     },
     {
-        "id": 12,
-        "task_name": "trre",
-        "description": "475",
-        "status": "Terminada",
-        "dateCreated": "2024-07-01",
-        "dateFinished": "2024-08-04",
-        "userId": "4"
-    },
-    {
         "id": 14,
         "task_name": "556",
         "description": "46",
@@ -61,5 +52,41 @@
         "dateCreated": "2024-07-01",
         "dateFinished": "2024-08-04",
         "userId": 4
+    },
+    {
+        "id": 17,
+        "task_name": "536",
+        "description": "3535",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 2
+    },
+    {
+        "id": 18,
+        "task_name": "rtr",
+        "description": "43",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-07-25",
+        "userId": 3
+    },
+    {
+        "id": 19,
+        "task_name": "53235",
+        "description": "232",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 4
+    },
+    {
+        "id": 20,
+        "task_name": "53435",
+        "description": "435345",
+        "status": "Terminada",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": "1"
     }
 ]

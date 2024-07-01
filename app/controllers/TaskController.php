@@ -7,7 +7,7 @@ class TaskController extends Controller
     public function __construct()
     {
         $this->task = new Task();
-        echo "TaskController initialized<br>" . WEB_ROOT;
+/*         echo "TaskController initialized<br>" . WEB_ROOT; */
     }
 
     public function execute($action = "create")

@@ -90,9 +90,26 @@ class Task extends Model
         $this->userId = $userId;
     }
 
-    // Create
-    public function create($data = [])
+    public function getAll(): array
     {
+        // Read the existing data from the JSON file
+        if (file_exists($this->filePath)) {
+            $jsonContent = file_get_contents($this->filePath);
+            return json_decode($jsonContent, true);
+        } else {
+            return [];
+        }
+    }
+
+    public function writeToFile(array $tasks): void{
+        file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
+    // Create
+    public function create($data = []): bool
+    {
+        $tasks = $this->getAll();
+
         $data = array_merge([
             "id" => $this->getId(),
             "task_name" => $this->getName(),
@@ -102,14 +119,6 @@ class Task extends Model
             "dateFinished" => $this->getDateFinished()->format('Y-m-d'),
             "userId" => $this->getUserId(),
         ], $data);
-
-        // Read the existing data from the JSON file
-        if (file_exists($this->filePath)) {
-            $jsonContent = file_get_contents($this->filePath);
-            $tasks = json_decode($jsonContent, true);
-        } else {
-            $tasks = [];
-        }
 
         // Determine the next ID
         if (empty($tasks)) {
@@ -121,20 +130,8 @@ class Task extends Model
 
         // Add the new task
         $tasks[] = $data;
-        file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-
+        $this->writeToFile($tasks);
         return true;
-    }
-
-    public function getAll(): array
-    {
-        // Read the existing data from the JSON file
-        if (file_exists($this->filePath)) {
-            $jsonContent = file_get_contents($this->filePath);
-            return json_decode($jsonContent, true) ?: [];
-        } else {
-            return [];
-        }
     }
 
     public function getAllTasksUser(int $userId): array
@@ -142,12 +139,7 @@ class Task extends Model
         $tasksFound = [];
 
         // Read the data from the JSON file
-        if (file_exists($this->filePath)) {
-            $jsonContent = file_get_contents($this->filePath);
-            $tasks = json_decode($jsonContent, true);
-        } else {
-            $tasks = [];
-        }
+        $tasks = $this->getAll();
 
         foreach ($tasks as $task) {
             if ($task['userId'] === $userId) {
@@ -161,12 +153,7 @@ class Task extends Model
     public function getOneTask(int $id)
     {
         // Read the data from the JSON file
-        if (file_exists($this->filePath)) {
-            $jsonContent = file_get_contents($this->filePath);
-            $tasks = json_decode($jsonContent, true);
-        } else {
-            $tasks = [];
-        }
+        $tasks = $this->getAll();
 
         foreach ($tasks as $task) {
             if ($task['id'] === $id) {
@@ -182,12 +169,7 @@ class Task extends Model
         $tasksFound = [];
 
         // Read the data from the JSON file
-        if (file_exists($this->filePath)) {
-            $jsonContent = file_get_contents($this->filePath);
-            $tasks = json_decode($jsonContent, true);
-        } else {
-            $tasks = [];
-        }
+        $tasks = $this->getAll();
 
         foreach ($tasks as $task) {
             if (strstr($task['task_name'], $string)) {
@@ -200,13 +182,12 @@ class Task extends Model
 
     public function deletetask($id)
     {
-        $jsonContent = file_get_contents($this->filePath);
-        $tasks = json_decode($jsonContent, true);
+        $tasks = $this->getAll();
 
         foreach ($tasks as $key => $task) {
             if ($task['id'] == $id) {
                 unset($tasks[$key]);
-                file_put_contents($this->filePath, json_encode(array_values($tasks), JSON_PRETTY_PRINT));
+                $this->writeToFile($tasks);
                 return true;
             }
         }
@@ -216,8 +197,7 @@ class Task extends Model
 
     public function getTaskById($id)
     {
-        $jsonContent = file_get_contents($this->filePath);
-        $tasks = json_decode($jsonContent, true);
+        $tasks = $this->getAll();
 
         foreach ($tasks as $task) {
             if ($task['id'] == $id) {
@@ -230,8 +210,7 @@ class Task extends Model
 
     public function updateTask($id, $name, $description, $status, $userid, $dateCreated,  $dateFinished)
     {
-        $jsonContent = file_get_contents($this->filePath);
-        $tasks = json_decode($jsonContent, true);
+        $tasks = $this->getAll();
 
         foreach ($tasks as $key => $task) {
             if ($task['id'] == $id) {
@@ -246,14 +225,14 @@ class Task extends Model
         }
 
         // Save the updated tasks back to the JSON file
-        file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        $this->writeToFile($tasks);
         return true;
     }
 
     public function checkRepeat($name, $userid, $excludeId = null): bool
     {
-        $jsonContent = file_get_contents($this->filePath);
-        $tasks = json_decode($jsonContent, true);
+        $tasks = $this->getAll();
+
         foreach ($tasks as $task) {
             if ($task['task_name'] == $name && $task['userId'] == $userid) {
                 if ($excludeId === null || $task['id'] != $excludeId) {

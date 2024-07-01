@@ -41,7 +41,7 @@
                     <form action="<?php echo WEB_ROOT; ?>/" method="post">
                         <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Inicio</button>
                     </form>
-                    <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post">
+                    <form action="<?php echo WEB_ROOT; ?>/task/create" method="post">
                         <button type="submit" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100">Crear nueva tarea</button>
                     </form>
                     <form action="<?php echo WEB_ROOT; ?>/task/list" method="post">
@@ -53,7 +53,7 @@
                 <form action="<?php echo WEB_ROOT; ?>/" method="post" class="inline">
                     <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-home" title="Home"></i></button>
                 </form>
-                <form action="<?php echo WEB_ROOT; ?>/task/execute" method="post" class="inline">
+                <form action="<?php echo WEB_ROOT; ?>/task/create" method="post" class="inline">
                     <button type="submit" class="text-2xl text-purple-600"><i class="fas fa-plus-circle" title="Crear nueva tarea"></i></button>
                 </form>
                 <form action="<?php echo WEB_ROOT; ?>/task/list" method="post" class="inline">
