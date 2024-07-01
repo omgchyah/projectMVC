@@ -36,6 +36,8 @@
             </div>
         </div>
 
+        <p class="text-center text-red-500"><?php echo $this->message; ?></p>
+
         <table id="sortable-table" class="min-w-full bg-white">
             <thead>
                 <tr>

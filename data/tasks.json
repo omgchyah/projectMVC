@@ -1,14 +1,14 @@
-[
-    {
+{
+    "0": {
         "id": 4,
         "task_name": "Developers",
         "description": "hacer pagina de tareas",
-        "status": "Terminada",
+        "status": "Activa",
         "dateCreated": "2024-06-12",
         "dateFinished": "2024-06-12",
         "userId": "1"
     },
-    {
+    "1": {
         "id": 10,
         "task_name": "Hello",
         "description": "fhkdgj",
@@ -17,16 +17,7 @@
         "dateFinished": "2024-08-08",
         "userId": "3"
     },
-    {
-        "id": 11,
-        "task_name": "ggh",
-        "description": "ghf",
-        "status": "Activa",
-        "dateCreated": "2024-07-01",
-        "dateFinished": "2024-08-04",
-        "userId": 4
-    },
-    {
+    "3": {
         "id": 14,
         "task_name": "556",
         "description": "46",
@@ -35,7 +26,7 @@
         "dateFinished": "2024-08-04",
         "userId": 2
     },
-    {
+    "4": {
         "id": 15,
         "task_name": "y556",
         "description": "rtrre",
@@ -44,7 +35,7 @@
         "dateFinished": "2024-08-04",
         "userId": 2
     },
-    {
+    "5": {
         "id": 16,
         "task_name": "5435",
         "description": "3453",
@@ -53,7 +44,7 @@
         "dateFinished": "2024-08-04",
         "userId": 4
     },
-    {
+    "6": {
         "id": 17,
         "task_name": "536",
         "description": "3535",
@@ -62,7 +53,7 @@
         "dateFinished": "2024-08-04",
         "userId": 2
     },
-    {
+    "7": {
         "id": 18,
         "task_name": "rtr",
         "description": "43",
@@ -71,7 +62,7 @@
         "dateFinished": "2024-07-25",
         "userId": 3
     },
-    {
+    "8": {
         "id": 19,
         "task_name": "53235",
         "description": "232",
@@ -80,7 +71,7 @@
         "dateFinished": "2024-08-04",
         "userId": 4
     },
-    {
+    "9": {
         "id": 20,
         "task_name": "53435",
         "description": "435345",
@@ -88,5 +79,23 @@
         "dateCreated": "2024-07-01",
         "dateFinished": "2024-08-04",
         "userId": "1"
+    },
+    "10": {
+        "id": 21,
+        "task_name": "446",
+        "description": "436",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 3
+    },
+    "11": {
+        "id": 22,
+        "task_name": "53434",
+        "description": "435",
+        "status": "Activa",
+        "dateCreated": "2024-07-01",
+        "dateFinished": "2024-08-04",
+        "userId": 2
     }
-]
+}

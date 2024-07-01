@@ -61,25 +61,54 @@ class TaskController extends Controller
     public function user()
     {
         $tasksFound = $this->task->getAllTasksUser($_POST['userId']);
+        $message = "No se encontraron tareas para este usuario.";
+
         $view = new View();
-        $view->tasksFound = $tasksFound;
-        $view->render("scripts/app/find");
+        if(empty($tasksFound)) {
+            $view->message = $message;
+            $view->tasksFound = $tasksFound;;
+            $view->render("scripts/app/find");
+        } else {
+            $view->message = " ";
+            $view->tasksFound = $tasksFound;
+            $view->render("scripts/app/find");
+        }
+
     }
 
     public function showone()
     {
         $taskFound = $this->task->getOneTask($_POST['id']);
+
+        $message = "La tarea con este ID no existe.";
+        
         $view = new View();
-        $view->tasksFound = $taskFound;
-        $view->render("scripts/app/find");
+        if(empty($taskFound)) {
+            $view->message = $message;
+            $view->tasksFound = $taskFound;;
+            $view->render("scripts/app/find");
+        } else {
+            $view->message = " ";
+            $view->tasksFound = $taskFound;
+            $view->render("scripts/app/find");
+        }
     }
 
     public function find()
     {
         $tasksFound = $this->task->findTasks($_POST['string']);
+        $message = "No se encontraron tareas que contengan la palabra clave.";
+
         $view = new View();
-        $view->tasksFound = $tasksFound;
-        $view->render("scripts/app/find");
+        if(empty($tasksFound)) {
+            $view->message = $message;
+            $view->tasksFound = $tasksFound;;
+            $view->render("scripts/app/find");
+        } else {
+            $view->message = " ";
+            $view->tasksFound = $tasksFound;
+            $view->render("scripts/app/find");
+        }
     }
 
     public function update()
