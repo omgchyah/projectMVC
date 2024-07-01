@@ -30,7 +30,9 @@
 <body class="flex flex-col min-h-screen">
     <header class="fixed top-0 left-0 right-0 z-10 bg-gradient-to-r from-green-500 via-lightgreen-500 to-white">
         <div class="flex justify-end p-4 font-serif text-xl italic text-sky-950">
-            <span>Quehaceres.com</span>
+            <a href="<?php echo WEB_ROOT; ?>/">
+                <span>Quehaceres.com</span>
+            </a>
         </div>
         <div class="flex items-center justify-between p-4">
             <div class="relative">
