@@ -3,6 +3,8 @@
         <h1 class="mb-6 text-2xl font-bold text-center">Crear nueva tarea</h1>
         <p class="text-center">Rellena los campos de abajo</p>
 
+        <p class="text-center text-red-500"><?php echo $this->message; ?></p>
+
         <form action="<?php echo WEB_ROOT; ?>/task/store" method="post" class="space-y-4">
             <input type="hidden" name="action" value="store">
             

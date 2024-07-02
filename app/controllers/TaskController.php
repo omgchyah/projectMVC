@@ -42,12 +42,22 @@ class TaskController extends Controller
         $task->setDateCreated($date);
         $task->setDateFinished(new DateTime($_POST['dateFinished']));
 
-        $task->create();
-
-        $tasks = $task->getAll();
-        $view = new View();
-        $view->tasks = $tasks;
-        $view->render("scripts/app/list");
+        // Check for duplicate task name for the same user
+        if ($this->task->checkRepeat($_POST['task_name'], $_POST['userId'], $_POST['taskId'])) {
+            $message = "Ya existe una tarea con el mismo nombre para este usuario.";
+            $view = new View();
+            $view->message = $message;
+            // Load the existing task details to display in the form
+            $view->render("scripts/app/create");
+            return;
+        } else {
+            $task->create();
+            $tasks = $task->getAll();
+            $view = new View();
+            $view->message = " ";
+            $view->tasks = $tasks;
+            $view->render("scripts/app/list");
+        }
     }
 
     public function list()

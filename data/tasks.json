@@ -80,23 +80,14 @@
         "dateFinished": "2024-08-04",
         "userId": "1"
     },
-    "10": {
-        "id": 21,
-        "task_name": "446",
-        "description": "436",
-        "status": "Activa",
-        "dateCreated": "2024-07-01",
-        "dateFinished": "2024-08-04",
-        "userId": 3
-    },
     "11": {
         "id": 22,
-        "task_name": "53434",
+        "task_name": "Helloooo",
         "description": "435",
-        "status": "Activa",
+        "status": "Terminada",
         "dateCreated": "2024-07-01",
         "dateFinished": "2024-08-04",
-        "userId": 2
+        "userId": "2"
     },
     "12": {
         "id": 23,
@@ -105,6 +96,33 @@
         "status": "Activa",
         "dateCreated": "2024-07-01",
         "dateFinished": "2024-08-04",
+        "userId": 2
+    },
+    "13": {
+        "id": 24,
+        "task_name": "556",
+        "description": "ggg",
+        "status": "Activa",
+        "dateCreated": "2024-07-02",
+        "dateFinished": "2024-07-28",
+        "userId": 2
+    },
+    "14": {
+        "id": 25,
+        "task_name": "544",
+        "description": "gggd",
+        "status": "Activa",
+        "dateCreated": "2024-07-02",
+        "dateFinished": "2024-08-04",
+        "userId": 5
+    },
+    "15": {
+        "id": 26,
+        "task_name": "tet",
+        "description": "dfgdg",
+        "status": "Activa",
+        "dateCreated": "2024-07-02",
+        "dateFinished": "2024-07-27",
         "userId": 2
     }
 }
