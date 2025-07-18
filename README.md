@@ -1,3 +1,9 @@
+# 🧩 PHP MVC Project – Sprint 3 (Barcelona Activa Bootcamp 2024)
+
+This project was part of **Sprint 3** of my Full Stack Bootcamp at **Barcelona Activa (2024)**. Its goal was to help us understand and implement a basic **MVC architecture in PHP** without relying on frameworks — a hands-on way to grasp how structured web applications work behind the scenes.
+
+## 📁 Project Structure
+
 # PHP initial Project
 Main structure of php project. Folders / files:
 - **app**
